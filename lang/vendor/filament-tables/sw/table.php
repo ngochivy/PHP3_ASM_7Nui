@@ -21,7 +21,7 @@ return [
         ],
 
         'search' => [
-            'label' => 'Tafuta',
+            'label'       => 'Tafuta',
             'placeholder' => 'Tafuta',
         ],
 
@@ -64,7 +64,7 @@ return [
             ],
 
             'remove_all' => [
-                'label' => 'Toa michujo yote',
+                'label'   => 'Toa michujo yote',
                 'tooltip' => 'Toa michujo yote',
             ],
 
@@ -131,7 +131,7 @@ return [
                 'label' => 'Panga mwelekeo',
 
                 'options' => [
-                    'asc' => 'Kupanda',
+                    'asc'  => 'Kupanda',
                     'desc' => 'Kushuka',
                 ],
 

@@ -10,7 +10,7 @@ return [
 
         'login' => [
             'before' => 'ou',
-            'label' => 'connectez-vous à votre compte',
+            'label'  => 'connectez-vous à votre compte',
         ],
 
     ],
@@ -26,7 +26,7 @@ return [
         ],
 
         'password' => [
-            'label' => 'Mot de passe',
+            'label'                => 'Mot de passe',
             'validation_attribute' => 'mot de passe',
         ],
 
@@ -48,7 +48,7 @@ return [
 
         'throttled' => [
             'title' => "Trop de tentatives d'inscription",
-            'body' => 'Merci de réessayer dans :seconds secondes.',
+            'body'  => 'Merci de réessayer dans :seconds secondes.',
         ],
 
     ],

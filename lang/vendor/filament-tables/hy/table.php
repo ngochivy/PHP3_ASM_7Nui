@@ -5,7 +5,7 @@ return [
     'fields' => [
 
         'search' => [
-            'label' => 'Որոնել',
+            'label'       => 'Որոնել',
             'placeholder' => 'Որոնել',
         ],
 

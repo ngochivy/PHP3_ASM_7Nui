@@ -2,23 +2,10 @@
 
 return [
 
-    'column_toggle' => [
-
-        'heading' => 'Kolumner',
-
-    ],
-
     'columns' => [
 
         'text' => [
-
-            'actions' => [
-                'collapse_list' => 'Visa :count färre',
-                'expand_list' => 'Visa :count till',
-            ],
-
             'more_list_items' => 'och :count till',
-
         ],
 
     ],
@@ -26,21 +13,17 @@ return [
     'fields' => [
 
         'bulk_select_page' => [
-            'label' => 'Markera/avmarkera alla objekt för massåtgärder.',
+            'label' => 'Markera/avmarkera alla rader för massåtgärder.',
         ],
 
         'bulk_select_record' => [
-            'label' => 'Markera/avmarkera objekt :key för massåtgärder.',
-        ],
-
-        'bulk_select_group' => [
-            'label' => 'Markera/avmarkera gruppen :title för massåtgärder.',
+            'label' => 'Markera/avmarkera rad :key för massåtgärder.',
         ],
 
         'search' => [
-            'label' => 'Sök',
+            'label'       => 'Sök',
             'placeholder' => 'Sök',
-            'indicator' => 'Sök',
+            'indicator'   => 'Sök',
         ],
 
     ],
@@ -50,9 +33,9 @@ return [
         'heading' => 'Sammanfattning',
 
         'subheadings' => [
-            'all' => 'Alla :label',
+            'all'   => 'Alla :label',
             'group' => ':group sammanfattning',
-            'page' => 'Denna sida',
+            'page'  => 'Denna sida',
         ],
 
         'summarizers' => [
@@ -76,11 +59,11 @@ return [
     'actions' => [
 
         'disable_reordering' => [
-            'label' => 'Sluta ändra ordning på objekt',
+            'label' => 'Sluta ändra ordning på rader',
         ],
 
         'enable_reordering' => [
-            'label' => 'Ändra ordning på objekt',
+            'label' => 'Ändra ordning på rader',
         ],
 
         'filter' => [
@@ -102,37 +85,27 @@ return [
     ],
 
     'empty' => [
-
-        'heading' => 'Inga :model',
-
-        'description' => 'Skapa :model för att komma igång.',
-
+        'heading' => 'Inga rader hittades',
     ],
 
     'filters' => [
 
         'actions' => [
 
-            'apply' => [
-                'label' => 'Använd filter',
-            ],
-
             'remove' => [
                 'label' => 'Ta bort filter',
             ],
 
             'remove_all' => [
-                'label' => 'Ta bort alla filter',
+                'label'   => 'Ta bort alla filter',
                 'tooltip' => 'Ta bort alla filter',
             ],
 
             'reset' => [
-                'label' => 'Återställ',
+                'label' => 'Återställ filter',
             ],
 
         ],
-
-        'heading' => 'Filter',
 
         'indicator' => 'Aktiva filter',
 
@@ -146,13 +119,13 @@ return [
 
         'trashed' => [
 
-            'label' => 'Raderade objekt',
+            'label' => 'Raderade rader',
 
-            'only_trashed' => 'Endast raderade objekt',
+            'only_trashed' => 'Endast raderade rader',
 
-            'with_trashed' => 'Med raderade objekt',
+            'with_trashed' => 'Med raderade rader',
 
-            'without_trashed' => 'Utan raderade objekt',
+            'without_trashed' => 'Utan raderade rader',
 
         ],
 
@@ -163,8 +136,8 @@ return [
         'fields' => [
 
             'group' => [
-                'label' => 'Gruppera',
-                'placeholder' => 'Gruppera efter',
+                'label'       => 'Gruppera',
+                'placeholder' => 'Välj ett fält för gruppering',
             ],
 
             'direction' => [
@@ -172,7 +145,7 @@ return [
                 'label' => 'Riktning',
 
                 'options' => [
-                    'asc' => 'Stigande',
+                    'asc'  => 'Stigande',
                     'desc' => 'Fallande',
                 ],
 
@@ -182,11 +155,11 @@ return [
 
     ],
 
-    'reorder_indicator' => 'Dra och släpp objekten i önskad ordning.',
+    'reorder_indicator' => 'Dra och släpp raderna i önskad ordning.',
 
     'selection_indicator' => [
 
-        'selected_count' => '1 objekt valt|:count objekt valda',
+        'selected_count' => '1 rad vald|:count rader valda',
 
         'actions' => [
 
@@ -215,7 +188,7 @@ return [
                 'label' => 'Sorteringsriktning',
 
                 'options' => [
-                    'asc' => 'Stigande',
+                    'asc'  => 'Stigande',
                     'desc' => 'Fallande',
                 ],
 

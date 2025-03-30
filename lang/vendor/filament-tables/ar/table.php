@@ -10,19 +10,8 @@ return [
 
     'columns' => [
 
-        'actions' => [
-            'label' => 'إجراء | إجراءات',
-        ],
-
         'text' => [
-
-            'actions' => [
-                'collapse_list' => 'عرض :count أقل',
-                'expand_list' => 'عرض :count أكثر',
-            ],
-
             'more_list_items' => 'و :count إضافية',
-
         ],
 
     ],
@@ -30,21 +19,17 @@ return [
     'fields' => [
 
         'bulk_select_page' => [
-            'label' => 'تحديد/إلغاء تحديد كافة العناصر للإجراءات الجماعية.',
+            'label' => 'تحديد / إلغاء تحديد كافة العناصر للإجراءات الجماعية.',
         ],
 
         'bulk_select_record' => [
-            'label' => 'تحديد/إلغاء تحديد العنصر :key للإجراءات الجماعية.',
-        ],
-
-        'bulk_select_group' => [
-            'label' => 'تحديد/إلغاء تحديد المجموعة :title للإجراءات الجماعية.',
+            'label' => 'تحديد / إلغاء تحديد العنصر :key للإجراءات الجماعية',
         ],
 
         'search' => [
-            'label' => 'بحث',
+            'label'       => 'بحث',
             'placeholder' => 'بحث',
-            'indicator' => 'بحث',
+            'indicator'   => 'بحث',
         ],
 
     ],
@@ -54,9 +39,9 @@ return [
         'heading' => 'الملخص',
 
         'subheadings' => [
-            'all' => 'كافة :label',
+            'all'   => 'كافة :label',
             'group' => 'ملخص :group',
-            'page' => 'هذه الصفحة',
+            'page'  => 'هذه الصفحة',
         ],
 
         'summarizers' => [
@@ -96,7 +81,7 @@ return [
         ],
 
         'open_bulk_actions' => [
-            'label' => 'الإجراءات',
+            'label' => 'فتح الإجراءات',
         ],
 
         'toggle_columns' => [
@@ -107,9 +92,9 @@ return [
 
     'empty' => [
 
-        'heading' => 'لا توجد :model',
+        'heading' => 'لا توجد سجلات',
 
-        'description' => 'قم بإضافة :model للبدء.',
+        'description' => 'قم بإنشاء :model للبدء.',
 
     ],
 
@@ -117,28 +102,24 @@ return [
 
         'actions' => [
 
-            'apply' => [
-                'label' => 'تطبيق التصفيات',
-            ],
-
             'remove' => [
-                'label' => 'إلغاء التصفيات',
+                'label' => 'إلغاء الفلاتر',
             ],
 
             'remove_all' => [
-                'label' => 'إلغاء كافة التصفيات',
-                'tooltip' => 'إلغاء كافة التصفيات',
+                'label'   => 'إلغاء كافة الفلاتر',
+                'tooltip' => 'إلغاء كافة الفلاتر',
             ],
 
             'reset' => [
-                'label' => 'إعادة ضبط التصفيات',
+                'label' => 'إعادة ضبط الفلاتر',
             ],
 
         ],
 
-        'heading' => 'التصفيات',
+        'heading' => 'الفلاتر',
 
-        'indicator' => 'التصفيات النشطة',
+        'indicator' => 'الفلاتر النشطة',
 
         'multi_select' => [
             'placeholder' => 'الكل',
@@ -167,7 +148,7 @@ return [
         'fields' => [
 
             'group' => [
-                'label' => 'تجميع حسب',
+                'label'       => 'تجميع حسب',
                 'placeholder' => 'تجميع حسب',
             ],
 
@@ -176,7 +157,7 @@ return [
                 'label' => 'إتجاه التجميع',
 
                 'options' => [
-                    'asc' => 'تصاعدي',
+                    'asc'  => 'تصاعدي',
                     'desc' => 'تنازلي',
                 ],
 
@@ -219,7 +200,7 @@ return [
                 'label' => 'اتجاه الترتيب',
 
                 'options' => [
-                    'asc' => 'تصاعدي',
+                    'asc'  => 'تصاعدي',
                     'desc' => 'تنازلي',
                 ],
 

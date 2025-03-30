@@ -6,10 +6,6 @@ return [
 
     'actions' => [
 
-        'billing' => [
-            'label' => 'Tvarkyti prenumeratą',
-        ],
-
         'logout' => [
             'label' => 'Atsijungti',
         ],
@@ -22,18 +18,6 @@ return [
             'label' => 'Vartotojo meniu',
         ],
 
-        'sidebar' => [
-
-            'collapse' => [
-                'label' => 'Sutraukti šoninę juostą',
-            ],
-
-            'expand' => [
-                'label' => 'Išskleisti šoninę juostą',
-            ],
-
-        ],
-
         'theme_switcher' => [
 
             'dark' => [
@@ -44,20 +28,8 @@ return [
                 'label' => 'Perjungti šviesos režimą',
             ],
 
-            'system' => [
-                'label' => 'Perjungti sistemos režimą',
-            ],
-
         ],
 
-    ],
-
-    'avatar' => [
-        'alt' => ':name avataras',
-    ],
-
-    'logo' => [
-        'alt' => ':name logotipas',
     ],
 
 ];

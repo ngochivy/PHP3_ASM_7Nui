@@ -11,12 +11,6 @@ return [
     'columns' => [
 
         'text' => [
-
-            'actions' => [
-                'collapse_list' => ':count minder tonen',
-                'expand_list' => ':count meer tonen',
-            ],
-
             'more_list_items' => 'en :count meer',
         ],
 
@@ -32,14 +26,9 @@ return [
             'label' => 'Item :key selecteren/deselecteren voor bulkacties.',
         ],
 
-        'bulk_select_group' => [
-            'label' => 'Groep :title selecteren/deselecteren voor bulkacties.',
-        ],
-
         'search' => [
-            'label' => 'Zoeken',
+            'label'       => 'Zoeken',
             'placeholder' => 'Zoeken',
-            'indicator' => 'Zoekopdracht',
         ],
 
     ],
@@ -49,9 +38,9 @@ return [
         'heading' => 'Samenvatting',
 
         'subheadings' => [
-            'all' => 'Alle :label',
+            'all'   => 'Alle :label',
             'group' => ':group samenvatting',
-            'page' => 'Deze pagina',
+            'page'  => 'Deze pagina',
         ],
 
         'summarizers' => [
@@ -112,16 +101,12 @@ return [
 
         'actions' => [
 
-            'apply' => [
-                'label' => 'Filters toepassen',
-            ],
-
             'remove' => [
                 'label' => 'Filter verwijderen',
             ],
 
             'remove_all' => [
-                'label' => 'Alle filters verwijderen',
+                'label'   => 'Alle filters verwijderen',
                 'tooltip' => 'Alle filters verwijderen',
             ],
 
@@ -162,7 +147,7 @@ return [
         'fields' => [
 
             'group' => [
-                'label' => 'Groeperen op',
+                'label'       => 'Groeperen op',
                 'placeholder' => 'Groeperen op',
             ],
 
@@ -171,7 +156,7 @@ return [
                 'label' => 'Groeperingsrichting',
 
                 'options' => [
-                    'asc' => 'Oplopend',
+                    'asc'  => 'Oplopend',
                     'desc' => 'Aflopend',
                 ],
 
@@ -214,7 +199,7 @@ return [
                 'label' => 'Sorteerrichting',
 
                 'options' => [
-                    'asc' => 'Oplopend',
+                    'asc'  => 'Oplopend',
                     'desc' => 'Aflopend',
                 ],
 

@@ -2,73 +2,19 @@
 
 return [
 
-    'column_toggle' => [
-
-        'heading' => 'カラム',
-
-    ],
-
     'columns' => [
 
         'text' => [
-
-            'actions' => [
-                'collapse_list' => ':count件非表示',
-                'expand_list' => ':count件表示',
-            ],
-
-            'more_list_items' => 'あと:count件あります',
-
+            'more_list_items' => 'あと:count個あります',
         ],
 
     ],
 
     'fields' => [
 
-        'bulk_select_page' => [
-            'label' => '一括操作の全項目の選択/解除。',
-        ],
-
-        'bulk_select_record' => [
-            'label' => '一括操作のキー:keyの選択/解除。',
-        ],
-
-        'bulk_select_group' => [
-            'label' => '一括操作のグループ:keyの選択/解除。',
-        ],
-
         'search' => [
-            'label' => '検索',
+            'label'       => '検索',
             'placeholder' => '検索',
-            'indicator' => '検索',
-        ],
-
-    ],
-
-    'summary' => [
-
-        'heading' => 'サマリー',
-
-        'subheadings' => [
-            'all' => 'すべての:label',
-            'group' => ':groupのサマリー',
-            'page' => 'このページ',
-        ],
-
-        'summarizers' => [
-
-            'average' => [
-                'label' => '平均',
-            ],
-
-            'count' => [
-                'label' => 'カウント',
-            ],
-
-            'sum' => [
-                'label' => '合計',
-            ],
-
         ],
 
     ],
@@ -84,11 +30,7 @@ return [
         ],
 
         'filter' => [
-            'label' => 'フィルタ',
-        ],
-
-        'group' => [
-            'label' => 'グループ',
+            'label' => '絞り込み',
         ],
 
         'open_bulk_actions' => [
@@ -102,28 +44,20 @@ return [
     ],
 
     'empty' => [
-
-        'heading' => ':modelが見つかりません',
-
-        'description' => ':modelを作成してください。',
-
+        'heading' => 'レコードが見つかりません',
     ],
 
     'filters' => [
 
         'actions' => [
 
-            'apply' => [
-                'label' => 'フィルタを適用',
-            ],
-
             'remove' => [
-                'label' => 'フィルタを解除',
+                'label' => '絞り込みを解除',
             ],
 
             'remove_all' => [
-                'label' => 'すべてのフィルタを解除',
-                'tooltip' => 'すべてのフィルタを解除',
+                'label'   => '全ての絞り込みを解除',
+                'tooltip' => '全ての絞り込みを解除',
             ],
 
             'reset' => [
@@ -132,9 +66,7 @@ return [
 
         ],
 
-        'heading' => 'フィルタ',
-
-        'indicator' => '有効なフィルタ',
+        'indicator' => '有効な絞り込み',
 
         'multi_select' => [
             'placeholder' => '全件',
@@ -158,31 +90,7 @@ return [
 
     ],
 
-    'grouping' => [
-
-        'fields' => [
-
-            'group' => [
-                'label' => 'グループ化',
-                'placeholder' => 'グループ化',
-            ],
-
-            'direction' => [
-
-                'label' => 'グループ順の方向',
-
-                'options' => [
-                    'asc' => '昇順',
-                    'desc' => '降順',
-                ],
-
-            ],
-
-        ],
-
-    ],
-
-    'reorder_indicator' => 'ドラッグ＆ドロップでレコードを並び替え。',
+    'reorder_indicator' => 'ドラッグ＆ドロップでレコードを並び替え',
 
     'selection_indicator' => [
 
@@ -191,7 +99,7 @@ return [
         'actions' => [
 
             'select_all' => [
-                'label' => ':count件すべて選択',
+                'label' => ':count件全て選択',
             ],
 
             'deselect_all' => [
@@ -212,10 +120,10 @@ return [
 
             'direction' => [
 
-                'label' => '並び変えの方向',
+                'label' => '並び変え方向',
 
                 'options' => [
-                    'asc' => '昇順',
+                    'asc'  => '昇順',
                     'desc' => '降順',
                 ],
 

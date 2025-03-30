@@ -16,7 +16,7 @@ return [
 
     'messages' => [
         'notification_not_received' => 'Keine E-Mail erhalten?',
-        'notification_sent' => 'Wir haben eine E-Mail mit Anweisungen zur Bestätigung des Kontos an :email gesendet.',
+        'notification_sent'         => 'Wir haben eine E-Mail mit Anweisungen zur Bestätigung des Kontos an :email gesendet.',
     ],
 
     'notifications' => [
@@ -26,8 +26,7 @@ return [
         ],
 
         'notification_resend_throttled' => [
-            'title' => 'Zu viele Versuche.',
-            'body' => 'Versuchen Sie es bitte in :seconds Sekunden nochmal.',
+            'title' => 'Zu viele Versuche. Versuchen Sie es bitte in :seconds Sekunden nochmal.',
         ],
 
     ],

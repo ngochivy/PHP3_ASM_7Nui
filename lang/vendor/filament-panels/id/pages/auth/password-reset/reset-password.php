@@ -9,12 +9,12 @@ return [
     'form' => [
 
         'email' => [
-            'label' => 'Alamat email',
+            'label' => 'Email address',
         ],
 
         'password' => [
-            'label' => 'Kata sandi baru',
-            'validation_attribute' => 'kata sandi',
+            'label'                => 'Kata sandi baru',
+            'validation_attribute' => 'password',
         ],
 
         'password_confirmation' => [
@@ -34,8 +34,7 @@ return [
     'notifications' => [
 
         'throttled' => [
-            'title' => 'Terlalu banyak permintaan',
-            'body' => 'Silakan coba lagi dalam :seconds detik.',
+            'title' => 'Terlalu banyak permintaan. Silakan coba lagi dalam :seconds detik.',
         ],
 
     ],

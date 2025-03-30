@@ -10,7 +10,7 @@ return [
 
         'login' => [
             'before' => 'ou',
-            'label' => 'faça login em sua conta',
+            'label'  => 'faça login em sua conta',
         ],
 
     ],
@@ -26,7 +26,7 @@ return [
         ],
 
         'password' => [
-            'label' => 'Senha',
+            'label'                => 'Senha',
             'validation_attribute' => 'password',
         ],
 
@@ -47,8 +47,7 @@ return [
     'notifications' => [
 
         'throttled' => [
-            'title' => 'Muitas tentativas de cadastro',
-            'body' => 'Por favor, tente novamente em :seconds segundos.',
+            'title' => 'Muitas tentativas de cadastro. Por favor tente novamente em :seconds segundos.',
         ],
 
     ],

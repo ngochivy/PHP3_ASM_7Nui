@@ -3,7 +3,7 @@
 return [
 
     'field' => [
-        'label' => 'グローバル検索',
+        'label'       => 'グローバル検索',
         'placeholder' => '検索',
     ],
 

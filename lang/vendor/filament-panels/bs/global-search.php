@@ -3,7 +3,7 @@
 return [
 
     'field' => [
-        'label' => 'Globalna pretraga',
+        'label'       => 'Globalna pretraga',
         'placeholder' => 'Tražite',
     ],
 

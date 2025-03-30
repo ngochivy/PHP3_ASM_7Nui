@@ -10,7 +10,7 @@ return [
 
         'login' => [
             'before' => 'of',
-            'label' => 'inloggen op je account',
+            'label'  => 'inloggen op je account',
         ],
 
     ],
@@ -26,7 +26,7 @@ return [
         ],
 
         'password' => [
-            'label' => 'Wachtwoord',
+            'label'                => 'Wachtwoord',
             'validation_attribute' => 'wachtwoord',
         ],
 
@@ -47,8 +47,7 @@ return [
     'notifications' => [
 
         'throttled' => [
-            'title' => 'Te veel registratiepogingen',
-            'body' => 'Probeer het opnieuw over :seconds seconden.',
+            'title' => 'Te veel pogingen. Probeer het opnieuw over :seconds seconden.',
         ],
 
     ],

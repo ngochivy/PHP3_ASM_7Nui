@@ -3,7 +3,7 @@
 return [
 
     'field' => [
-        'label' => 'Vyhledávání',
+        'label'       => 'Vyhledávání',
         'placeholder' => 'Hledat',
     ],
 

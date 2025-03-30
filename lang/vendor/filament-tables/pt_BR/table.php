@@ -2,23 +2,10 @@
 
 return [
 
-    'column_toggle' => [
-
-        'heading' => 'Colunas',
-
-    ],
-
     'columns' => [
 
         'text' => [
-
-            'actions' => [
-                'collapse_list' => 'Mostrar menos :count',
-                'expand_list' => 'Mostrar mais :count',
-            ],
-
-            'more_list_items' => 'e mais :count',
-
+            'more_list_items' => 'e :count mais',
         ],
 
     ],
@@ -33,14 +20,10 @@ return [
             'label' => 'Marcar/desmarcar o item :key para ações em massa.',
         ],
 
-        'bulk_select_group' => [
-            'label' => 'Marcar/desmarcar o grupo :title para ações em massa.',
-        ],
-
         'search' => [
-            'label' => 'Pesquisar',
+            'label'       => 'Pesquisar',
             'placeholder' => 'Pesquisar',
-            'indicator' => 'Pesquisar',
+            'indicator'   => 'Pesquisar',
         ],
 
     ],
@@ -50,9 +33,9 @@ return [
         'heading' => 'Resumo',
 
         'subheadings' => [
-            'all' => 'Todos :label',
+            'all'   => 'Todos :label',
             'group' => ':group resumo',
-            'page' => 'Esta página',
+            'page'  => 'Esta página',
         ],
 
         'summarizers' => [
@@ -92,7 +75,7 @@ return [
         ],
 
         'open_bulk_actions' => [
-            'label' => 'Abrir ações',
+            'label' => 'Ações abertas',
         ],
 
         'toggle_columns' => [
@@ -105,23 +88,18 @@ return [
 
         'heading' => 'Sem registros',
 
-        'description' => 'Crie um :model para começar.',
     ],
 
     'filters' => [
 
         'actions' => [
 
-            'apply' => [
-                'label' => 'Aplicar filtros',
-            ],
-
             'remove' => [
                 'label' => 'Remover filtro',
             ],
 
             'remove_all' => [
-                'label' => 'Remover todos os filtros',
+                'label'   => 'Remover todos os filtros',
                 'tooltip' => 'Remover todos os filtros',
             ],
 
@@ -130,8 +108,6 @@ return [
             ],
 
         ],
-
-        'heading' => 'Filtros',
 
         'indicator' => 'Filtros ativos',
 
@@ -162,7 +138,7 @@ return [
         'fields' => [
 
             'group' => [
-                'label' => 'Agrupar por',
+                'label'       => 'Agrupar por',
                 'placeholder' => 'Agrupar por',
             ],
 
@@ -171,7 +147,7 @@ return [
                 'label' => 'Direção do agrupamento',
 
                 'options' => [
-                    'asc' => 'Ascendente',
+                    'asc'  => 'Ascendente',
                     'desc' => 'Descendente',
                 ],
 
@@ -214,7 +190,7 @@ return [
                 'label' => 'Direção de ordenação',
 
                 'options' => [
-                    'asc' => 'Ascendente',
+                    'asc'  => 'Ascendente',
                     'desc' => 'Descendente',
                 ],
 

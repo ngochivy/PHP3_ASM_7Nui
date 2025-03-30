@@ -13,7 +13,7 @@ return [
         ],
 
         'password' => [
-            'label' => 'Пароль',
+            'label'                => 'Пароль',
             'validation_attribute' => 'password',
         ],
 
@@ -35,7 +35,7 @@ return [
 
         'throttled' => [
             'title' => 'Слишком много попыток сброса',
-            'body' => 'Пожалуйста, попробуйте еще раз через :seconds секунд.',
+            'body'  => 'Пожалуйста, попробуйте еще раз через :seconds секунд.',
         ],
 
     ],

@@ -42,8 +42,8 @@ return [
 
     'actions' => [
 
-        'cancel' => [
-            'label' => 'Kembali',
+        'back' => [
+            'label' => 'kembali',
         ],
 
     ],

@@ -3,7 +3,7 @@
 return [
 
     'field' => [
-        'label' => '전체 검색',
+        'label'       => '전체 검색',
         'placeholder' => '검색',
     ],
 

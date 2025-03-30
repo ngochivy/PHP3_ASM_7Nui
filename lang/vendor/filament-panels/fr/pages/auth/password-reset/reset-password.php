@@ -13,7 +13,7 @@ return [
         ],
 
         'password' => [
-            'label' => 'Mot de passe',
+            'label'                => 'Mot de passe',
             'validation_attribute' => 'mot de passe',
         ],
 
@@ -35,7 +35,7 @@ return [
 
         'throttled' => [
             'title' => 'Trop de tentatives de réinitialisation',
-            'body' => 'Merci de réessayer dans :seconds secondes.',
+            'body'  => 'Merci de réessayer dans :seconds secondes.',
         ],
 
     ],

@@ -2,72 +2,19 @@
 
 return [
 
-    'column_toggle' => [
-
-        'heading' => 'Stulpeliai',
-
-    ],
-
     'columns' => [
 
         'text' => [
-
-            'actions' => [
-                'collapse_list' => 'Slėpti :count',
-                'expand_list' => 'Rodyti dar :count',
-            ],
-
-            'more_list_items' => 'ir dar :count',
+            'more_list_items' => 'ir :count daugiau',
         ],
 
     ],
 
     'fields' => [
 
-        'bulk_select_page' => [
-            'label' => 'Pažymėti/atžymėti visus įrašus masiniam veiksmui.',
-        ],
-
-        'bulk_select_record' => [
-            'label' => 'Pažymėti/atžymėti įrašą :key masiniam veiksmui.',
-        ],
-
-        'bulk_select_group' => [
-            'label' => 'Pažymėti/atžymėti grupę :title masiniam veiksmui.',
-        ],
-
-        'search' => [
-            'label' => 'Paieška',
+        'search_query' => [
+            'label'       => 'Paieška',
             'placeholder' => 'Paieška',
-            'indicator' => 'Paieška',
-        ],
-
-    ],
-
-    'summary' => [
-
-        'heading' => 'Santrauka',
-
-        'subheadings' => [
-            'all' => 'Viso :label',
-            'group' => ':group santrauka',
-            'page' => 'Šis puslapis',
-        ],
-
-        'summarizers' => [
-
-            'average' => [
-                'label' => 'Vidurkis',
-            ],
-
-            'count' => [
-                'label' => 'Viso',
-            ],
-
-            'sum' => [
-                'label' => 'Suma',
-            ],
-
         ],
 
     ],
@@ -75,7 +22,7 @@ return [
     'actions' => [
 
         'disable_reordering' => [
-            'label' => 'Pabaik pertvarkyti įrašus',
+            'label' => 'Finish reordering records',
         ],
 
         'enable_reordering' => [
@@ -86,42 +33,30 @@ return [
             'label' => 'Filtras',
         ],
 
-        'group' => [
-            'label' => 'Grupė',
-        ],
-
         'open_bulk_actions' => [
             'label' => 'Atidaryti veiksmus',
         ],
 
         'toggle_columns' => [
-            'label' => 'Perjungti stulpelius',
+            'label' => 'Toggle columns',
         ],
 
     ],
 
     'empty' => [
-
         'heading' => 'Nerasta įrašų',
-
-        'description' => 'Norėdami pradėti, sukurkite :model.',
-
     ],
 
     'filters' => [
 
         'actions' => [
 
-            'apply' => [
-                'label' => 'Taikyti filtrus',
-            ],
-
             'remove' => [
                 'label' => 'Pašalinti filtrą',
             ],
 
             'remove_all' => [
-                'label' => 'Pašalinti visus filtrus',
+                'label'   => 'Pašalinti visus filtrus',
                 'tooltip' => 'Pašalinti visus filtrus',
             ],
 
@@ -130,8 +65,6 @@ return [
             ],
 
         ],
-
-        'heading' => 'Filtrai',
 
         'indicator' => 'Aktyvūs filtrai',
 
@@ -145,7 +78,7 @@ return [
 
         'trashed' => [
 
-            'label' => 'Ištrinti įrašai',
+            'label' => 'Ištrinti įrašaų',
 
             'only_trashed' => 'Tik ištrinti įrašai',
 
@@ -157,31 +90,7 @@ return [
 
     ],
 
-    'grouping' => [
-
-        'fields' => [
-
-            'group' => [
-                'label' => 'Grupuoti pagal',
-                'placeholder' => 'Grupuoti pagal',
-            ],
-
-            'direction' => [
-
-                'label' => 'Grupės kryptis',
-
-                'options' => [
-                    'asc' => 'Didėjančia tvarka',
-                    'desc' => 'Mažėjančia tvarka',
-                ],
-
-            ],
-
-        ],
-
-    ],
-
-    'reorder_indicator' => 'Vilkite ir paleiskite įrašų rikiavimui.',
+    'reorder_indicator' => 'Vilk ir paleisk pakeisti įrašų eiliškumui.',
 
     'selection_indicator' => [
 
@@ -214,7 +123,7 @@ return [
                 'label' => 'Rūšiavimo kryptis',
 
                 'options' => [
-                    'asc' => 'Didėjimo tvarka',
+                    'asc'  => 'Didėjimo tvarka',
                     'desc' => 'Mažėjimo tvarka',
                 ],
 

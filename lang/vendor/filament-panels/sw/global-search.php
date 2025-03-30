@@ -3,7 +3,7 @@
 return [
 
     'field' => [
-        'label' => 'Tafuta kote',
+        'label'       => 'Tafuta kote',
         'placeholder' => 'Tafuta',
     ],
 

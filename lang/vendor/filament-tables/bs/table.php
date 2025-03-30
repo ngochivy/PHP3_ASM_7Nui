@@ -21,7 +21,7 @@ return [
         ],
 
         'search' => [
-            'label' => 'Pretraga',
+            'label'       => 'Pretraga',
             'placeholder' => 'Tražite',
         ],
 
@@ -64,7 +64,7 @@ return [
             ],
 
             'remove_all' => [
-                'label' => 'Skloni svi filteri',
+                'label'   => 'Skloni svi filteri',
                 'tooltip' => 'Skloni svi filteri',
             ],
 
@@ -131,7 +131,7 @@ return [
                 'label' => 'Sortirajte po smjeru',
 
                 'options' => [
-                    'asc' => 'Uzlazno',
+                    'asc'  => 'Uzlazno',
                     'desc' => 'Silazno',
                 ],
 

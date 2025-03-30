@@ -3,7 +3,7 @@
 return [
 
     'field' => [
-        'label' => 'वैश्विक खोज',
+        'label'       => 'वैश्विक खोज',
         'placeholder' => 'खोजें',
     ],
 

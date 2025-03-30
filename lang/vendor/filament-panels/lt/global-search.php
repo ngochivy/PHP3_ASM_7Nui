@@ -3,7 +3,7 @@
 return [
 
     'field' => [
-        'label' => 'Globali paieška',
+        'label'       => 'Globali paieška',
         'placeholder' => 'Paieška',
     ],
 

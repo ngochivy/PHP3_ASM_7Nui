@@ -6,10 +6,6 @@ return [
 
     'actions' => [
 
-        'billing' => [
-            'label' => 'Hallitse tilausta',
-        ],
-
         'logout' => [
             'label' => 'Kirjaudu ulos',
         ],
@@ -44,20 +40,8 @@ return [
                 'label' => 'Vaalea tila',
             ],
 
-            'system' => [
-                'label' => 'Järjestelmän tila',
-            ],
-
         ],
 
-    ],
-
-    'avatar' => [
-        'alt' => ':name avatar',
-    ],
-
-    'logo' => [
-        'alt' => ':name logo',
     ],
 
 ];

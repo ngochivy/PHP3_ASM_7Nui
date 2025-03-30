@@ -10,7 +10,7 @@ return [
 
         'register' => [
             'before' => 'atau',
-            'label' => 'mendaftar akaun',
+            'label'  => 'mendaftar akaun',
         ],
 
         'request_password_reset' => [
@@ -53,7 +53,6 @@ return [
 
         'throttled' => [
             'title' => 'Terlalu banyak percubaan log masuk. Sila cuba lagi dalam :seconds saat.',
-            'body' => 'Sila cuba lagi dalam masa :seconds saat.',
         ],
 
     ],

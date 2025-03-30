@@ -6,10 +6,6 @@ return [
 
     'actions' => [
 
-        'billing' => [
-            'label' => 'Abonnement verwalten',
-        ],
-
         'logout' => [
             'label' => 'Abmelden',
         ],
@@ -44,20 +40,8 @@ return [
                 'label' => 'Light Mode einschalten',
             ],
 
-            'system' => [
-                'label' => 'Systemthema benutzen',
-            ],
-
         ],
 
-    ],
-
-    'avatar' => [
-        'alt' => 'Avatar von :name',
-    ],
-
-    'logo' => [
-        'alt' => 'Logo von :name',
     ],
 
 ];

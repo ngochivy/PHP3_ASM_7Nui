@@ -9,14 +9,14 @@ return [
     'actions' => [
 
         'resend_notification' => [
-            'label' => 'Kirim ulang',
+            'label' => 'Resend it',
         ],
 
     ],
 
     'messages' => [
         'notification_not_received' => 'Belum menerima email?',
-        'notification_sent' => 'Kami telah mengirimkan email ke :email yang berisikan instruksi cara verifikasi alamat email Anda.',
+        'notification_sent'         => 'Kami telah mengirimkan email ke :email yang berisikan instruksi cara verifikasi alamat email Anda.',
     ],
 
     'notifications' => [
@@ -26,8 +26,7 @@ return [
         ],
 
         'notification_resend_throttled' => [
-            'title' => 'Terlalu banyak permintaan',
-            'body' => 'Silakan coba lagi dalam :seconds detik.',
+            'title' => 'Terlalu banyak permintaan. Silakan coba lagi dalam :seconds detik.',
         ],
 
     ],

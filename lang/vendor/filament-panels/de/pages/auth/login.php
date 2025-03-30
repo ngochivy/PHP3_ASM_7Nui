@@ -10,7 +10,7 @@ return [
 
         'register' => [
             'before' => 'oder',
-            'label' => 'erstellen Sie ein Konto',
+            'label'  => 'erstellen Sie ein Konto',
         ],
 
         'request_password_reset' => [
@@ -52,8 +52,7 @@ return [
     'notifications' => [
 
         'throttled' => [
-            'title' => 'Zu viele Loginversuche.',
-            'body' => ' Bitte in :seconds Sekunden nochmal versuchen.',
+            'title' => 'Zu viele Loginversuche. Versuchen Sie es bitte in :seconds Sekunden nochmal.',
         ],
 
     ],

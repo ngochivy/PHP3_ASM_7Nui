@@ -2,25 +2,9 @@
 
 return [
 
-    'column_toggle' => [
-
-        'heading' => 'Kolum',
-
-    ],
-
     'columns' => [
 
-        'actions' => [
-            'label' => 'Tindakan|Tindakan',
-        ],
-
         'text' => [
-
-            'actions' => [
-                'collapse_list' => 'Tunjukkan kurang :count',
-                'expand_list' => 'Tunjukkan :count lagi',
-            ],
-
             'more_list_items' => 'dan :count lagi',
         ],
 
@@ -36,14 +20,10 @@ return [
             'label' => 'Pilih/nyahpilih item :key untuk tindakan pukal.',
         ],
 
-        'bulk_select_group' => [
-            'label' => 'Pilih/nyahpilih kumpulan :title untuk tindakan pukal.',
-        ],
-
         'search' => [
-            'label' => 'Cari',
+            'label'       => 'Cari',
             'placeholder' => 'Carian',
-            'indicator' => 'Carian',
+            'indicator'   => 'Carian',
         ],
 
     ],
@@ -53,9 +33,9 @@ return [
         'heading' => 'Ringkasan',
 
         'subheadings' => [
-            'all' => 'Semua :label',
+            'all'   => 'Semua :label',
             'group' => ':group ringkasan',
-            'page' => 'Muka surat ini',
+            'page'  => 'Muka surat ini',
         ],
 
         'summarizers' => [
@@ -87,7 +67,7 @@ return [
         ],
 
         'filter' => [
-            'label' => 'Tapisan',
+            'label' => 'Penapis',
         ],
 
         'group' => [
@@ -108,36 +88,28 @@ return [
 
         'heading' => 'Tiada rekod dijumpai',
 
-        'description' => 'Cipta :model untuk bermula.',
-
     ],
 
     'filters' => [
 
         'actions' => [
 
-            'apply' => [
-                'label' => 'Gunakan tapisan',
-            ],
-
             'remove' => [
-                'label' => 'Buang tapisan',
+                'label' => 'Buang penapis',
             ],
 
             'remove_all' => [
-                'label' => 'Buang semua tapisan',
-                'tooltip' => 'Buang semua tapisan',
+                'label'   => 'Buang semua penapis',
+                'tooltip' => 'Buang semua penapis',
             ],
 
             'reset' => [
-                'label' => 'Tetapkan semula tapisan',
+                'label' => 'Tetapkan semula penapis',
             ],
 
         ],
 
-        'heading' => 'Tapisan',
-
-        'indicator' => 'Tapisan aktif',
+        'indicator' => 'Penapis aktif',
 
         'multi_select' => [
             'placeholder' => 'Semua',
@@ -166,7 +138,7 @@ return [
         'fields' => [
 
             'group' => [
-                'label' => 'Kumpulan mengikut',
+                'label'       => 'Kumpulan mengikut',
                 'placeholder' => 'Kumpulan mengikut',
             ],
 
@@ -175,7 +147,7 @@ return [
                 'label' => 'Arah kumpulan',
 
                 'options' => [
-                    'asc' => 'Menaik',
+                    'asc'  => 'Menaik',
                     'desc' => 'Menurun',
                 ],
 
@@ -218,7 +190,7 @@ return [
                 'label' => 'Arah susunan',
 
                 'options' => [
-                    'asc' => 'Menaik',
+                    'asc'  => 'Menaik',
                     'desc' => 'Menurun',
                 ],
 

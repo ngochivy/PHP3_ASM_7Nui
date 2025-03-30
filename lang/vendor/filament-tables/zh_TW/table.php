@@ -5,7 +5,7 @@ return [
     'fields' => [
 
         'search' => [
-            'label' => '搜尋',
+            'label'       => '搜尋',
             'placeholder' => '搜尋',
         ],
 

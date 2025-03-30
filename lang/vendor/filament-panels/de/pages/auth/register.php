@@ -10,7 +10,7 @@ return [
 
         'login' => [
             'before' => 'oder',
-            'label' => 'mit Konto anmelden',
+            'label'  => 'mit Konto anmelden',
         ],
 
     ],
@@ -26,7 +26,7 @@ return [
         ],
 
         'password' => [
-            'label' => 'Passwort',
+            'label'                => 'Passwort',
             'validation_attribute' => 'Passwort',
         ],
 
@@ -47,8 +47,7 @@ return [
     'notifications' => [
 
         'throttled' => [
-            'title' => 'Zu viele Anmeldeversuche.',
-            'body' => 'Bitte in :seconds Sekunden nochmal versuchen.',
+            'title' => 'Zu viele Anmeldeversuche. Versuchen Sie es bitte in :seconds Sekunden nochmal.',
         ],
 
     ],

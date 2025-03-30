@@ -10,7 +10,7 @@ return [
 
         'login' => [
             'before' => 'atau',
-            'label' => 'masuk ke akun yang sudah ada',
+            'label'  => 'masuk ke akun yang sudah ada',
         ],
 
     ],
@@ -26,7 +26,7 @@ return [
         ],
 
         'password' => [
-            'label' => 'Kata sandi',
+            'label'                => 'Kata sandi',
             'validation_attribute' => 'password',
         ],
 
@@ -47,8 +47,7 @@ return [
     'notifications' => [
 
         'throttled' => [
-            'title' => 'Terlalu banyak permintaan',
-            'body' => 'Silakan coba lagi dalam :seconds detik.',
+            'title' => 'Terlalu banyak permintaan. Silakan coba lagi dalam :seconds detik.',
         ],
 
     ],

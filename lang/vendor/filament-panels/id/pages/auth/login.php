@@ -10,7 +10,7 @@ return [
 
         'register' => [
             'before' => 'atau',
-            'label' => 'buat akun baru',
+            'label'  => 'buat akun baru',
         ],
 
         'request_password_reset' => [
@@ -22,7 +22,7 @@ return [
     'form' => [
 
         'email' => [
-            'label' => 'Alamat email',
+            'label' => 'Alamat Email',
         ],
 
         'password' => [
@@ -52,8 +52,7 @@ return [
     'notifications' => [
 
         'throttled' => [
-            'title' => 'Terlalu banyak permintaan',
-            'body' => 'Silakan coba lagi dalam :seconds detik.',
+            'title' => 'Terlalu banyak permintaan. Silakan coba lagi dalam :seconds detik.',
         ],
 
     ],

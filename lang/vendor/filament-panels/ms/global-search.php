@@ -3,7 +3,7 @@
 return [
 
     'field' => [
-        'label' => 'Carian global',
+        'label'       => 'Carian global',
         'placeholder' => 'Carian',
     ],
 

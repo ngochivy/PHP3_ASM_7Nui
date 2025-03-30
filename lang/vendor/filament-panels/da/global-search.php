@@ -3,7 +3,7 @@
 return [
 
     'field' => [
-        'label' => 'Global søgning',
+        'label'       => 'Global søgning',
         'placeholder' => 'Søg',
     ],
 

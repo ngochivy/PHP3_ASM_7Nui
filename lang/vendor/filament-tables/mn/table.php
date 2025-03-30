@@ -2,23 +2,10 @@
 
 return [
 
-    'column_toggle' => [
-
-        'heading' => 'Баганууд',
-
-    ],
-
     'columns' => [
 
-        'text' => [
-
-            'actions' => [
-                'collapse_list' => 'Харуулах :count бага',
-                'expand_list' => 'Харуулах :count илүү',
-            ],
-
-            'more_list_items' => 'ба :count илүү',
-
+        'tags' => [
+            'more' => '... :count илүү',
         ],
 
     ],
@@ -33,42 +20,9 @@ return [
             'label' => 'Олонг сонгох/Цуцлах :key.',
         ],
 
-        'bulk_select_group' => [
-            'label' => 'Сонгох/цуцлах бүлэг :title багц үйлдэлд.',
-        ],
-
-        'search' => [
-            'label' => 'Хайх',
+        'search_query' => [
+            'label'       => 'Хайх',
             'placeholder' => 'Хайх',
-            'indicator' => 'Хайх',
-        ],
-
-    ],
-
-    'summary' => [
-
-        'heading' => 'Нийлбэр',
-
-        'subheadings' => [
-            'all' => 'Бүгд :label',
-            'group' => ':group нийлбэр',
-            'page' => 'Энэ хуудас',
-        ],
-
-        'summarizers' => [
-
-            'average' => [
-                'label' => 'Дундаж',
-            ],
-
-            'count' => [
-                'label' => 'Тоо',
-            ],
-
-            'sum' => [
-                'label' => 'Нийлбэр',
-            ],
-
         ],
 
     ],
@@ -87,12 +41,8 @@ return [
             'label' => 'Шүүлтүүр',
         ],
 
-        'group' => [
-            'label' => 'Бүлэг',
-        ],
-
-        'open_bulk_actions' => [
-            'label' => 'Багц үйлдэл',
+        'open_actions' => [
+            'label' => 'Үйлдэл',
         ],
 
         'toggle_columns' => [
@@ -103,9 +53,7 @@ return [
 
     'empty' => [
 
-        'heading' => ':model хоосон',
-
-        'description' => 'Шинэ :model мэдээлэл үүсгэх.',
+        'heading' => 'Илэрц хоосон',
 
     ],
 
@@ -113,16 +61,12 @@ return [
 
         'actions' => [
 
-            'apply' => [
-                'label' => 'Шүүлтийг батлах',
-            ],
-
             'remove' => [
                 'label' => 'Цэвэрлэх',
             ],
 
             'remove_all' => [
-                'label' => 'Бүгдийг цэвэрлэх',
+                'label'   => 'Бүгдийг цэвэрлэх',
                 'tooltip' => 'Бүгдийг цэвэрлэх',
             ],
 
@@ -131,8 +75,6 @@ return [
             ],
 
         ],
-
-        'heading' => 'Шүүлтүүрүүд',
 
         'indicator' => 'Филтерийг идэвхижүүлэх',
 
@@ -191,31 +133,7 @@ return [
                 'label' => 'Эрэмбэлэх',
 
                 'options' => [
-                    'asc' => 'Өсөх',
-                    'desc' => 'Буурах',
-                ],
-
-            ],
-
-        ],
-
-    ],
-
-    'grouping' => [
-
-        'fields' => [
-
-            'group' => [
-                'label' => 'Бүлэглэх',
-                'placeholder' => 'Бүлэглэх',
-            ],
-
-            'direction' => [
-
-                'label' => 'Бүлгийн чиглэл',
-
-                'options' => [
-                    'asc' => 'Өсөх',
+                    'asc'  => 'Өсөх',
                     'desc' => 'Буурах',
                 ],
 

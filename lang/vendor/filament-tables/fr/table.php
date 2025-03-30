@@ -10,19 +10,8 @@ return [
 
     'columns' => [
 
-        'actions' => [
-            'label' => 'Action|Actions',
-        ],
-
         'text' => [
-
-            'actions' => [
-                'collapse_list' => 'Afficher :count de moins',
-                'expand_list' => 'Afficher :count de plus',
-            ],
-
             'more_list_items' => ':count de plus',
-
         ],
 
     ],
@@ -37,14 +26,10 @@ return [
             'label' => "Sélectionner/désélectionner l'élément :key pour les actions groupées.",
         ],
 
-        'bulk_select_group' => [
-            'label' => 'Sélectionner/désélectionner le groupe :title pour les actions groupées.',
-        ],
-
         'search' => [
-            'label' => 'Rechercher',
+            'label'       => 'Rechercher',
             'placeholder' => 'Rechercher',
-            'indicator' => 'Recherche',
+            'indicator'   => 'Recherche',
         ],
 
     ],
@@ -54,9 +39,9 @@ return [
         'heading' => 'Résumé',
 
         'subheadings' => [
-            'all' => 'Tous :label',
+            'all'   => 'Tous :label',
             'group' => 'résumé de :group',
-            'page' => 'Cette page',
+            'page'  => 'Cette page',
         ],
 
         'summarizers' => [
@@ -96,7 +81,7 @@ return [
         ],
 
         'open_bulk_actions' => [
-            'label' => 'Ouvrir les actions',
+            'label' => 'Actions ouvertes',
         ],
 
         'toggle_columns' => [
@@ -117,16 +102,12 @@ return [
 
         'actions' => [
 
-            'apply' => [
-                'label' => 'Appliquer les filtres',
-            ],
-
             'remove' => [
                 'label' => 'Supprimer le filtre',
             ],
 
             'remove_all' => [
-                'label' => 'Supprimer tous les filtres',
+                'label'   => 'Supprimer tous les filtres',
                 'tooltip' => 'Supprimer tous les filtres',
             ],
 
@@ -167,7 +148,7 @@ return [
         'fields' => [
 
             'group' => [
-                'label' => 'Grouper par',
+                'label'       => 'Grouper par',
                 'placeholder' => 'Grouper par',
             ],
 
@@ -176,7 +157,7 @@ return [
                 'label' => 'Groupe',
 
                 'options' => [
-                    'asc' => 'Croissant',
+                    'asc'  => 'Croissant',
                     'desc' => 'Décroissant',
                 ],
 
@@ -219,7 +200,7 @@ return [
                 'label' => 'Ordre',
 
                 'options' => [
-                    'asc' => 'Croissant',
+                    'asc'  => 'Croissant',
                     'desc' => 'Décroissant',
                 ],
 

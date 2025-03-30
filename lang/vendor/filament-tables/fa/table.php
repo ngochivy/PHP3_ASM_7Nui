@@ -11,14 +11,7 @@ return [
     'columns' => [
 
         'text' => [
-
-            'actions' => [
-                'collapse_list' => 'نمایش :count کمتر',
-                'expand_list' => 'نمایش :count بیشتر',
-            ],
-
             'more_list_items' => 'و :count تا بیشتر',
-
         ],
 
     ],
@@ -26,21 +19,17 @@ return [
     'fields' => [
 
         'bulk_select_page' => [
-            'label' => 'انتخاب / عدم‌انتخاب تمامی موارد برای اقدامات گروهی',
+            'label' => 'انتخاب/عدم انتخاب تمامی موارد برای اقدامات گروهی',
         ],
 
         'bulk_select_record' => [
-            'label' => 'انتخاب / عدم‌انتخاب مورد :key برای اقدامات گروهی',
-        ],
-
-        'bulk_select_group' => [
-            'label' => 'انتخاب / عدم‌انتخاب گروه :title برای اقدامات گروهی.',
+            'label' => 'انتخاب/عدم انتخاب مورد :key برای اقدامات گروهی',
         ],
 
         'search' => [
-            'label' => 'جستجو',
+            'label'       => 'جستجو',
             'placeholder' => 'جستجو',
-            'indicator' => 'جستجو',
+            'indicator'   => 'جستجو',
         ],
 
     ],
@@ -50,9 +39,9 @@ return [
         'heading' => 'خلاصه',
 
         'subheadings' => [
-            'all' => 'تمام :label',
+            'all'   => 'تمام :label',
             'group' => ':group خلاصه',
-            'page' => 'این صفحه',
+            'page'  => 'این صفحه',
         ],
 
         'summarizers' => [
@@ -92,11 +81,11 @@ return [
         ],
 
         'open_bulk_actions' => [
-            'label' => 'عملیات گروهی',
+            'label' => 'بازکردن عملیات',
         ],
 
         'toggle_columns' => [
-            'label' => 'باز / بستن ستون‌ها',
+            'label' => 'باز/بستن ستون‌ها',
         ],
 
     ],
@@ -113,16 +102,12 @@ return [
 
         'actions' => [
 
-            'apply' => [
-                'label' => 'اعمال فیلترها',
-            ],
-
             'remove' => [
                 'label' => 'حذف فیلتر',
             ],
 
             'remove_all' => [
-                'label' => 'حذف تمام فیلترها',
+                'label'   => 'حذف تمام فیلترها',
                 'tooltip' => 'حذف تمام فیلترها',
             ],
 
@@ -146,13 +131,13 @@ return [
 
         'trashed' => [
 
-            'label' => 'رکوردهای حذف‌‌شده',
+            'label' => 'رکوردهای حذف‌شده',
 
-            'only_trashed' => 'فقط رکوردهای حذف‌‌شده',
+            'only_trashed' => 'فقط رکوردهای حذف‌شده',
 
-            'with_trashed' => 'به همراه رکوردهای حذف‌‌شده',
+            'with_trashed' => 'به همراه رکوردهای حذف‌شده',
 
-            'without_trashed' => 'بدون رکوردهای حذف‌‌شده',
+            'without_trashed' => 'بدون رکوردهای حذف‌شده',
 
         ],
 
@@ -163,7 +148,7 @@ return [
         'fields' => [
 
             'group' => [
-                'label' => 'گروه‌بندی براساس',
+                'label'       => 'گروه‌بندی براساس',
                 'placeholder' => 'گروه‌بندی براساس',
             ],
 
@@ -172,7 +157,7 @@ return [
                 'label' => 'ترتیب گروه',
 
                 'options' => [
-                    'asc' => 'صعودی',
+                    'asc'  => 'صعودی',
                     'desc' => 'نزولی',
                 ],
 
@@ -182,7 +167,7 @@ return [
 
     ],
 
-    'reorder_indicator' => 'برای تغییر ترتیب، بکشید و رها کنید.',
+    'reorder_indicator' => 'برای تغییر ترتیب بکشید و رها کنید.',
 
     'selection_indicator' => [
 
@@ -207,15 +192,15 @@ return [
         'fields' => [
 
             'column' => [
-                'label' => 'مرتب‌ سازی براساس',
+                'label' => 'مرتب‌سازی براساس',
             ],
 
             'direction' => [
 
-                'label' => 'جهت مرتب‌ سازی',
+                'label' => 'جهت مرتب‌سازی',
 
                 'options' => [
-                    'asc' => 'صعودی',
+                    'asc'  => 'صعودی',
                     'desc' => 'نزولی',
                 ],
 

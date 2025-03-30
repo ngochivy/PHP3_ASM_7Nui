@@ -13,7 +13,7 @@ return [
         ],
 
         'password' => [
-            'label' => 'Passwort',
+            'label'                => 'Passwort',
             'validation_attribute' => 'Passwort',
         ],
 
@@ -34,9 +34,7 @@ return [
     'notifications' => [
 
         'throttled' => [
-            'title' => 'Zu viele Versuche.',
-            'body' => 'Bitte in :seconds Sekunden nochmal versuchen.',
-
+            'title' => 'Zu viele Versuche. Versuchen Sie es bitte in :seconds Sekunden nochmal.',
         ],
 
     ],

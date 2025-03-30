@@ -10,7 +10,7 @@ return [
 
         'register' => [
             'before' => 'ou',
-            'label' => 'créer un compte',
+            'label'  => 'créer un compte',
         ],
 
         'request_password_reset' => [
@@ -53,7 +53,7 @@ return [
 
         'throttled' => [
             'title' => 'Tentatives de connexion trop nombreuses. Veuillez essayer de nouveau dans :seconds secondes.',
-            'body' => 'Merci de réessayer dans :seconds secondes.',
+            'body'  => 'Merci de réessayer dans :seconds secondes.',
         ],
 
     ],

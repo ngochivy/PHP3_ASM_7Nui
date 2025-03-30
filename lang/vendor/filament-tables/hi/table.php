@@ -5,7 +5,7 @@ return [
     'fields' => [
 
         'search' => [
-            'label' => 'खोजें',
+            'label'       => 'खोजें',
             'placeholder' => 'खोजें',
         ],
 

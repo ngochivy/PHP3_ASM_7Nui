@@ -6,10 +6,6 @@ return [
 
     'actions' => [
 
-        'billing' => [
-            'label' => 'Správa předplatného',
-        ],
-
         'logout' => [
             'label' => 'Odhlásit se',
         ],
@@ -44,20 +40,8 @@ return [
                 'label' => 'Zapnout světlý režim',
             ],
 
-            'system' => [
-                'label' => 'Použít nastavení systému',
-            ],
-
         ],
 
-    ],
-
-    'avatar' => [
-        'alt' => 'Profilový obrázek pro :name',
-    ],
-
-    'logo' => [
-        'alt' => ':name logo',
     ],
 
 ];

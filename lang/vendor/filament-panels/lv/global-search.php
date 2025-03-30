@@ -3,7 +3,7 @@
 return [
 
     'field' => [
-        'label' => 'Vispārēja meklēšana',
+        'label'       => 'Vispārēja meklēšana',
         'placeholder' => 'Meklēt',
     ],
 

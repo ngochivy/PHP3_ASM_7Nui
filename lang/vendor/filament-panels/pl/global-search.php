@@ -3,7 +3,7 @@
 return [
 
     'field' => [
-        'label' => 'Wyszukiwanie globalne',
+        'label'       => 'Wyszukiwanie globalne',
         'placeholder' => 'Szukaj',
     ],
 

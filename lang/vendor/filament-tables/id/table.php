@@ -2,27 +2,10 @@
 
 return [
 
-    'column_toggle' => [
-
-        'heading' => 'Kolom',
-
-    ],
-
     'columns' => [
 
-        'actions' => [
-            'label' => 'Aksi|Aksi',
-        ],
-
         'text' => [
-
-            'actions' => [
-                'collapse_list' => 'Sembunyikan :count lainnya',
-                'expand_list' => 'Tampilkan :count lainnya',
-            ],
-
             'more_list_items' => 'dan :count lainnya',
-
         ],
 
     ],
@@ -30,21 +13,17 @@ return [
     'fields' => [
 
         'bulk_select_page' => [
-            'label' => 'Buat/batalkan pilihan semua item untuk tindakan massal.',
+            'label' => 'Buat/batalkan pilihan semua item untuk tindakan masal.',
         ],
 
         'bulk_select_record' => [
-            'label' => 'Buat/batalkan pilihan item :key untuk tindakan massal.',
-        ],
-
-        'bulk_select_group' => [
-            'label' => 'Buat/batalkan pilihan grup :title untuk tindakan massal.',
+            'label' => 'Buat/batalkan pilihan item :key untuk tindakan masal.',
         ],
 
         'search' => [
-            'label' => 'Cari',
+            'label'       => 'Cari',
             'placeholder' => 'Cari',
-            'indicator' => 'Pencarian',
+            'indicator'   => 'Pencarian',
         ],
 
     ],
@@ -54,9 +33,9 @@ return [
         'heading' => 'Rangkuman',
 
         'subheadings' => [
-            'all' => 'Semua :label',
+            'all'   => 'Semua :label',
             'group' => 'Rangkuman :group',
-            'page' => 'Halaman ini',
+            'page'  => 'Halaman ini',
         ],
 
         'summarizers' => [
@@ -109,24 +88,18 @@ return [
 
         'heading' => 'Tidak ada data yang ditemukan',
 
-        'description' => 'Buat :model untuk memulai.',
-
     ],
 
     'filters' => [
 
         'actions' => [
 
-            'apply' => [
-                'label' => 'Terapkan filter',
-            ],
-
             'remove' => [
                 'label' => 'Hapus filter',
             ],
 
             'remove_all' => [
-                'label' => 'Hapus semua filter',
+                'label'   => 'Hapus semua filter',
                 'tooltip' => 'Hapus semua filter',
             ],
 
@@ -167,7 +140,7 @@ return [
         'fields' => [
 
             'group' => [
-                'label' => 'Kelompokkan berdasar',
+                'label'       => 'Kelompokkan berdasar',
                 'placeholder' => 'Kelompokkan berdasar',
             ],
 
@@ -176,7 +149,7 @@ return [
                 'label' => 'Urutan grup',
 
                 'options' => [
-                    'asc' => 'Naik',
+                    'asc'  => 'Naik',
                     'desc' => 'Turun',
                 ],
 
@@ -219,7 +192,7 @@ return [
                 'label' => 'Arah urutan',
 
                 'options' => [
-                    'asc' => 'Naik',
+                    'asc'  => 'Naik',
                     'desc' => 'Turun',
                 ],
 

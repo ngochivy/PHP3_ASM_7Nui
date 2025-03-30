@@ -10,7 +10,7 @@ return [
 
         'register' => [
             'before' => 'of',
-            'label' => 'maak een account aan',
+            'label'  => 'maak een account aan',
         ],
 
         'request_password_reset' => [
@@ -30,7 +30,7 @@ return [
         ],
 
         'remember' => [
-            'label' => 'Onthoud mij',
+            'label' => 'Herinner mij',
         ],
 
         'actions' => [
@@ -52,8 +52,7 @@ return [
     'notifications' => [
 
         'throttled' => [
-            'title' => 'Te veel inlogpogingen',
-            'body' => 'Probeer het opnieuw over :seconds seconden.',
+            'title' => 'Te veel inlogpogingen. Probeer opnieuw over :seconds seconden.',
         ],
 
     ],

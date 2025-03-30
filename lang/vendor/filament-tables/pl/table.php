@@ -2,12 +2,6 @@
 
 return [
 
-    'column_toggle' => [
-
-        'heading' => 'Kolumny',
-
-    ],
-
     'columns' => [
 
         'text' => [
@@ -27,9 +21,9 @@ return [
         ],
 
         'search' => [
-            'label' => 'Szukaj',
+            'label'       => 'Szukaj',
             'placeholder' => 'Szukaj',
-            'indicator' => 'Szukaj',
+            'indicator'   => 'Szukaj',
         ],
 
     ],
@@ -39,9 +33,9 @@ return [
         'heading' => 'Podsumowanie',
 
         'subheadings' => [
-            'all' => 'Wszystkie :label',
+            'all'   => 'Wszystkie :label',
             'group' => 'Grupa :group',
-            'page' => 'Bieżąca strona',
+            'page'  => 'Bieżąca strona',
         ],
 
         'summarizers' => [
@@ -94,8 +88,6 @@ return [
 
         'heading' => 'Nie znaleziono rekordów',
 
-        'description' => 'Utwórz rekord aby rozpocząć.',
-
     ],
 
     'filters' => [
@@ -107,7 +99,7 @@ return [
             ],
 
             'remove_all' => [
-                'label' => 'Usuń wszystkie filtry',
+                'label'   => 'Usuń wszystkie filtry',
                 'tooltip' => 'Usuń wszystkie filtry',
             ],
 
@@ -116,8 +108,6 @@ return [
             ],
 
         ],
-
-        'heading' => 'Filtry',
 
         'indicator' => 'Aktywne filtry',
 
@@ -148,7 +138,7 @@ return [
         'fields' => [
 
             'group' => [
-                'label' => 'Grupuj według',
+                'label'       => 'Grupuj według',
                 'placeholder' => 'Grupuj według',
             ],
 
@@ -157,7 +147,7 @@ return [
                 'label' => 'Kolejność grup',
 
                 'options' => [
-                    'asc' => 'Rosnąco',
+                    'asc'  => 'Rosnąco',
                     'desc' => 'Malejąco',
                 ],
 
@@ -200,7 +190,7 @@ return [
                 'label' => 'Kierunek sortowania',
 
                 'options' => [
-                    'asc' => 'Rosnąco',
+                    'asc'  => 'Rosnąco',
                     'desc' => 'Malejąco',
                 ],
 

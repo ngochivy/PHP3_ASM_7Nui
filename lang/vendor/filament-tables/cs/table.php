@@ -2,25 +2,9 @@
 
 return [
 
-    'column_toggle' => [
-
-        'heading' => 'Sloupce',
-
-    ],
-
     'columns' => [
 
-        'actions' => [
-            'label' => 'Akce|Akce',
-        ],
-
         'text' => [
-
-            'actions' => [
-                'collapse_list' => 'Zobrazit o :count méně',
-                'expand_list' => 'Zobrazit o :count více',
-            ],
-
             'more_list_items' => 'a 1 další|a :count další| a :count dalších',
         ],
 
@@ -36,42 +20,9 @@ return [
             'label' => 'Vybrat/odznačit položku :key pro hromadné akce.',
         ],
 
-        'bulk_select_group' => [
-            'label' => 'Vybrat/zrušit výběr skupiny :title pro hromadné akce.',
-        ],
-
         'search' => [
-            'label' => 'Vyhledávání',
+            'label'       => 'Vyhledávání',
             'placeholder' => 'Hledat',
-            'indicator' => 'Hledat',
-        ],
-
-    ],
-
-    'summary' => [
-
-        'heading' => 'Shrnutí',
-
-        'subheadings' => [
-            'all' => 'Všechny :label',
-            'group' => ':group shrnutí',
-            'page' => 'Tato stránka',
-        ],
-
-        'summarizers' => [
-
-            'average' => [
-                'label' => 'Průměr',
-            ],
-
-            'count' => [
-                'label' => 'Počet',
-            ],
-
-            'sum' => [
-                'label' => 'Součet',
-            ],
-
         ],
 
     ],
@@ -90,10 +41,6 @@ return [
             'label' => 'Filtrovat',
         ],
 
-        'group' => [
-            'label' => 'Seskupit',
-        ],
-
         'open_bulk_actions' => [
             'label' => 'Otevřít panel akcí',
         ],
@@ -105,27 +52,19 @@ return [
     ],
 
     'empty' => [
-
         'heading' => 'Žádné záznamy nenalezeny',
-
-        'description' => 'Začněte vytvořením :modelu.',
-
     ],
 
     'filters' => [
 
         'actions' => [
 
-            'apply' => [
-                'label' => 'Použít filtry',
-            ],
-
             'remove' => [
                 'label' => 'Odstranit filtr',
             ],
 
             'remove_all' => [
-                'label' => 'Odstranit všechny filtry',
+                'label'   => 'Odstranit všechny filtry',
                 'tooltip' => 'Odstranit všechny filtry',
             ],
 
@@ -134,8 +73,6 @@ return [
             ],
 
         ],
-
-        'heading' => 'Filtrovat',
 
         'indicator' => 'Aktivní filtry',
 
@@ -156,30 +93,6 @@ return [
             'with_trashed' => 'Včetně smazaných položek',
 
             'without_trashed' => 'Bez smazaných položek',
-
-        ],
-
-    ],
-
-    'grouping' => [
-
-        'fields' => [
-
-            'group' => [
-                'label' => 'Seskupit podle',
-                'placeholder' => 'Seskupit podle',
-            ],
-
-            'direction' => [
-
-                'label' => 'Směr seskupení',
-
-                'options' => [
-                    'asc' => 'Vzestupně',
-                    'desc' => 'Sestupně',
-                ],
-
-            ],
 
         ],
 
@@ -218,7 +131,7 @@ return [
                 'label' => 'Směr řazení',
 
                 'options' => [
-                    'asc' => 'Vzestupně',
+                    'asc'  => 'Vzestupně',
                     'desc' => 'Sestupně',
                 ],
 

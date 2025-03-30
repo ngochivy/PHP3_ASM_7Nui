@@ -21,7 +21,7 @@ return [
         ],
 
         'search_query' => [
-            'label' => 'Chwilio',
+            'label'       => 'Chwilio',
             'placeholder' => 'Chwilio',
         ],
 
@@ -66,7 +66,7 @@ return [
             ],
 
             'remove_all' => [
-                'label' => 'Tynnu pob hidlydd',
+                'label'   => 'Tynnu pob hidlydd',
                 'tooltip' => 'Tynnu pob hidlydd',
             ],
 
@@ -133,7 +133,7 @@ return [
                 'label' => 'Trefnu cyfeiriad',
 
                 'options' => [
-                    'asc' => 'Esgynnol',
+                    'asc'  => 'Esgynnol',
                     'desc' => 'Disgynnol',
                 ],
 
