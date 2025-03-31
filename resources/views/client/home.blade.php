@@ -5,35 +5,36 @@
 @endsection
 
 @push('stylesheet')
-<link rel="shortcut icon" href="{{ asset('assets/img/favicon.ico') }}" type="image/x-icon" />
+    <link rel="shortcut icon" href="{{ asset('assets/img/favicon.ico') }}" type="image/x-icon" />
 
-<!--== Google Fonts ==-->
-<link href="https://fonts.googleapis.com/css?family=Fredoka+One:400" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css?family=Rubik:300,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+    <!--== Google Fonts ==-->
+    <link href="https://fonts.googleapis.com/css?family=Fredoka+One:400" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Rubik:300,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
 
-<!--== Bootstrap CSS ==-->
-<link href="{{ asset('assets/css/bootstrap.min.css') }}" rel="stylesheet" />
-<!--== Font-awesome Icons CSS ==-->
-<link href="{{ asset('assets/css/font-awesome.min.css') }}" rel="stylesheet" />
-<!--== Pe Icon 7 Min Icons CSS ==-->
-<link href="{{ asset('assets/css/pe-icon-7-stroke.min.css') }}" rel="stylesheet" />
-<!--== Ionicons CSS ==-->
-<link href="{{ asset('assets/css/ionicons.css') }}" rel="stylesheet" />
-<!--== Animate CSS ==-->
-<link href="{{ asset('assets/css/animate.css') }}" rel="stylesheet" />
-<!--== Aos CSS ==-->
-<link href="{{ asset('assets/css/aos.css') }}" rel="stylesheet" />
-<!--== FancyBox CSS ==-->
-<link href="{{ asset('assets/css/jquery.fancybox.min.css') }}" rel="stylesheet" />
-<!--== Slicknav CSS ==-->
-<link href="{{ asset('assets/css/slicknav.css') }}" rel="stylesheet" />
-<!--== Swiper CSS ==-->
-<link href="{{ asset('assets/css/swiper.min.css') }}" rel="stylesheet" />
-<!--== Slick CSS ==-->
-<link href="{{ asset('assets/css/slick.css') }}" rel="stylesheet" />
-<!--== Main Style CSS ==-->
-<link href="{{ asset('assets/css/style.css') }}" rel="stylesheet" />
+    <!--== Bootstrap CSS ==-->
+    <link href="{{ asset('assets/css/bootstrap.min.css') }}" rel="stylesheet" />
+    <!--== Font-awesome Icons CSS ==-->
+    <link href="{{ asset('assets/css/font-awesome.min.css') }}" rel="stylesheet" />
+    <!--== Pe Icon 7 Min Icons CSS ==-->
+    <link href="{{ asset('assets/css/pe-icon-7-stroke.min.css') }}" rel="stylesheet" />
+    <!--== Ionicons CSS ==-->
+    <link href="{{ asset('assets/css/ionicons.css') }}" rel="stylesheet" />
+    <!--== Animate CSS ==-->
+    <link href="{{ asset('assets/css/animate.css') }}" rel="stylesheet" />
+    <!--== Aos CSS ==-->
+    <link href="{{ asset('assets/css/aos.css') }}" rel="stylesheet" />
+    <!--== FancyBox CSS ==-->
+    <link href="{{ asset('assets/css/jquery.fancybox.min.css') }}" rel="stylesheet" />
+    <!--== Slicknav CSS ==-->
+    <link href="{{ asset('assets/css/slicknav.css') }}" rel="stylesheet" />
+    <!--== Swiper CSS ==-->
+    <link href="{{ asset('assets/css/swiper.min.css') }}" rel="stylesheet" />
+    <!--== Slick CSS ==-->
+    <link href="{{ asset('assets/css/slick.css') }}" rel="stylesheet" />
+    <!--== Main Style CSS ==-->
+    <link href="{{ asset('assets/css/style.css') }}" rel="stylesheet" />
 @endpush
+
 @section('content')
     <main class="main-content">
         <!--== Start Hero Area Wrapper ==-->
@@ -42,7 +43,7 @@
                 <div class="swiper-container home-slider-container">
                     <div class="swiper-wrapper">
                         <div class="swiper-slide">
-                            <!-- Start Slide Item -->
+                            <!-- Bắt đầu mục trình chiếu -->
                             <div class="home-slider-item">
                                 <div class="thumb-one bg-img" data-bg-img="assets/img/slider/1.jpg"></div>
                                 <div class="slider-content-area">
@@ -51,27 +52,28 @@
                                             <div class="col-sm-6">
                                                 <div class="content">
                                                     <div class="inner-content">
-                                                        <h2>Best Kids Store & Online Shop</h2>
-                                                        <p>Give The Gift Of Your Children Everyday</p>
-                                                        <a href="shop.html" class="btn-theme">Shop This Now</a>
+                                                        <h2>Cửa hàng trẻ em & mua sắm trực tuyến tốt nhất</h2>
+                                                        <p>Hãy dành tặng những món quà tuyệt vời cho con bạn mỗi ngày</p>
+                                                        <a href="shop.html" class="btn-theme">Mua Ngay</a>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
-                                    <img class="thumb-two" src="assets/img/slider/2.png" alt="Image">
-                                    <img class="thumb-three" src="assets/img/slider/3.png" alt="Image">
-                                    <img class="thumb-four" src="assets/img/photos/3.png" alt="Image">
+                                    <img class="thumb-two" src="assets/img/slider/2.png" alt="Hình ảnh">
+                                    <img class="thumb-three" src="assets/img/slider/3.png" alt="Hình ảnh">
+                                    <img class="thumb-four" src="assets/img/photos/3.png" alt="Hình ảnh">
                                 </div>
                                 <div class="shape-top bg-img" data-bg-img="assets/img/photos/1.png"></div>
                                 <div class="shape-bottom bg-img" data-bg-img="assets/img/photos/2.png"></div>
                             </div>
-                            <!-- End Slide Item -->
+                            <!-- Kết thúc mục trình chiếu -->
                         </div>
                     </div>
                 </div>
             </div>
         </section>
+
         <!--== End Hero Area Wrapper ==-->
 
         <!--== Start Category Area Wrapper ==-->
@@ -81,13 +83,13 @@
                     <div class="col-sm-6 col-md-4">
                         <div class="category-item">
                             <div class="thumb thumb-style1">
-                                <img src="assets/img/category/1.png" alt="Image">
+                                <img src="assets/img/category/1.png" alt="Hình ảnh">
                                 <div class="content">
                                     <div class="contact-info">
-                                        <h2 class="title">Baby Dress</h2>
+                                        <h2 class="title">Đầm Cho Bé</h2>
                                         <h4 class="price">$32.00</h4>
                                     </div>
-                                    <a class="btn-link" href="shop.html">Shop Now</a>
+                                    <a class="btn-link" href="shop.html">Mua Ngay</a>
                                 </div>
                             </div>
                         </div>
@@ -95,13 +97,13 @@
                     <div class="col-sm-6 col-md-4">
                         <div class="category-item mt-xs-25">
                             <div class="thumb thumb-style2">
-                                <img src="assets/img/category/2.png" alt="Image">
+                                <img src="assets/img/category/2.png" alt="Hình ảnh">
                                 <div class="content">
                                     <div class="contact-info">
-                                        <h2 class="title">Baby Toys</h2>
+                                        <h2 class="title">Đồ Chơi Cho Bé</h2>
                                         <h4 class="price">$25.00</h4>
                                     </div>
-                                    <a class="btn-link" href="shop.html">Shop Now</a>
+                                    <a class="btn-link" href="shop.html">Mua Ngay</a>
                                 </div>
                             </div>
                         </div>
@@ -109,13 +111,13 @@
                     <div class="col-sm-6 col-md-4">
                         <div class="category-item mt-sm-25">
                             <div class="thumb thumb-style3">
-                                <img src="assets/img/category/3.png" alt="Image">
+                                <img src="assets/img/category/3.png" alt="Hình ảnh">
                                 <div class="content">
                                     <div class="contact-info">
-                                        <h2 class="title">Teddy Bear</h2>
+                                        <h2 class="title">Gấu Bông</h2>
                                         <h4 class="price">$18.00</h4>
                                     </div>
-                                    <a class="btn-link" href="shop.html">Shop Now</a>
+                                    <a class="btn-link" href="shop.html">Mua Ngay</a>
                                 </div>
                             </div>
                         </div>
@@ -123,6 +125,7 @@
                 </div>
             </div>
         </section>
+
         <!--== End Category Area Wrapper ==-->
 
         <!--== Start Product Tab Area Wrapper ==-->
@@ -131,12 +134,13 @@
                 <div class="row">
                     <div class="col-md-6 m-auto">
                         <div class="section-title text-center" data-aos="fade-up" data-aos-duration="1000">
-                            <h2 class="title">New Products</h2>
+                            <h2 class="title">Sản Phẩm Mới</h2>
                             <div class="desc">
                                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod incididunt ut
                                     labore et dolore magna aliqua</p>
                             </div>
                         </div>
+
                     </div>
                 </div>
                 <div class="row">
@@ -1273,7 +1277,8 @@
                                             <span class="fa fa-star"></span>
                                             <span class="fa fa-star"></span>
                                         </div>
-                                        <h4 class="title"><a href="shop-single-product.html">Classic Fisher Gift</a></h4>
+                                        <h4 class="title"><a href="shop-single-product.html">Classic Fisher Gift</a>
+                                        </h4>
                                         <div class="prices">
                                             <span class="price">$190.12</span>
                                         </div>
@@ -1526,41 +1531,40 @@
 @endsection
 
 @push('javascript')
-<script src="{{asset ('assets/js/modernizr.js')}}"></script>
-<!--=== jQuery Min Js ===-->
-<script src="{{asset ('assets/js/jquery-main.js')}}"></script>
-<!--=== jQuery Migration Min Js ===-->
-<script src="{{asset ('assets/js/jquery-migrate.js')}}"></script>
-<!--=== Popper Min Js ===-->
-<script src="{{asset ('assets/js/popper.min.js')}}"></script>
-<!--=== Bootstrap Min Js ===-->
-<script src="{{asset ('assets/js/bootstrap.min.js')}}"></script>
-<!--=== jquery Appear Js ===-->
-<script src="{{asset ('assets/js/jquery.appear.js')}}"></script>
-<!--=== jquery Swiper Min Js ===-->
-<script src="{{asset ('assets/js/swiper.min.js')}}"></script>
-<!--=== jquery Fancybox Min Js ===-->
-<script src="{{asset ('assets/js/fancybox.min.js')}}"></script>
-<!--=== jquery Aos Min Js ===-->
-<script src="{{asset ('assets/js/aos.min.js')}}"></script>
-<!--=== jquery Slicknav Js ===-->
-<script src="{{asset ('assets/js/jquery.slicknav.js')}}"></script>
-<!--=== jquery Countdown Js ===-->
-<script src="{{asset ('assets/js/jquery.countdown.min.js')}}"></script>
-<!--=== jquery Tippy Js ===-->
-<script src="{{asset ('assets/js/tippy.all.min.js')}}"></script>
-<!--=== Isotope Min Js ===-->
-<script src="{{asset ('assets/js/isotope.pkgd.min.js')}}"></script>
-<!--=== Parallax Min Js ===-->
-<script src="{{asset ('assets/js/parallax.min.js')}}"></script>
-<!--=== Slick  Min Js ===-->
-<script src="{{asset ('assets/js/slick.min.js')}}"></script>
-<!--=== jquery Wow Min Js ===-->
-<script src="{{asset ('assets/js/wow.min.js')}}"></script>
-<!--=== jquery Zoom Min Js ===-->
-<script src="{{asset ('assets/js/jquery-zoom.min.js')}}"></script>
+    <script src="{{ asset('assets/js/modernizr.js') }}"></script>
+    <!--=== jQuery Min Js ===-->
+    <script src="{{ asset('assets/js/jquery-main.js') }}"></script>
+    <!--=== jQuery Migration Min Js ===-->
+    <script src="{{ asset('assets/js/jquery-migrate.js') }}"></script>
+    <!--=== Popper Min Js ===-->
+    <script src="{{ asset('assets/js/popper.min.js') }}"></script>
+    <!--=== Bootstrap Min Js ===-->
+    <script src="{{ asset('assets/js/bootstrap.min.js') }}"></script>
+    <!--=== jquery Appear Js ===-->
+    <script src="{{ asset('assets/js/jquery.appear.js') }}"></script>
+    <!--=== jquery Swiper Min Js ===-->
+    <script src="{{ asset('assets/js/swiper.min.js') }}"></script>
+    <!--=== jquery Fancybox Min Js ===-->
+    <script src="{{ asset('assets/js/fancybox.min.js') }}"></script>
+    <!--=== jquery Aos Min Js ===-->
+    <script src="{{ asset('assets/js/aos.min.js') }}"></script>
+    <!--=== jquery Slicknav Js ===-->
+    <script src="{{ asset('assets/js/jquery.slicknav.js') }}"></script>
+    <!--=== jquery Countdown Js ===-->
+    <script src="{{ asset('assets/js/jquery.countdown.min.js') }}"></script>
+    <!--=== jquery Tippy Js ===-->
+    <script src="{{ asset('assets/js/tippy.all.min.js') }}"></script>
+    <!--=== Isotope Min Js ===-->
+    <script src="{{ asset('assets/js/isotope.pkgd.min.js') }}"></script>
+    <!--=== Parallax Min Js ===-->
+    <script src="{{ asset('assets/js/parallax.min.js') }}"></script>
+    <!--=== Slick  Min Js ===-->
+    <script src="{{ asset('assets/js/slick.min.js') }}"></script>
+    <!--=== jquery Wow Min Js ===-->
+    <script src="{{ asset('assets/js/wow.min.js') }}"></script>
+    <!--=== jquery Zoom Min Js ===-->
+    <script src="{{ asset('assets/js/jquery-zoom.min.js') }}"></script>
 
-<!--=== Custom Js ===-->
-<script src="{{asset ('assets/js/custom.js')}}"></script>
-
+    <!--=== Custom Js ===-->
+    <script src="{{ asset('assets/js/custom.js') }}"></script>
 @endpush
