@@ -4,6 +4,8 @@ use App\Http\Controllers\AboutController;
 use App\Http\Controllers\CheckoutController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\AccountController;
+use App\Http\Controllers\BlogController;
+use App\Http\Controllers\CartController;
 use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 
@@ -21,3 +23,10 @@ Route::get('/checkout', [CheckoutController::class, "index"]);
 Route::get('/account', [AccountController::class, "account"]);
 
 Route::get('/profile', [AccountController::class, "profile"]);
+
+// blog
+Route::get('/blog', [BlogController::class, "index"]);
+Route::get('/blog/{id}', [BlogController::class, "show"]);
+
+// cart
+Route::get('/cart', [CartController::class, "index"]);
