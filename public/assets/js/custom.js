@@ -343,6 +343,7 @@
     hideOnComplete: true
   }, function (container) {
     // alert('Done!');
+    
   });
 
   //Shop review btn

@@ -26,6 +26,8 @@ class Product extends Model
 
     public function category(): BelongsTo
     {
-        return $this->belongsTo(Category::class);
+        // Cách tạo Category -> php artisan make:model Category
+        // belongsTo là sp này thuộc về danh mục nào
+        return $this->belongsTo(Category::class); 
     }
 }

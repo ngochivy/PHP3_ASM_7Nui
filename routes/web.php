@@ -15,6 +15,10 @@ use Illuminate\Support\Facades\Route;
 
 
 Route::get('/', [HomeController::class, "index"]);
+
+Route::get('/product', [ProductController::class, "index"]);
+Route::get('/product_detail/{slug}', [ProductController::class, "detail"]);
+
 Route::get('/about', [AboutController::class, "index"]);
 Route::get('/contact', [ContactController::class, "index"]);
 Route::post('/contact', [ContactController::class, "sendmail"]);
