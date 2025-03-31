@@ -31,16 +31,33 @@
                     <div class="row">
                         <div class="col-xs-12 col-sm-5 col-md-4 col-lg-6">
                             <div class="header-info-left">
-                                <p>Free Returns and Free Shipping</p>
+                                <p>Miễn phí đổi trả và giao hàng miễn phí</p>
                             </div>
                         </div>
                         <div class="col-xs-12 col-sm-7 col-md-8 col-lg-6 sm-pl-0 xs-pl-15 header-top-right">
-                            <div class="header-info">
+                            <div class="header-info d-flex align-items-center gap-3">
                                 <a href="tel://+00123456789"><i class="fa fa-phone"></i> +00 123 456 789</a>
-                                <a href="mailto://demo@example.com"><i class="fa fa-envelope"></i> demo@example.com</a>
-                                <a href="login-register.html"><i class="fa fa-user"></i> Account</a>
+                                <a href="mailto:demo@example.com"><i class="fa fa-envelope"></i> demo@example.com</a>
+
+                                <!-- Dropdown Tài Khoản -->
+                                <div class="dropdown">
+                                    <a class="dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                                        aria-expanded="false">
+                                        <i class="fa fa-user"></i> Tài Khoản
+                                    </a>
+                                    <ul class="dropdown-menu">
+                                        <li><a class="dropdown-item" href="/profile"><i class="fa fa-user"></i> Tài
+                                                Khoản Của Tôi</a></li>
+                                        <li><a class="dropdown-item" href="/orders"><i class="fa fa-shopping-cart"></i>
+                                                Đơn Hàng Của Tôi</a></li>
+                                        <li><a class="dropdown-item" href="/account"><i class="fa fa-user-plus"></i>
+                                                Đăng Ký/<i class="fa fa-sign-in"></i> Đăng Nhập</a></li>
+                                    </ul>
+                                </div>
                             </div>
                         </div>
+
+
                     </div>
                 </div>
             </div>
@@ -63,8 +80,8 @@
                                     <div class="header-search-box">
                                         <form action="#" method="post">
                                             <div class="form-input-item">
-                                                <label for="search" class="sr-only">Search Everything</label>
-                                                <input type="text" id="search" placeholder="Search Everything">
+                                                <label for="search" class="sr-only">Tìm kiếm</label>
+                                                <input type="text" id="search" placeholder="Tìm kiếm mọi thứ">
                                                 <button type="submit" class="btn-src">
                                                     <i class="pe-7s-search"></i>
                                                 </button>
@@ -103,56 +120,51 @@
                             <div class="header-logo-area">
                                 <a href="index.html">
                                     <img class="logo-main" src="{{ asset('assets/img/logo.png') }}" alt="Logo" />
-                                    <img class="logo-light" src="{{ asset('assets/img/logo.png') }}"
-                                        alt="Logo" />
+                                    <img class="logo-light" src="{{ asset('assets/img/logo.png') }}" alt="Logo" />
                                 </a>
                             </div>
                         </div>
                         <div class="col-lg-8 sticky-md-none">
                             <div class="header-navigation-area d-none d-md-block">
                                 <ul class="main-menu nav position-relative">
-                                    <li class="has-submenu active"><a class="ml--2" href="index.html">Home</a>
+                                    <li><a class="ml--2" href="/">Trang Chủ</a></li>
+                                    <li><a href="about.html">Giới Thiệu</a></li>
+                                    <li class="has-submenu"><a href="index.html">Trang</a>
                                         <ul class="submenu-nav">
-                                            <li><a href="index.html">Home One</a></li>
-                                            <li><a href="index-2.html">Home Two</a></li>
-                                        </ul>
-                                    </li>
-                                    <li><a href="/about">About</a></li>
-                                    <li class="has-submenu"><a href="index.html">Pages</a>
-                                        <ul class="submenu-nav">
-                                            <li><a href="shop-cart.html">Cart page</a></li>
-                                            <li><a href="shop-checkout.html">Checkout</a></li>
-                                            <li><a href="my-account.html">My Account</a></li>
-                                            <li><a href="shop-wishlist.html">Wishlist</a></li>
-                                            <li><a href="shop-compare.html">Compare</a></li>
-                                            <li><a href="login-register.html">Login / Register</a></li>
-                                            <li><a href="coming-soon.html">Coming soon</a></li>
+                                            <li><a href="shop-cart.html">Giỏ Hàng</a></li>
+                                            <li><a href="shop-checkout.html">Thanh Toán</a></li>
+                                            <li><a href="my-account.html">Tài Khoản Của Tôi</a></li>
+                                            <li><a href="shop-wishlist.html">Danh Sách Yêu Thích</a></li>
+                                            <li><a href="shop-compare.html">So Sánh</a></li>
+                                            <li><a href="login-register.html">Đăng Nhập / Đăng Ký</a></li>
+                                            <li><a href="coming-soon.html">Sắp Ra Mắt</a></li>
                                             <li><a href="page-not-found.html">404</a></li>
                                         </ul>
                                     </li>
-                                    <li class="has-submenu"><a href="shop.html">Shop</a>
+                                    <li class="has-submenu"><a href="shop.html">Cửa Hàng</a>
                                         <ul class="submenu-nav">
-                                            <li><a href="shop-3-column.html">Shop 3 Column</a></li>
-                                            <li><a href="shop.html">Shop 4 Column</a></li>
-                                            <li><a href="shop-left-sidebar.html">Shop Left Sidebar</a></li>
-                                            <li><a href="shop-right-sidebar.html">Shop Right Sidebar</a></li>
-                                            <li><a href="shop.html">Shop No Sidebar</a></li>
-                                            <li><a href="shop-single-product.html">Product Details</a></li>
-                                            <li><a href="shop-single-product-variable.html">Product Variable</a></li>
-                                            <li><a href="shop-single-product-grouped.html">Product Grouped</a></li>
+                                            <li><a href="shop-3-column.html">Cửa Hàng 3 Cột</a></li>
+                                            <li><a href="shop.html">Cửa Hàng 4 Cột</a></li>
+                                            <li><a href="shop-left-sidebar.html">Cửa Hàng Bên Trái</a></li>
+                                            <li><a href="shop-right-sidebar.html">Cửa Hàng Bên Phải</a></li>
+                                            <li><a href="shop.html">Cửa Hàng Không Sidebar</a></li>
+                                            <li><a href="shop-single-product.html">Chi Tiết Sản Phẩm</a></li>
+                                            <li><a href="shop-single-product-variable.html">Sản Phẩm Biến Thể</a></li>
+                                            <li><a href="shop-single-product-grouped.html">Sản Phẩm Nhóm</a></li>
                                         </ul>
                                     </li>
                                     <li class="has-submenu"><a href="blog.html">Blog</a>
                                         <ul class="submenu-nav">
-                                            <li><a href="blog.html">Blog 3 Column</a></li>
-                                            <li><a href="blog-4-column.html">Blog 4 Column</a></li>
-                                            <li><a href="blog-left-sidebar.html">Blog Left Sidebar</a></li>
-                                            <li><a href="blog-right-sidebar.html">Blog Right Sidebar</a></li>
-                                            <li><a href="blog.html">Blog No Sidebar</a></li>
-                                            <li><a href="blog-details.html">Blog Details Left Sidebar</a></li>
-                                            <li><a href="blog-details-right-sidebar.html">Blog Details Right
-                                                    Sidebar</a></li>
-                                            <li><a href="blog-details-no-sidebar.html">Blog Details No Sidebar</a></li>
+                                            <li><a href="blog.html">Blog 3 Cột</a></li>
+                                            <li><a href="blog-4-column.html">Blog 4 Cột</a></li>
+                                            <li><a href="blog-left-sidebar.html">Blog Bên Trái</a></li>
+                                            <li><a href="blog-right-sidebar.html">Blog Bên Phải</a></li>
+                                            <li><a href="blog.html">Blog Không Sidebar</a></li>
+                                            <li><a href="blog-details.html">Chi Tiết Blog Bên Trái</a></li>
+                                            <li><a href="blog-details-right-sidebar.html">Chi Tiết Blog Bên Phải</a>
+                                            </li>
+                                            <li><a href="blog-details-no-sidebar.html">Chi Tiết Blog Không Sidebar</a>
+                                            </li>
                                         </ul>
                                     </li>
                                     <li><a href="/contact">Contact</a></li>
@@ -182,15 +194,13 @@
                                         <i class="pe-7s-shopbag"></i>
                                     </button>
                                 </div>
-                                <button class="btn-menu d-lg-none">
-                                    <i class="ion-navicon"></i>
-                                </button>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </header>
+
         @yield('content')
 
         <footer class="footer-area default-style">
@@ -216,17 +226,17 @@
                         </div>
                         <div class="col-md-3 col-lg-2">
                             <div class="widget-item item-style1">
-                                <h4 class="widget-title">Quick Links</h4>
+                                <h4 class="widget-title">Liên kết nhanh</h4>
                                 <h4 class="widget-title widget-collapsed-title collapsed" data-bs-toggle="collapse"
-                                    data-bs-target="#dividerId-1">Quick Links</h4>
+                                    data-bs-target="#dividerId-1">Liên kết nhanh</h4>
                                 <div id="dividerId-1" class="collapse widget-collapse-body">
                                     <nav class="widget-menu-wrap">
                                         <ul class="nav-menu nav item-hover-style">
-                                            <li><a href="index.html">- Support</a></li>
-                                            <li><a href="index.html">- Helpline</a></li>
-                                            <li><a href="index.html">- Courses</a></li>
-                                            <li><a href="about.html">- About</a></li>
-                                            <li><a href="index.html">- Event</a></li>
+                                            <li><a href="index.html">- Hỗ trợ</a></li>
+                                            <li><a href="index.html">- Đường dây trợ giúp</a></li>
+                                            <li><a href="index.html">- Khóa học</a></li>
+                                            <li><a href="about.html">- Giới thiệu</a></li>
+                                            <li><a href="index.html">- Sự kiện</a></li>
                                         </ul>
                                     </nav>
                                 </div>
@@ -234,17 +244,17 @@
                         </div>
                         <div class="col-md-4 col-lg-2">
                             <div class="widget-item item-style1">
-                                <h4 class="widget-title">Other Page</h4>
+                                <h4 class="widget-title">Trang khác</h4>
                                 <h4 class="widget-title widget-collapsed-title collapsed" data-bs-toggle="collapse"
-                                    data-bs-target="#dividerId-2">Other Page</h4>
+                                    data-bs-target="#dividerId-2">Trang khác</h4>
                                 <div id="dividerId-2" class="collapse widget-collapse-body">
                                     <nav class="widget-menu-wrap item-hover-style">
                                         <ul class="nav-menu nav">
-                                            <li><a href="about.html">- About</a></li>
+                                            <li><a href="about.html">- Giới thiệu</a></li>
                                             <li><a href="blog.html">- Blog</a></li>
-                                            <li><a href="index.html">- Speakers</a></li>
-                                            <li><a href="contact.html">- Contact</a></li>
-                                            <li><a href="index.html">- Tricket</a></li>
+                                            <li><a href="index.html">- Diễn giả</a></li>
+                                            <li><a href="contact.html">- Liên hệ</a></li>
+                                            <li><a href="index.html">- Vé</a></li>
                                         </ul>
                                     </nav>
                                 </div>
@@ -252,17 +262,17 @@
                         </div>
                         <div class="col-md-5 col-lg-2">
                             <div class="widget-item item-style2">
-                                <h4 class="widget-title">Company</h4>
+                                <h4 class="widget-title">Công ty</h4>
                                 <h4 class="widget-title widget-collapsed-title collapsed" data-bs-toggle="collapse"
-                                    data-bs-target="#dividerId-3">Company</h4>
+                                    data-bs-target="#dividerId-3">Công ty</h4>
                                 <div id="dividerId-3" class="collapse widget-collapse-body">
                                     <nav class="widget-menu-wrap item-hover-style">
                                         <ul class="nav-menu nav">
                                             <li><a href="index.html">- Jesco</a></li>
-                                            <li><a href="shop.html">- Shop</a></li>
-                                            <li><a href="contact.html">- Contact us</a></li>
-                                            <li><a href="login-register.html">- Log in</a></li>
-                                            <li><a href="index.html">- Help</a></li>
+                                            <li><a href="shop.html">- Cửa hàng</a></li>
+                                            <li><a href="contact.html">- Liên hệ chúng tôi</a></li>
+                                            <li><a href="login-register.html">- Đăng nhập</a></li>
+                                            <li><a href="index.html">- Trợ giúp</a></li>
                                         </ul>
                                     </nav>
                                 </div>
@@ -270,14 +280,14 @@
                         </div>
                         <div class="col-md-7 col-lg-3">
                             <div class="widget-item">
-                                <h4 class="widget-title">Store Information.</h4>
+                                <h4 class="widget-title">Thông tin cửa hàng</h4>
                                 <h4 class="widget-title widget-collapsed-title collapsed" data-bs-toggle="collapse"
-                                    data-bs-target="#dividerId-4">Store Information.</h4>
+                                    data-bs-target="#dividerId-4">Thông tin cửa hàng</h4>
                                 <div id="dividerId-4" class="collapse widget-collapse-body">
-                                    <p class="widget-address">2005 Your Address Goes Here. <br>896, Address 10010, HGJ
+                                    <p class="widget-address">2005 Địa chỉ của bạn. <br>896, Địa chỉ 10010, HGJ
                                     </p>
                                     <ul class="widget-contact-info">
-                                        <li>Phone/Fax: <a href="tel://0123456789">0123456789</a></li>
+                                        <li>Điện thoại/Fax: <a href="tel://0123456789">0123456789</a></li>
                                         <li>Email: <a href="mailto://demo@example.com">demo@example.com</a></li>
                                     </ul>
                                     <div class="widget-payment-info">
@@ -299,8 +309,8 @@
                         <div class="row text-center">
                             <div class="col-sm-12">
                                 <div class="widget-copyright">
-                                    <p><i class="fa fa-copyright"></i> 2021 <span>KIDOL. </span> Made with <i
-                                            class="fa fa-heart"></i> by <a target="_blank"
+                                    <p><i class="fa fa-copyright"></i> 2021 <span>KIDOL. </span> Được tạo với <i
+                                            class="fa fa-heart"></i> bởi <a target="_blank"
                                             href="https://www.hasthemes.com/">HasThemes</a></p>
                                 </div>
                             </div>
@@ -310,6 +320,7 @@
             </div>
             <div class="footer-shape bg-img" data-bg-img="{{ asset('assets/img/photos/footer1.png') }}"></div>
         </footer>
+
         <!--== End Footer Area Wrapper ==-->
 
         <!--== Scroll Top Button ==-->
@@ -514,5 +525,6 @@
     </div>
 </body>
 
-    @stack('javascript')
+@stack('javascript')
+
 </html>
