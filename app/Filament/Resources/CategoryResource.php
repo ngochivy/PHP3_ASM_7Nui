@@ -9,11 +9,14 @@ use Filament\Forms;
 use Filament\Forms\Components\Fieldset;
 use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\TextInput;
+use Filament\Forms\Components\FileUpload;
+use Filament\Forms\Components\Toggle;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
+use Filament\Tables\Columns\ToggleColumn;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 
@@ -37,17 +40,28 @@ class CategoryResource extends Resource
                             ->label('Tên danh mục')
                             ->required()
                             ->maxLength(255)
-                            ->columnSpan(12),
+                            ->columnSpanFull(),
                         Textarea::make('description')
                             ->label('Mô tả')
-                            ->maxLength(255)
+                            ->required()
                             ->nullable()
                             ->rows(4)
-                            ->columnSpan(12),
-                    ])
-                    ->columns(8)
+                            ->columnSpanFull(),
+                        Toggle::make('status')
+                            ->label('Trạng thái')
+                            ->columnSpanFull() 
+                ])
+                ->columnSpan(8),
+                Fieldset::make('Hình ảnh')
+                    ->schema([
+                        FileUpload::make('thumbnail')
+                            ->label('Chọn ảnh')
+                            ->required()
+                            ->image()
+                            ->columnSpanFull()  
+                    ])->columnSpan(4)
             ])
-            ->columns(12);            ;
+            ->columns(12);
     }
 
     public static function table(Table $table): Table
@@ -58,6 +72,8 @@ class CategoryResource extends Resource
                     ->label('ID')
                     ->sortable()
                     ->searchable(),
+                TextColumn::make('thumbnail')
+                    ->label('Hình ảnh'),
                 TextColumn::make('name')
                     ->label('Tên danh mục')
                     ->sortable()
@@ -65,6 +81,8 @@ class CategoryResource extends Resource
                 TextColumn::make('description')
                     ->label('Mô tả')
                     ->limit(50),
+                ToggleColumn::make('status')
+                    ->label('Trạng thái'),
                 TextColumn::make('created_at')
                     ->label('Ngày tạo')
                     ->sortable()
