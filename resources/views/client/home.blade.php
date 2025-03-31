@@ -73,7 +73,6 @@
                 </div>
             </div>
         </section>
-
         <!--== End Hero Area Wrapper ==-->
 
         <!--== Start Category Area Wrapper ==-->
@@ -125,7 +124,6 @@
                 </div>
             </div>
         </section>
-
         <!--== End Category Area Wrapper ==-->
 
         <!--== Start Product Tab Area Wrapper ==-->
@@ -140,7 +138,6 @@
                                     labore et dolore magna aliqua</p>
                             </div>
                         </div>
-
                     </div>
                 </div>
                 <div class="row">
