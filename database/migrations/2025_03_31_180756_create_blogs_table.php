@@ -13,6 +13,14 @@ return new class extends Migration
     {
         Schema::create('blogs', function (Blueprint $table) {
             $table->id();
+            $table->string('title');
+            $table->longText('content');
+            $table->text('image');
+            $table->enum('status',['Hiện','Ẩn']);
+
+            $table->unsignedBigInteger('user_id');
+            $table->foreign('user_id')->references('id')->on('users');
+            
             $table->timestamps();
         });
     }

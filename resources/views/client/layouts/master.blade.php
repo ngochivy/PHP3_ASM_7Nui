@@ -68,7 +68,7 @@
                             <div class="header-align">
                                 <div class="header-align-left">
                                     <div class="header-logo-area">
-                                        <a href="index.html">
+                                        <a href="/">
                                             <img class="logo-main" src="{{ asset('assets/img/logo.png') }}"
                                                 alt="Logo" />
                                             <img class="logo-light" src="{{ asset('assets/img/logo.png') }}"
@@ -118,7 +118,7 @@
                     <div class="row row-gutter-0 align-items-center">
                         <div class="col-4 col-sm-6 col-lg-2">
                             <div class="header-logo-area">
-                                <a href="index.html">
+                                <a href="/">
                                     <img class="logo-main" src="{{ asset('assets/img/logo.png') }}" alt="Logo" />
                                     <img class="logo-light" src="{{ asset('assets/img/logo.png') }}" alt="Logo" />
                                 </a>
@@ -141,33 +141,13 @@
                                             <li><a href="page-not-found.html">404</a></li>
                                         </ul>
                                     </li>
-                                    <li class="has-submenu"><a href="shop.html">Cửa Hàng</a>
-                                        <ul class="submenu-nav">
-                                            <li><a href="shop-3-column.html">Cửa Hàng 3 Cột</a></li>
-                                            <li><a href="shop.html">Cửa Hàng 4 Cột</a></li>
-                                            <li><a href="shop-left-sidebar.html">Cửa Hàng Bên Trái</a></li>
-                                            <li><a href="shop-right-sidebar.html">Cửa Hàng Bên Phải</a></li>
-                                            <li><a href="shop.html">Cửa Hàng Không Sidebar</a></li>
-                                            <li><a href="shop-single-product.html">Chi Tiết Sản Phẩm</a></li>
-                                            <li><a href="shop-single-product-variable.html">Sản Phẩm Biến Thể</a></li>
-                                            <li><a href="shop-single-product-grouped.html">Sản Phẩm Nhóm</a></li>
-                                        </ul>
-                                    </li>
-                                    <li class="has-submenu"><a href="blog.html">Blog</a>
-                                        <ul class="submenu-nav">
-                                            <li><a href="blog.html">Blog 3 Cột</a></li>
-                                            <li><a href="blog-4-column.html">Blog 4 Cột</a></li>
-                                            <li><a href="blog-left-sidebar.html">Blog Bên Trái</a></li>
-                                            <li><a href="blog-right-sidebar.html">Blog Bên Phải</a></li>
-                                            <li><a href="blog.html">Blog Không Sidebar</a></li>
-                                            <li><a href="blog-details.html">Chi Tiết Blog Bên Trái</a></li>
-                                            <li><a href="blog-details-right-sidebar.html">Chi Tiết Blog Bên Phải</a>
-                                            </li>
-                                            <li><a href="blog-details-no-sidebar.html">Chi Tiết Blog Không Sidebar</a>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                    <li><a href="/contact">Contact</a></li>
+            
+                                  
+                                    <li><a href="/about">Giới thiệu</a></li>
+                                   
+    
+                                    <li><a href="/blog">Bài viết</a></li>
+                                    <li><a href="/contact">Liên hệ</a></li>
                                 </ul>
                             </div>
                         </div>
@@ -250,11 +230,9 @@
                                 <div id="dividerId-2" class="collapse widget-collapse-body">
                                     <nav class="widget-menu-wrap item-hover-style">
                                         <ul class="nav-menu nav">
-                                            <li><a href="about.html">- Giới thiệu</a></li>
-                                            <li><a href="blog.html">- Blog</a></li>
-                                            <li><a href="index.html">- Diễn giả</a></li>
-                                            <li><a href="contact.html">- Liên hệ</a></li>
-                                            <li><a href="index.html">- Vé</a></li>
+                                            <li><a href="/about">- Giới thiệu</a></li>
+                                            <li><a href="/blog">- Bài viết</a></li>
+                                            <li><a href="/contact">- Liên hệ</a></li>
                                         </ul>
                                     </nav>
                                 </div>
@@ -268,11 +246,10 @@
                                 <div id="dividerId-3" class="collapse widget-collapse-body">
                                     <nav class="widget-menu-wrap item-hover-style">
                                         <ul class="nav-menu nav">
-                                            <li><a href="index.html">- Jesco</a></li>
-                                            <li><a href="shop.html">- Cửa hàng</a></li>
-                                            <li><a href="contact.html">- Liên hệ chúng tôi</a></li>
-                                            <li><a href="login-register.html">- Đăng nhập</a></li>
-                                            <li><a href="index.html">- Trợ giúp</a></li>
+                                            <li><a href="/product">- Cửa hàng</a></li>
+                                            <li><a href="/contact">- Liên hệ</a></li>
+                                            <li><a href="/login">- Đăng nhập</a></li>
+                                            <li><a href="/index">- Trợ giúp</a></li>
                                         </ul>
                                     </nav>
                                 </div>
@@ -309,9 +286,9 @@
                         <div class="row text-center">
                             <div class="col-sm-12">
                                 <div class="widget-copyright">
-                                    <p><i class="fa fa-copyright"></i> 2021 <span>KIDOL. </span> Được tạo với <i
-                                            class="fa fa-heart"></i> bởi <a target="_blank"
-                                            href="https://www.hasthemes.com/">HasThemes</a></p>
+                                    <p><i class="fa fa-copyright"></i> 2025 <span>KIDOL. </span><i
+                                           
+                                            href=""> Nam - Khang - Linh - Vỹ</a></p>
                                 </div>
                             </div>
                         </div>
@@ -484,8 +461,8 @@
                                 <h4>Subtotal: <span>$278.90</span></h4>
                             </div>
                             <div class="cart-checkout-btn">
-                                <a class="cart-btn" href="shop-cart.html">view cart</a>
-                                <a class="checkout-btn" href="shop-checkout.html">checkout</a>
+                                <a class="cart-btn" href="/cart">Xem giỏ hàng</a>
+                                <a class="checkout-btn" href="/checkout">Thanh toán</a>
                             </div>
                         </div>
                     </div>
