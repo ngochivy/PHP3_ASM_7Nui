@@ -117,7 +117,7 @@
                                             <li><a href="index-2.html">Home Two</a></li>
                                         </ul>
                                     </li>
-                                    <li><a href="about.html">About</a></li>
+                                    <li><a href="/about">About</a></li>
                                     <li class="has-submenu"><a href="index.html">Pages</a>
                                         <ul class="submenu-nav">
                                             <li><a href="shop-cart.html">Cart page</a></li>
@@ -155,7 +155,7 @@
                                             <li><a href="blog-details-no-sidebar.html">Blog Details No Sidebar</a></li>
                                         </ul>
                                     </li>
-                                    <li><a href="contact.html">Contact</a></li>
+                                    <li><a href="/contact">Contact</a></li>
                                 </ul>
                             </div>
                         </div>
