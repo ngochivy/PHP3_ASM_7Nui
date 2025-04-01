@@ -85,9 +85,9 @@ class BlogResource extends Resource
                 TextColumn::make('title')
                     ->label('Tiêu đề')
                     ->searchable(),
-                ImageColumn::make('image')
-                    ->label('Hình ảnh')
-                    ->size(50),
+                // ImageColumn::make('image')
+                //     ->label('Hình ảnh')
+                //     ->size(50),
                 TextColumn::make('user.name')
                     ->label('Tác giả')
                     ->sortable()

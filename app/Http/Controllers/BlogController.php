@@ -28,21 +28,20 @@ class BlogController extends Controller
             abort(404);
         }
 
-        // Xử lý nội dung để thay đổi đường dẫn ảnh
+        // Process content images if needed
         if ($blog->content) {
             $blog->content = $this->processContentImages($blog->content);
         }
 
-        $data = [
-            'blog' => $blog,
+        // Pass as an object (no (array) casting)
+        return view('client.blog.blog-detail', [
+            'blog' => $blog,  // Keep as object
             'relatedBlogs' => DB::table('blogs')
                 ->where('id', '!=', $id)
                 ->orderBy('created_at', 'desc')
                 ->limit(3)
                 ->get()
-        ];
-
-        return view('client.blog.blog-detail', $data);
+        ]);
     }
 
     private function processContentImages($content)

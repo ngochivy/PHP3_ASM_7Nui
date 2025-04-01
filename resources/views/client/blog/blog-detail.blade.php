@@ -61,7 +61,7 @@ Chi tiết bài viết
                 <div class="col-lg-12">
                     <div class="post-details-content">
                         <div class="post-details-body">
-                            @if($blog->image)
+                            @if($blog->image) <!-- Changed from $data->image to $blogs->image -->
                             <div class="thumb">
                                 <img class="w-100" src="{{ asset('storage/'.$blog->image) }}" alt="{{ $blog->title }}">
                             </div>
@@ -83,25 +83,7 @@ Chi tiết bài viết
                         </div>
                     </div>
 
-                    <!-- Phần bài viết liên quan -->
-                    @if(count($relatedBlogs) > 0)
-                    <div class="related-posts mt-5">
-                        <h3>Bài viết liên quan</h3>
-                        <div class="row">
-                            @foreach($relatedBlogs as $related)
-                            <div class="col-md-4">
-                                <div class="related-post">
-                                    @if($related->image)
-                                    <img src="{{ asset('storage/'.$related->image) }}" alt="{{ $related->title }}" class="img-fluid">
-                                    @endif
-                                    <h5><a href="{{ route('blog.show', $related->id) }}">{{ $related->title }}</a></h5>
-                                    <small>{{ date('d/m/Y', strtotime($related->created_at)) }}</small>
-                                </div>
-                            </div>
-                            @endforeach
-                        </div>
-                    </div>
-                    @endif
+                    
 
                     <div class="comment-area">
                         <div class="row">
