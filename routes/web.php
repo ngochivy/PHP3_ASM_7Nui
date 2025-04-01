@@ -26,6 +26,7 @@ Route::post('/contact', [ContactController::class, "sendmail"]);
 Route::get('/checkout', [CheckoutController::class, "index"]);
 
 Route::get('/account', [AccountController::class, "account"]);
+Route::get('/profile', [AccountController::class, "profile"]);
 
 Route::get('/profile', [AccountController::class, "profile"]);
 
