@@ -45,13 +45,13 @@ class ProductResource extends Resource
                         Grid::make()
                             ->schema([
                                 TextInput::make('title')
-                                    ->label('Tên sản phẩm*')
+                                    ->label('Tên sản phẩm')
                                     ->required()
                                     ->maxLength(255)
                                     ->columnSpan(['md' => 8]),
 
                                 TextInput::make('slug')
-                                    ->label('Slug*')
+                                    ->label('Slug')
                                     ->required()
                                     ->columnSpan(['md' => 4]),
                             ]),
@@ -78,19 +78,19 @@ class ProductResource extends Resource
                         Grid::make()
                             ->schema([
                                 TextInput::make('price')
-                                    ->label('Giá bán*')
+                                    ->label('Giá bán')
                                     ->required()
                                     ->numeric()
                                     ->columnSpan(['md' => 4]),
 
                                 TextInput::make('sale_price')
-                                    ->label('Giá khuyến mãi*')
+                                    ->label('Giá khuyến mãi')
                                     ->required()
                                     ->numeric()
                                     ->columnSpan(['md' => 4]),
 
                                 Toggle::make('status')
-                                    ->label('Kích hoạt')
+                                    ->label('Trạng thái')
                                     ->default(true)
                                     ->columnSpan(['md' => 4]),
                             ]),
