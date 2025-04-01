@@ -61,59 +61,50 @@
                     <div class="col-lg-9 order-0 order-lg-1">
                         <div class="shop-toolbar-wrap">
                             <div class="product-showing-status">
-                                <p class="count-result"><span>12 </span> Sản phẩm trong tổng số <span>30</span></p>
+                                <p class="count-result"><span id="current-count">12</span> Sản phẩm trong tổng số <span id="total-count">30</span></p>
                             </div>
                             <div class="product-view-mode">
                                 <nav>
                                     <div class="nav nav-tabs active" id="nav-tab" role="tablist">
                                         <button class="nav-link active" id="column-three-tab" data-bs-toggle="tab"
                                             data-bs-target="#column-three" type="button" role="tab"
-                                            aria-controls="column-three" aria-selected="true"><i
-                                                class="fa fa-th"></i></button>
-                        
+                                            aria-controls="column-three" aria-selected="true"><i class="fa fa-th"></i></button>
                                         <button class="nav-link" id="nav-list-tab" data-bs-toggle="tab"
                                             data-bs-target="#nav-list" type="button" role="tab"
-                                            aria-controls="nav-list" aria-selected="false"><i
-                                                class="fa fa-list"></i></button>
-                        
+                                            aria-controls="nav-list" aria-selected="false"><i class="fa fa-list"></i></button>
                                         <button class="nav-link" id="column-two-tab" data-bs-toggle="tab"
                                             data-bs-target="#column-two" type="button" role="tab"
-                                            aria-controls="column-two" aria-selected="true"><i
-                                                class="fa fa-th-large"></i></button>
+                                            aria-controls="column-two" aria-selected="true"><i class="fa fa-th-large"></i></button>
                                     </div>
                                 </nav>
                             </div>
                             <div class="product-sorting-menu product-sorting">
-                                <span class="current">Sắp xếp theo: <span> Mặc định <i
-                                            class="fa fa-angle-down"></i></span></span>
+                                <span class="current">Sắp xếp theo: <span> Mặc định <i class="fa fa-angle-down"></i></span></span>
                                 <ul>
-                                    <li class="active"><a href="shop.html" class="active">Sắp xếp theo mặc định</a></li>
-                                    <li><a href="shop.html">Sắp xếp theo phổ biến</a></li>
-                                    <li><a href="shop.html">Sắp xếp theo đánh giá</a></li>
-                                    <li><a href="shop.html">Sắp xếp theo mới nhất</a></li>
-                                    <li><a href="shop.html">Sắp xếp theo giá: <i class="lastudioicon-arrow-up"></i></a></li>
-                                    <li><a href="shop.html">Sắp xếp theo giá: <i class="lastudioicon-arrow-down"></i></a></li>
+                                    <li class="active"><a href="#">Sắp xếp theo mặc định</a></li>
+                                    <li><a href="#">Sắp xếp theo phổ biến</a></li>
+                                    <li><a href="#">Sắp xếp theo đánh giá</a></li>
+                                    <li><a href="#">Sắp xếp theo mới nhất</a></li>
+                                    <li><a href="#">Sắp xếp theo giá: <i class="lastudioicon-arrow-up"></i></a></li>
+                                    <li><a href="#">Sắp xếp theo giá: <i class="lastudioicon-arrow-down"></i></a></li>
                                 </ul>
                             </div>
                         </div>
                         <div class="tab-content" id="nav-tabContent">
-                            <div class="tab-pane fade show active" id="column-three" role="tabpanel"
-                                aria-labelledby="column-three-tab">
-                                <div class="row">
-                                    <div class="col-sm-6 col-md-4">
-                                        <!-- Start Product Item -->
-                                        @foreach($products as $p )
+                            <div class="tab-pane fade show active" id="column-three" role="tabpanel" aria-labelledby="column-three-tab">
+                                <div class="row" id="product-list">
+                                    @foreach($products as $p )
+                                    <div class="col-md-4 mb-4">
                                         <div class="product-item">
                                             <div class="product-thumb">
-                                                <img src="{{ asset("storage/{$p->thumbnail}") }}" alt="Image">
+                                                <img src="{{ asset('storage/' . $p->thumbnail) }}" alt="Image">
                                                 <div class="product-action">
                                                     <a class="action-quick-view" href="shop-cart.html"><i class="ion-ios-cart"></i></a>
                                                     <a class="action-quick-view" href="javascript:void(0)"><i class="ion-arrow-expand"></i></a>
-                                                    <a class="action-quick-view" href="shop-wishlist.html"><i class="ion-heart"></i></a>
                                                     <a class="action-quick-view" href="shop-compare.html"><i class="ion-shuffle"></i></a>
                                                 </div>
                                             </div>
-                                            <div class="product-info">
+                                            <div class="product-info text-center">
                                                 <span href="/category">{{ $p->category->name }}</span> 
                                                 <div class="rating">
                                                     <span class="fa fa-star"></span>
@@ -123,21 +114,18 @@
                                                     <span class="fa fa-star"></span>
                                                 </div>                            
                                                 <h4 class="title">
-                                                    <a href="/product_detail/{{ $p->slug }}">{{ Str::limit($p->title, 50) }}</a> 
+                                                    <a href="/product_detail/{{ $p->slug }}">{{ Str::limit($p->title, 30) }}</a> 
                                                 </h4>
                                                 <div class="prices">
-                                                    <span class="old-price" style="text-decoration: line-through; color: gray;">{{ $p->price }}vnđ</span>
-                                                    <span class="new-price" style="color: red; font-weight: bold;">{{ number_format($p->price - $p->sale_price) }}vnđ</span>
+                                                    <span class="old-price" style="text-decoration: line-through; color: gray;">{{ number_format($p->price) }}vnđ</span>
+                                                    <span class="new-price" style="color: red; font-weight: bold;">{{ number_format($p->price -  $p->sale_price) }}vnđ</span>
                                                 </div>
                                             </div>
                                         </div>
-                                        @endforeach
-                                        
-                                        <!-- End Product Item -->
                                     </div>
+                                    @endforeach
                                 </div>
                             </div>
-                          
                         </div>
                         <div class="row">
                             <div class="col-lg-12">
@@ -164,6 +152,7 @@
                             </div>
                         </div>
                     </div>
+                    
                     <div class="col-lg-3 order-1 order-lg-0">
                         <div class="sidebar-area shop-sidebar-area">
                             <div class="widget-item">
@@ -173,14 +162,11 @@
                                 <div class="widget-body">
                                     <div class="widget-categories">
                                         <ul>
-                                            <li><a href="shop.html">Phụ kiện<span>(6)</span></a></li>
-                                            <li><a href="shop.html">Máy tính <span>(4)</span></a></li>
-                                            <li><a href="shop.html">Covid-19 <span>(2)</span></a></li>
-                                            <li><a href="shop.html">Điện tử <span>(6)</span></a></li>
-                                            <li><a href="shop.html">Kính râm <span>(12)</span></a></li>
-                                            <li><a href="shop.html">Nội thất <span>(7)</span></a></li>
-                                            <li><a href="shop.html">Da thật <span>(9)</span></a></li>
-                                        </ul>
+                                            @foreach($category as $c)
+                                            <li><a href="shop.html">{{ $c->name }}</a></li>
+                                            @endforeach
+                                           
+                                           
                                     </div>
                                 </div>
                             </div>
@@ -205,56 +191,8 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="widget-item">
-                                <div class="widget-title">
-                                    <h3 class="title">Màu sắc</h3>
-                                </div>
-                                <div class="widget-body">
-                                    <div class="widget-color">
-                                        <div class="form-check">
-                                            <input class="form-check-input red" type="radio" name="colorRadio" id="colorRadio1" checked>
-                                            <label class="form-check-label" for="colorRadio1">Đỏ (12)</label>
-                                        </div>
-                                        <div class="form-check">
-                                            <input class="form-check-input black" type="radio" name="colorRadio" id="colorRadio2">
-                                            <label class="form-check-label" for="colorRadio2">Đen nhạt (09)</label>
-                                        </div>
-                                        <div class="form-check">
-                                            <input class="form-check-input blue" type="radio" name="colorRadio" id="colorRadio3">
-                                            <label class="form-check-label" for="colorRadio3">Xanh đậm (07)</label>
-                                        </div>
-                                        <div class="form-check">
-                                            <input class="form-check-input gray" type="radio" name="colorRadio" id="colorRadio4">
-                                            <label class="form-check-label" for="colorRadio4">Xám (11)</label>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="widget-item mb-md-0">
-                                <div class="widget-title">
-                                    <h3 class="title">Kích thước</h3>
-                                </div>
-                                <div class="widget-body">
-                                    <div class="widget-size">
-                                        <div class="form-check">
-                                            <input class="form-check-input black" type="radio" name="colorRadio2" id="colorRadio5" checked>
-                                            <label class="form-check-label" for="colorRadio5">M (12)</label>
-                                        </div>
-                                        <div class="form-check">
-                                            <input class="form-check-input black" type="radio" name="colorRadio2" id="colorRadio6">
-                                            <label class="form-check-label" for="colorRadio6">L (09)</label>
-                                        </div>
-                                        <div class="form-check">
-                                            <input class="form-check-input black" type="radio" name="colorRadio2" id="colorRadio7">
-                                            <label class="form-check-label" for="colorRadio7">XL (07)</label>
-                                        </div>
-                                        <div class="form-check">
-                                            <input class="form-check-input black" type="radio" name="colorRadio2" id="colorRadio8">
-                                            <label class="form-check-label" for="colorRadio8">XXL (11)</label>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                           
+                      
                         </div>
                     </div>
                     
@@ -303,4 +241,9 @@
 
     <!--=== Custom Js ===-->
     <script src="{{ asset('assets/js/custom.js') }}"></script>
+
+
+    <!--=== Phan Trang ===-->
+    <script src="{{ asset('assets/js/phantrang.js') }}"></script>
+    
 @endpush

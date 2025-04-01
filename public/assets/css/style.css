@@ -5722,7 +5722,7 @@ table p {
 .product-item .product-thumb {
   border-radius: 5px 5px 0 0;
   align-items: center;
-  background-color: #e4f6fe;
+  background-color: #ffffff;
   display: flex;
   overflow: hidden;
   position: relative;
@@ -5837,7 +5837,7 @@ table p {
   }
 }
 .product-tab-content .nav-tabs .nav-item .nav-link {
-  border: 1px solid #e5e5e5;
+  border: 3px solid #d288a2;
   border-radius: 21px;
   color: #393939;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -7057,7 +7057,7 @@ table p {
   width: 100%;
 }
 .category-area.product-category1-area .category-items1 .category-item .thumb {
-  background-color: #fcdcea;
+  background-color:white;
   min-height: 240px;
   transition: all 0.3s ease-in-out;
   -webkit-transition: all 0.3s ease-in-out;
@@ -9481,3 +9481,45 @@ table p {
     padding: 22px 22px 20px;
   }
 }
+
+
+/* Tạo khoảng cách giữa các hàng */
+.nav-tabs .row {
+  margin-bottom: 20px;  /* Điều chỉnh giá trị này để tăng/giảm khoảng cách giữa các dòng */
+}
+
+/* Tạo khoảng cách giữa các mục trong mỗi hàng */
+.nav-tabs .nav-item {
+  margin-bottom: 10px; /* Tạo khoảng cách giữa các mục trong cùng một hàng */
+}
+
+.product-list .row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;  /* Khoảng cách giữa các sản phẩm */
+}
+
+.product-list .col-lg-3, .product-list .col-md-4, .product-list .col-sm-6 {
+  flex: 1 1 23%;  /* Mỗi sản phẩm chiếm 1/4 chiều rộng trong mỗi hàng */
+  max-width: 23%;  /* Đảm bảo không vượt quá 1/4 chiều rộng */
+  box-sizing: border-box;
+}
+
+/* Tùy chỉnh cho các màn hình nhỏ hơn */
+@media (max-width: 991px) {
+  .product-list .col-lg-3 {
+      flex: 1 1 45%;
+      max-width: 45%;
+  }
+}
+
+@media (max-width: 767px) {
+  .product-list .col-lg-3 {
+      flex: 1 1 100%;
+      max-width: 100%;
+  }
+}
+
+/* End */
+
+

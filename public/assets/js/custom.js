@@ -20,6 +20,7 @@
   $(".close-action > .btn-close, .off-canvas-overlay").on('click', function() {
     canvasWrapper.removeClass('active');
   });
+  
 
   //Responsive Slicknav JS
   $('.main-menu').slicknav({
@@ -514,3 +515,6 @@
   
 
 })(window.jQuery);
+
+
+  

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Category;
 use App\Models\Product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -10,7 +11,8 @@ class ProductController extends Controller
 {
     public static function index(){ 
         $products = Product::all();
-        return view('client.product.index', ['products' => $products]);
+        $category = Category::all();
+        return view('client.product.index', ['products' => $products, 'category' => $category]);
     }
 
     public static function detail($slug)
