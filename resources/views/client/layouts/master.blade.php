@@ -11,6 +11,7 @@
 </head>
 
 <body>
+    
     <div class="wrapper home-default-wrapper">
 
         <!--== Start Preloader Content ==-->
@@ -131,14 +132,13 @@
                                     <li><a href="about.html">Giới Thiệu</a></li>
                                     <li class="has-submenu"><a href="index.html">Trang</a>
                                         <ul class="submenu-nav">
-                                            <li><a href="shop-cart.html">Giỏ Hàng</a></li>
-                                            <li><a href="shop-checkout.html">Thanh Toán</a></li>
-                                            <li><a href="my-account.html">Tài Khoản Của Tôi</a></li>
-                                            <li><a href="shop-wishlist.html">Danh Sách Yêu Thích</a></li>
-                                            <li><a href="shop-compare.html">So Sánh</a></li>
-                                            <li><a href="login-register.html">Đăng Nhập / Đăng Ký</a></li>
-                                            <li><a href="coming-soon.html">Sắp Ra Mắt</a></li>
-                                            <li><a href="page-not-found.html">404</a></li>
+                                            @php
+                                                use App\Models\Category;
+                                                $category = Category::all();
+                                            @endphp
+                                            @foreach($category as $c)
+                                                <li><a href="/product">{{ $c->name }}<span></span></a></li>
+                                            @endforeach
                                         </ul>
                                     </li>
             
