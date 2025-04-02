@@ -352,26 +352,26 @@
     $(".product-review-form").toggle('active');
   });
 
-  // Product Qty
-  var proQty = $(".pro-qty");
-  proQty.append('<a href="#" class="inc qty-btn"><i class="fa fa-plus"></i></a>');
-  proQty.append('<a href="#" class= "dec qty-btn"><i class="fa fa-minus"></i></a>');
-  $('.qty-btn').on('click', function(e) {
+// Product Qty
+var proQty = $(".pro-qty, .pro-qty-style2"); // Gộp cả 2 loại vào chung
+proQty.append('<a href="#" class="inc qty-btn"><i class="fa fa-plus"></i></a>');
+proQty.append('<a href="#" class="dec qty-btn"><i class="fa fa-minus"></i></a>');
+
+$(document).on('click', '.qty-btn', function (e) { 
     e.preventDefault();
     var $button = $(this);
-    var oldValue = $button.parent().find('input').val();
+    var $input = $button.parent().find('input');
+    var oldValue = parseFloat($input.val());
+
     if ($button.hasClass('inc')) {
-      var newVal = parseFloat(oldValue) + 1;
+        var newVal = oldValue + 0;
     } else {
-      // Don't allow decrementing below zero
-      if (oldValue > 1) {
-        var newVal = parseFloat(oldValue) - 1;
-      } else {
-        newVal = 1;
-      }
+        newVal = oldValue > 1 ? oldValue - 1 : 1;
     }
-    $button.parent().find('input').val(newVal);
-  });
+    
+    $input.val(newVal);
+});
+
 
   // Product Qty
   var proQty2 = $(".pro-qty-style2");

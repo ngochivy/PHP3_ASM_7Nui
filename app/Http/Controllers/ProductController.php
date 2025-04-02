@@ -16,11 +16,13 @@ class ProductController extends Controller
     }
 
     public static function detail($slug)
-    { 
+    {
         $product = Product::where('slug', $slug)->first(); // Tìm kiếm theo slug -> tạo 1 cái biến = Model Product:: trỏ đến slug -> và lấy giá trị đầu tiên
         $data = ["product"=>$product]; 
         return view('client.product.detail', $data);
     }
+
+    
 
 
 }

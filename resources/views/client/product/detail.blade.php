@@ -116,7 +116,7 @@
                     <div class="col-lg-6">
                         <div class="single-product-info">
                             <h4 class="title">{{ $product->name }}</h4>
-                           
+
                             <div class="product-rating">
                                 <div class="rating">
                                     <span class="fa fa-star"></span>
@@ -137,26 +137,36 @@
                                     <li><i class="fa fa-check"></i> Hoàn tiền</li>
                                 </ul>
                             </div>
-                            <p class="product-desc">{{$product->description}}</p>
+                            <p class="product-desc">{{ $product->description }}</p>
                             <div class="prices">
-                                <span class="old-price" style="text-decoration: line-through; font-size:20px; color: gray;">{{ $product->price }}vnđ</span>
-                                                    <span class="new-price" style="color: red; font-weight: bold;">{{ number_format($product->price - $product->sale_price) }}vnđ</span>
+                                <span class="old-price"
+                                    style="text-decoration: line-through; font-size:20px; color: gray;">{{ $product->price }}vnđ</span>
+                                <span class="new-price"
+                                    style="color: red; font-weight: bold;">{{ number_format($product->price - $product->sale_price) }}vnđ</span>
                             </div>
-                            <div class="quick-product-action">
-                                <div class="action-top">
-                                    <div class="pro-qty">
-                                        <input type="text" id="quantity" title="Số lượng" value="01" />
+                            <form action="/cart" method="POST">
+                                @csrf
+                                <input type="hidden" name="id" value="{{ $product->id }}">
+                                <div class="quick-product-action">
+                                    <div class="action-top">
+                                        <div class="pro-qty">
+                                            <input type="text" id="qty" name="qty" title="Số lượng"
+                                                value="1" />
+                                        </div>
+                                        <button type="submit" class="btn btn-theme">Thêm vào giỏ hàng</button>
                                     </div>
-                                    <button class="btn btn-theme">Thêm vào giỏ hàng</button>
                                 </div>
-                                
-                            </div>
-                           
+                            </form>
+                            {{-- @if (session('success'))
+                                <div class="alert alert-success mt-2">
+                                    {{ session('success') }}
+                                </div>
+                            @endif --}}
                             <div class="widget">
                                 <h3 class="title">Danh mục: {{ $product->category->name }}</h3>
-                                
+
                             </div>
-                           
+
                             <div class="widget">
                                 <h3 class="title">Chia sẻ:</h3>
                                 <div class="widget-tags widget-share">
@@ -194,14 +204,15 @@
                                     <div class="tab-pane fade" id="commentProduct" role="tabpanel"
                                         aria-labelledby="product-aditional-tab">
                                         <div class="product-desc">
-                                            <p>Sản phẩm được thiết kế với chất lượng cao, đảm bảo sự hài lòng của khách hàng. 
+                                            <p>Sản phẩm được thiết kế với chất lượng cao, đảm bảo sự hài lòng của khách
+                                                hàng.
                                                 Vật liệu an toàn, bền bỉ và phù hợp với mọi lứa tuổi.</p>
                                         </div>
                                     </div>
                                     <div class="tab-pane fade show active" id="productDesc" role="tabpanel"
                                         aria-labelledby="product-desc-tab">
                                         <div class="product-desc">
-                                            <p>Sản phẩm này mang lại trải nghiệm tuyệt vời, giúp phát triển tư duy sáng tạo 
+                                            <p>Sản phẩm này mang lại trải nghiệm tuyệt vời, giúp phát triển tư duy sáng tạo
                                                 và kỹ năng cá nhân. Chất liệu cao cấp, an toàn cho người sử dụng.</p>
                                         </div>
                                     </div>
@@ -231,7 +242,8 @@
                                                                 <div class="form-group">
                                                                     <label for="reviewFormName">Tên</label>
                                                                     <input class="form-control" id="reviewFormName"
-                                                                        type="text" placeholder="Nhập tên của bạn" required="">
+                                                                        type="text" placeholder="Nhập tên của bạn"
+                                                                        required="">
                                                                 </div>
                                                             </div>
                                                             <div class="col-md-12">
@@ -276,7 +288,8 @@
                                                         <div class="row">
                                                             <div class="col-md-12">
                                                                 <div class="form-group pull-right">
-                                                                    <button class="btn btn-theme" type="submit">Gửi đánh giá</button>
+                                                                    <button class="btn btn-theme" type="submit">Gửi đánh
+                                                                        giá</button>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -293,8 +306,10 @@
                                                         <li><i class="fa fa-star-o"></i></li>
                                                     </ul>
                                                     <h4 class="title">Cobus Bester</h4>
-                                                    <h5 class="review-date"><span>Cobus Bester</span> vào <span>03 Tháng 3, 2021</span></h5>
-                                                    <p>Rất mong chờ để sử dụng sản phẩm này! Cập nhật chủ đề của bạn ngay!</p>
+                                                    <h5 class="review-date"><span>Cobus Bester</span> vào <span>03 Tháng 3,
+                                                            2021</span></h5>
+                                                    <p>Rất mong chờ để sử dụng sản phẩm này! Cập nhật chủ đề của bạn ngay!
+                                                    </p>
                                                     <a class="review-report" href="#/">Báo cáo vi phạm</a>
                                                 </div>
                                             </div>
@@ -303,7 +318,7 @@
                                 </div>
                             </div>
                         </div>
-                        
+
                     </div>
                 </div>
             </div>
@@ -311,46 +326,8 @@
         <!--== End Shop Area ==-->
 
         <!--== Start Shop Area ==-->
-        <section class="product-slider-area related-product-area">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-6 m-auto">
-                        <div class="section-title text-center">
-                            <h2 class="title">Sản phẩm liên quan</h2>
-                            <div class="desc">
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod incididunt ut
-                                    labore et dolore magna aliqua.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-12">
-                        <div class="product-tab1-slider">
-                            <div class="slide-item">
-                                <div class="product-item">
-                                    <div class="product-info">
-                                        
-                                        <div class="thumb-item">
-                                            <a class="lightbox-image" data-fancybox="gallery"
-                                                href="assets/img/shop/details/1.jpg">
-                                                <img src="{{ asset("storage/{$product->thumbnail}") }}" alt="Image">
-                                            </a>
-                                        </div>
-                                        <h4 class="title" style="text-align: center"><a href="shop-single-product.html">{{ $product->title }}</a></h4>
-                                        <div class="prices" style="text-align: center">
-                                            <span class="old-price" style="text-decoration: line-through; font-size:13px; color: gray;">{{ $product->price }}vnđ</span>
-                                                                <span class="new-price" style="color: red; font-weight: bold;">{{ number_format($product->price - $product->sale_price) }}vnđ</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        
+
+
         <!--== End Shop Area ==-->
     </main>
 @endsection
@@ -392,4 +369,18 @@
 
     <!--=== Custom Js ===-->
     <script src="{{ asset('assets/js/custom.js') }}"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    @if (session('success'))
+        <script>
+            Swal.fire({
+                title: "Thành công!",
+                text: "{{ session('success') }}",
+                icon: "success",
+                confirmButtonText: "OK",
+                timer: 2500
+            });
+        </script>
+    @endif
+
 @endpush
