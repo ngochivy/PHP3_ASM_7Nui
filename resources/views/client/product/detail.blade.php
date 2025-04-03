@@ -137,10 +137,10 @@
                                     <li><i class="fa fa-check"></i> Hoàn tiền</li>
                                 </ul>
                             </div>
-                            <p class="product-desc">{{ $product->description }}</p>
+                            <p class="product-desc">{!! $product->description !!} </p>
                             <div class="prices">
                                 <span class="old-price"
-                                    style="text-decoration: line-through; font-size:20px; color: gray;">{{ $product->price }}vnđ</span>
+                                    style="text-decoration: line-through; font-size:20px; color: gray;">{{  number_format($product->price)  }}vnđ</span>
                                 <span class="new-price"
                                     style="color: red; font-weight: bold;">{{ number_format($product->price - $product->sale_price) }}vnđ</span>
                             </div>
@@ -184,11 +184,7 @@
                         <div class="col-lg-12">
                             <div class="product-description-review">
                                 <ul class="nav nav-tabs product-description-tab-menu" id="myTab" role="tablist">
-                                    <li class="nav-item" role="presentation">
-                                        <button class="nav-link" id="product-aditional-tab" data-bs-toggle="tab"
-                                            data-bs-target="#commentProduct" type="button" role="tab"
-                                            aria-selected="false">Thông tin</button>
-                                    </li>
+                                   
                                     <li class="nav-item" role="presentation">
                                         <button class="nav-link active" id="product-desc-tab" data-bs-toggle="tab"
                                             data-bs-target="#productDesc" type="button" role="tab"
@@ -201,19 +197,11 @@
                                     </li>
                                 </ul>
                                 <div class="tab-content product-description-tab-content" id="myTabContent">
-                                    <div class="tab-pane fade" id="commentProduct" role="tabpanel"
-                                        aria-labelledby="product-aditional-tab">
-                                        <div class="product-desc">
-                                            <p>Sản phẩm được thiết kế với chất lượng cao, đảm bảo sự hài lòng của khách
-                                                hàng.
-                                                Vật liệu an toàn, bền bỉ và phù hợp với mọi lứa tuổi.</p>
-                                        </div>
-                                    </div>
+                                 
                                     <div class="tab-pane fade show active" id="productDesc" role="tabpanel"
                                         aria-labelledby="product-desc-tab">
-                                        <div class="product-desc">
-                                            <p>Sản phẩm này mang lại trải nghiệm tuyệt vời, giúp phát triển tư duy sáng tạo
-                                                và kỹ năng cá nhân. Chất liệu cao cấp, an toàn cho người sử dụng.</p>
+                                        <div class="product-desc" style="text-align:left">
+                                            <p>{!! $product->content !!}</p>
                                         </div>
                                     </div>
                                     <div class="tab-pane fade" id="productReview" role="tabpanel"

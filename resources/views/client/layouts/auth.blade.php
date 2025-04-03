@@ -36,8 +36,8 @@
                         </div>
                         <div class="col-xs-12 col-sm-7 col-md-8 col-lg-6 sm-pl-0 xs-pl-15 header-top-right">
                             <div class="header-info">
-                                <a href="tel://+00123456789"><i class="fa fa-phone"></i> +00 123 456 789</a>
-                                <a href="mailto://demo@example.com"><i class="fa fa-envelope"></i> demo@example.com</a>
+                                <a href="tel://+00123456789"><i class="fa fa-phone"></i> +84 979 888 888</a>
+                                <a href="mailto://demo@example.com"><i class="fa fa-envelope"></i> kidol@gmail.com</a>
                                 <a href="/account"><i class="fa fa-user"></i>Account</a>
                             </div>
                         </div>

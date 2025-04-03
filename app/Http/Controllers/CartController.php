@@ -4,40 +4,59 @@ namespace App\Http\Controllers;
 
 use App\Models\Product;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\Cookie;
 
 class CartController extends Controller
 {
+    /** Lấy giỏ hàng từ Cookie */
+    private function getCart()
+    {
+        $cart = json_decode(Cookie::get('cart', '[]'), true); // Giải mã JSON từ cookie // Nếu Cookie không tồn tại, thì cho '[rỗng]'.
+        return is_array($cart) ? $cart : []; // Đảm bảo trả về mảng
+    }
+
+    /** Hiển thị giỏ hàng */
     public function index()
     {
-      
+        $cart = $this->getCart();
+        $totalMoney = 0;
 
-        return view('client.cart');
-    }
-    /** Xu ly them moi voi gio hang */
-    public function store(Request $request)
-    {
-        // Kiểm tra giỏ hàng nếu chưa có thì tạo giỏ hàng trống
-        if (!Session::exists('cart')) {
-            Session::put('cart', []);
+        foreach ($cart as &$item) {
+            $product = Product::find($item['id']);
+            if ($product) {
+                $item['thumbnail'] = $product->thumbnail;
+                $item['title'] = $product->title;
+                $item['slug'] = $product->slug;
+                $item['sale_price'] = $product->sale_price ?? 0;
+                $item['price'] = $product->price;
+                $item['total'] = (($item['sale_price']) ? $item['price'] - $item['sale_price'] : $item['price']) * $item['qty'];
+
+                $totalMoney += $item['total'];
+            }
         }
 
-        // Lấy giỏ hàng hiện tại từ session
-        $cart = Session::get('cart');
+        return view('client.cart', [
+            'cart' => $cart,
+            'totalMoney' => $totalMoney
+        ]);
+    }
 
-        // Định nghĩa biến kiểm tra sản phẩm có trong giỏ hàng chưa
+    /** Thêm sản phẩm vào giỏ hàng */
+    public function store(Request $request)
+    {
+        $cart = $this->getCart();
         $inCart = false;
 
-        // Trường hợp 1: Sản phẩm đã có trong giỏ hàng -> tăng số lượng
+        // Nếu sản phẩm đã tồn tại, tăng số lượng
         foreach ($cart as &$item) {
-            if (isset($item['id']) && $item['id'] == $request->id) {
+            if ($item['id'] == $request->id) {
                 $item['qty'] += $request->qty;
                 $inCart = true;
                 break;
             }
         }
 
-        // Trường hợp 2: Sản phẩm chưa có trong giỏ hàng -> thêm mới vào giỏ hàng
+        // Nếu sản phẩm chưa tồn tại, thêm mới
         if (!$inCart) {
             $cart[] = [
                 "id"  => $request->id,
@@ -45,13 +64,34 @@ class CartController extends Controller
             ];
         }
 
-        // Lưu lại giỏ hàng vào session đúng định dạng
-        Session::put('cart', $cart);
+        // Lưu giỏ hàng vào cookie (30 ngày)
+        cookie()->queue('cart', json_encode($cart), 60 * 24 * 30);
 
-        print_r($cart); // Debug giỏ hàng để kiểm tra
-
-        // Lấy sản phẩm từ database để redirect (bỏ comment nếu cần)
-        $product = Product::find($request->id);
-        // return redirect('/product_detail/' . $product->slug)->with('success', 'Sản phẩm đã được thêm vào giỏ hàng thành công');
+        return redirect()->back()->with('success', 'Sản phẩm đã được thêm vào giỏ hàng');
     }
+
+ // Xoas tung sp ra khoi gio hang
+    public function remove($id)
+    {
+        $cart = $this->getCart();
+        $cart = array_filter($cart, function ($item) use ($id) {    
+            return $item['id'] != $id;
+        });
+
+        // Cập nhật lại giỏ hàng trong cookie
+        cookie()->queue('cart', json_encode($cart), 60 * 24 * 30);
+
+        return redirect()->back()->with('success', 'Sản phẩm đã được xóa khỏi giỏ hàng');
+    }
+
+    // Xoa all sp ra khoi gio hang
+    public function clear()
+    {
+        cookie()->queue(Cookie::forget('cart'));
+        return redirect()->back()->with('success', 'Xóa toàn bộ sản phẩm thành công');
+    }
+
+
+
+
 }

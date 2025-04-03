@@ -37,5 +37,8 @@ Route::get('/blog/{id}', [BlogController::class, "show"]);
 // cart
 Route::get('/cart', [CartController::class, "index"]);
 Route::post('/cart', [CartController::class, "store"]);
+Route::post('/cart/update', [CartController::class, 'updateCart']);
+Route::get('/cart/clear', [CartController::class, 'clear'])->name('cart.clear');
+
 
 

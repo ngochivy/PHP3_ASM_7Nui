@@ -11,7 +11,7 @@
 </head>
 
 <body>
-    
+
     <div class="wrapper home-default-wrapper">
 
         <!--== Start Preloader Content ==-->
@@ -37,8 +37,8 @@
                         </div>
                         <div class="col-xs-12 col-sm-7 col-md-8 col-lg-6 sm-pl-0 xs-pl-15 header-top-right">
                             <div class="header-info d-flex align-items-center gap-3">
-                                <a href="tel://+00123456789"><i class="fa fa-phone"></i> +00 123 456 789</a>
-                                <a href="mailto:demo@example.com"><i class="fa fa-envelope"></i> demo@example.com</a>
+                                <a href="tel://+00123456789"><i class="fa fa-phone"></i> +84 979 888 888</a>
+                                <a href="mailto:demo@example.com"><i class="fa fa-envelope"></i> kidol@gmail.com</a>
 
                                 <!-- Dropdown Tài Khoản -->
                                 <div class="dropdown">
@@ -136,16 +136,16 @@
                                                 use App\Models\Category;
                                                 $category = Category::all();
                                             @endphp
-                                            @foreach($category as $c)
+                                            @foreach ($category as $c)
                                                 <li><a href="/product">{{ $c->name }}<span></span></a></li>
                                             @endforeach
                                         </ul>
                                     </li>
-            
-                                  
+
+
                                     <li><a href="/about">Giới thiệu</a></li>
-                                   
-    
+
+
                                     <li><a href="/blog">Bài viết</a></li>
                                     <li><a href="/contact">Liên hệ</a></li>
                                 </ul>
@@ -193,8 +193,8 @@
                                     <a class="footer-logo" href="index.html">
                                         <img src="{{ asset('assets/img/logo-light.png') }}" alt="Logo">
                                     </a>
-                                    <p>Lorem ipsum dolor sit amet, consecl adipisicing elit, sed do eiusmod teml
-                                        incididunt ut labore et dolore magna aliqua Ut enim</p>
+                                    <p>Chúng tôi cung cấp những sản phẩm chất lượng cao, phục vụ khách hàng tốt nhất.
+                                    </p>
                                     <div class="widget-social-icons">
                                         <a href="#"><i class="ion-social-twitter"></i></a>
                                         <a href="#"><i class="ion-social-tumblr"></i></a>
@@ -286,9 +286,8 @@
                         <div class="row text-center">
                             <div class="col-sm-12">
                                 <div class="widget-copyright">
-                                    <p><i class="fa fa-copyright"></i> 2025 <span>KIDOL. </span><i
-                                           
-                                            href=""> Nam - Khang - Linh - Vỹ</a></p>
+                                    <p><i class="fa fa-copyright"></i> 2025 <span>KIDOL. </span><i href=""> Nam
+                                            - Khang - Linh - Vỹ</a></p>
                                 </div>
                             </div>
                         </div>
@@ -420,85 +419,76 @@
                 <div class="sidebar-cart-content">
                     <a class="cart-close" href="javascript:void(0);"><i class="pe-7s-close"></i></a>
                     <div class="sidebar-cart-all">
-                        <div class="cart-header">
-                            <h3>Shopping Cart</h3>
-                            <div class="close-style-wrap">
-                                <span class="close-style close-style-width-1 cart-close"></span>
+                       
+                  
+                            <div class="cart-header">
+                                <h3>Shopping Cart</h3>
+                                <div class="close-style-wrap">
+                                    <span class="close-style close-style-width-1 cart-close"></span>
+                                </div>
                             </div>
-                        </div>
-                        <div class="cart-content cart-content-padding">
-                            <ul>
-                                <li class="single-product-cart">
-                                    <div class="cart-img">
-                                        <a href="shop-single-product.html"><img
-                                                src="{{ asset('assets/img/shop/details/nav1.jpg') }}"
-                                                alt=""></a>
-                                    </div>
-                                    <div class="cart-title">
-                                        <h4><a href="shop-single-product.html">Jigsaw Puzzles For Kids </a></h4>
-                                        <span> 1 × <span class="price"> $12.00 </span></span>
-                                    </div>
-                                    <div class="cart-delete">
-                                        <a href="#/"><i class="pe-7s-trash icons"></i></a>
-                                    </div>
-                                </li>
-                                <li class="single-product-cart">
-                                    <div class="cart-img">
-                                        <a href="shop-single-product.html"><img
-                                                src="{{ asset('assets/img/shop/details/nav2.jpg') }}"
-                                                alt=""></a>
-                                    </div>
-                                    <div class="cart-title">
-                                        <h4><a href="shop-single-product.html">Bruder Toys Mini Ships </a></h4>
-                                        <span> 1 × <span class="price"> $59.00 </span></span>
-                                    </div>
-                                    <div class="cart-delete">
-                                        <a href="#/"><i class="pe-7s-trash icons"></i></a>
-                                    </div>
-                                </li>
-                            </ul>
-                            <div class="cart-total">
-                                <h4>Subtotal: <span>$278.90</span></h4>
-                            </div>
-                            <div class="cart-checkout-btn">
-                                <a class="cart-btn" href="/cart">Xem giỏ hàng</a>
-                                <a class="checkout-btn" href="/checkout">Thanh toán</a>
-                            </div>
+                            <div class="cart-content cart-content-padding">
+                                <ul>
+                                    <li class="single-product-cart">
+                                        <div class="cart-img">
+                                            <a href="shop-single-product.html"><img
+                                                    src="{{ asset('assets/img/shop/details/nav1.jpg') }}"
+                                                    alt=""></a>
+                                        </div>
+                                        <div class="cart-title">
+                                            <h4><a href="shop-single-product.html">Jigsaw Puzzles For Kids </a></h4>
+                                            <span> 1 × <span class="price"> $12.00 </span></span>
+                                        </div>
+                                        <div class="cart-delete">
+                                            <a href="#/"><i class="pe-7s-trash icons"></i></a>
+                                        </div>
+                                    </li>
+
+                                </ul>
+                                <div class="cart-total">
+                                    <h4>Subtotal: <span>$278.90</span></h4>
+                                </div>
+                 
+
+                        <div class="cart-checkout-btn">
+                            <a class="cart-btn" href="/cart">Xem giỏ hàng</a>
+                            <a class="checkout-btn" href="/checkout">Thanh toán</a>
                         </div>
                     </div>
                 </div>
             </div>
-        </aside>
-        <div class="sidebar-cart-overlay"></div>
-        <!--== End Sidebar Cart Menu ==-->
+    </div>
+    </aside>
+    <div class="sidebar-cart-overlay"></div>
+    <!--== End Sidebar Cart Menu ==-->
 
-        <!--== Start Side Menu ==-->
-        <aside class="off-canvas-wrapper">
-            <div class="off-canvas-inner">
-                <div class="off-canvas-overlay d-none"></div>
-                <!-- Start Off Canvas Content Wrapper -->
-                <div class="off-canvas-content">
-                    <!-- Off Canvas Header -->
-                    <div class="off-canvas-header">
-                        <div class="close-action">
-                            <button class="btn-close"><i class="pe-7s-close"></i></button>
-                        </div>
+    <!--== Start Side Menu ==-->
+    <aside class="off-canvas-wrapper">
+        <div class="off-canvas-inner">
+            <div class="off-canvas-overlay d-none"></div>
+            <!-- Start Off Canvas Content Wrapper -->
+            <div class="off-canvas-content">
+                <!-- Off Canvas Header -->
+                <div class="off-canvas-header">
+                    <div class="close-action">
+                        <button class="btn-close"><i class="pe-7s-close"></i></button>
                     </div>
-
-                    <div class="off-canvas-item">
-                        <!-- Start Mobile Menu Wrapper -->
-                        <div class="res-mobile-menu">
-                            <!-- Note Content Auto Generate By Jquery From Main Menu -->
-                        </div>
-                        <!-- End Mobile Menu Wrapper -->
-                    </div>
-                    <!-- Off Canvas Footer -->
-                    <div class="off-canvas-footer"></div>
                 </div>
-                <!-- End Off Canvas Content Wrapper -->
+
+                <div class="off-canvas-item">
+                    <!-- Start Mobile Menu Wrapper -->
+                    <div class="res-mobile-menu">
+                        <!-- Note Content Auto Generate By Jquery From Main Menu -->
+                    </div>
+                    <!-- End Mobile Menu Wrapper -->
+                </div>
+                <!-- Off Canvas Footer -->
+                <div class="off-canvas-footer"></div>
             </div>
-        </aside>
-        <!--== End Side Menu ==-->
+            <!-- End Off Canvas Content Wrapper -->
+        </div>
+    </aside>
+    <!--== End Side Menu ==-->
     </div>
 </body>
 
