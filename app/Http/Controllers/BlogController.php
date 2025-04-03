@@ -28,32 +28,75 @@ class BlogController extends Controller
             abort(404);
         }
 
-        // Process content images if needed
-        if ($blog->content) {
-            $blog->content = $this->processContentImages($blog->content);
-        }
+        $blog->content = $this->processContentImages($blog->content);
 
-        // Pass as an object (no (array) casting)
+        $relatedPosts = DB::table('blogs') // Đổi tên biến thành $relatedPosts
+            ->where('id', '!=', $id)
+            ->orderBy('created_at', 'desc')
+            ->limit(3)
+            ->get();
+
         return view('client.blog.blog-detail', [
-            'blog' => $blog,  // Keep as object
-            'relatedBlogs' => DB::table('blogs')
-                ->where('id', '!=', $id)
-                ->orderBy('created_at', 'desc')
-                ->limit(3)
-                ->get()
+            'blog' => $blog,
+            'relatedPosts' => $relatedPosts // Truyền biến với tên chính xác
         ]);
     }
-
     private function processContentImages($content)
     {
-        // Thay thế đường dẫn ảnh trong content
-        $storagePath = asset('storage/');
-        $content = preg_replace(
-            '/<img([^>]+)src="([^"]+)"([^>]*)>/',
-            '<img$1src="' . $storagePath . '/$2"$3>',
+        // Nếu không có nội dung
+        if (empty($content)) {
+            return $content;
+        }
+
+        // Xử lý cả thẻ img thông thường và thẻ figure từ Filament
+        $content = preg_replace_callback(
+            '/(<img[^>]+src="([^"]+)"[^>]*>)|(<figure[^>]+data-trix-attachment="([^"]+)"[^>]*>.*?<\/figure>)/i',
+            function ($matches) {
+                // Xử lý thẻ img thông thường
+                if (!empty($matches[2])) {
+                    $src = $matches[2];
+                    return $this->processImageSrc($matches[1], $src, $matches[3]);
+                }
+
+                // Xử lý thẻ figure từ Filament
+                if (!empty($matches[4])) {
+                    $json = json_decode(htmlspecialchars_decode($matches[4]), true);
+                    if (isset($json['url'])) {
+                        $src = $json['url'];
+                        $imgTag = '<img src="' . $src . '"';
+                        if (isset($json['width'])) $imgTag .= ' width="' . $json['width'] . '"';
+                        if (isset($json['height'])) $imgTag .= ' height="' . $json['height'] . '"';
+                        $imgTag .= '>';
+                        return $this->processImageSrc($imgTag, $src, '');
+                    }
+                }
+
+                return $matches[0];
+            },
             $content
         );
 
         return $content;
+    }
+
+    private function processImageSrc($imgTag, $src, $extra)
+    {
+        // Nếu đã là URL đầy đủ (http/https)
+        if (preg_match('/^https?:\/\//i', $src)) {
+            // Chuyển đổi localhost storage URL nếu cần
+            if (strpos($src, 'http://localhost/storage/') !== false) {
+                $newSrc = str_replace('http://localhost/storage/', asset('storage/'), $src);
+                return str_replace($src, $newSrc, $imgTag);
+            }
+            return $imgTag;
+        }
+
+        // Xử lý đường dẫn tương đối
+        if (strpos($src, 'storage/') === 0) {
+            $newSrc = asset($src);
+            return str_replace($src, $newSrc, $imgTag);
+        }
+
+        return $imgTag;
     }
 }
