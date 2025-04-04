@@ -41,18 +41,36 @@
                                 <a href="mailto:demo@example.com"><i class="fa fa-envelope"></i> kidol@gmail.com</a>
 
                                 <!-- Dropdown Tài Khoản -->
+                                <!-- Dropdown Tài Khoản -->
                                 <div class="dropdown">
-                                    <a class="dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
-                                        aria-expanded="false">
-                                        <i class="fa fa-user"></i> Tài Khoản
+                                    <a class="dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                        <i class="fa fa-user"></i>
+                                        @auth
+                                        {{ Auth::user()->name }} <!-- Hoặc Auth::user()->username tùy thuộc vào field trong database -->
+                                        @else
+                                        Tài Khoản
+                                        @endauth
                                     </a>
+
                                     <ul class="dropdown-menu">
-                                        <li><a class="dropdown-item" href="/profile"><i class="fa fa-user"></i> Tài
-                                                Khoản Của Tôi</a></li>
-                                        <li><a class="dropdown-item" href="/orders"><i class="fa fa-shopping-cart"></i>
-                                                Đơn Hàng Của Tôi</a></li>
-                                        <li><a class="dropdown-item" href="/account"><i class="fa fa-user-plus"></i>
-                                                Đăng Ký/<i class="fa fa-sign-in"></i> Đăng Nhập</a></li>
+                                        @auth
+                                        <!-- Hiển thị khi đã đăng nhập -->
+                                        <li><a class="dropdown-item" href="/profile"><i class="fa fa-user"></i> Tài Khoản Của Tôi</a></li>
+                                        <li><a class="dropdown-item" href="/orders"><i class="fa fa-shopping-cart"></i> Đơn Hàng Của Tôi</a></li>
+                                        <li>
+                                            <form method="POST" action="{{ route('logout') }}">
+                                                @csrf
+                                                <a class="dropdown-item" href="{{ route('logout') }}"
+                                                    onclick="event.preventDefault(); this.closest('form').submit();">
+                                                    <i class="fa fa-sign-out"></i> Đăng Xuất
+                                                </a>
+                                            </form>
+                                        </li>
+                                        @else
+                                        <!-- Hiển thị khi chưa đăng nhập -->
+                                        <li><a class="dropdown-item" href="{{ route('register') }}"><i class="fa fa-user-plus"></i> Đăng Ký</a></li>
+                                        <li><a class="dropdown-item" href="{{ route('login') }}"><i class="fa fa-sign-in"></i> Đăng Nhập</a></li>
+                                        @endauth
                                     </ul>
                                 </div>
                             </div>
@@ -133,10 +151,10 @@
                                     <li class="has-submenu"><a href="index.html">Trang</a>
                                         <ul class="submenu-nav">
                                             @php
-                                                use App\Models\Category;
-                                                $category = Category::all();
+                                            use App\Models\Category;
+                                            $category = Category::all();
                                             @endphp
-                                            @foreach ($category as $c)
+                                            @foreach($category as $c)
                                                 <li><a href="/product">{{ $c->name }}<span></span></a></li>
                                             @endforeach
                                         </ul>
@@ -286,8 +304,9 @@
                         <div class="row text-center">
                             <div class="col-sm-12">
                                 <div class="widget-copyright">
-                                    <p><i class="fa fa-copyright"></i> 2025 <span>KIDOL. </span><i href=""> Nam
-                                            - Khang - Linh - Vỹ</a></p>
+                                    <p><i class="fa fa-copyright"></i> 2025 <span>KIDOL. </span><i
+                                           
+                                            href=""> Nam - Khang - Linh - Vỹ</a></p>
                                 </div>
                             </div>
                         </div>
