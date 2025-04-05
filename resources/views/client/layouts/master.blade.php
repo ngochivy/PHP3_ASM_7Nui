@@ -422,7 +422,7 @@
                        
                   
                             <div class="cart-header">
-                                <h3>Shopping Cart</h3>
+                                <h3>Giỏ hàng</h3>
                                 <div class="close-style-wrap">
                                     <span class="close-style close-style-width-1 cart-close"></span>
                                 </div>
