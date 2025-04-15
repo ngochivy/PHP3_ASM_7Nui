@@ -55,6 +55,7 @@ require __DIR__.'/auth.php';
 
 Route::get('/product', [ProductController::class, "index"]);
 Route::get('/product_detail/{slug}', [ProductController::class, "detail"]);
+Route::get('/category/{id}', [ProductController::class, 'productsByCategory'])->name('category.products');
 
 Route::get('/about', [AboutController::class, "index"]);
 Route::get('/contact', [ContactController::class, "index"]);
@@ -73,6 +74,9 @@ Route::get('/cart', [CartController::class, "index"]);
 Route::post('/cart', [CartController::class, "store"]);
 Route::post('/cart/update', [CartController::class, 'updateCart']);
 Route::get('/cart/clear', [CartController::class, 'clear'])->name('cart.clear');
+
+
+
 
 
 

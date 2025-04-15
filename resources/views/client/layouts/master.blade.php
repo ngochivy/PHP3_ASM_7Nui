@@ -8,7 +8,11 @@
 
 
     @stack('stylesheet')
+
 </head>
+<style>
+
+</style>
 
 <body>
 
@@ -55,21 +59,22 @@
                                     <ul class="dropdown-menu">
                                         @auth
                                         <!-- Hiển thị khi đã đăng nhập -->
-                                        <li><a class="dropdown-item" href="/profile"><i class="fa fa-user"></i> Tài Khoản Của Tôi</a></li>
-                                        <li><a class="dropdown-item" href="/orders"><i class="fa fa-shopping-cart"></i> Đơn Hàng Của Tôi</a></li>
-                                        <li>
-                                            <form method="POST" action="{{ route('logout') }}">
+                                        <li style="padding: 0; margin: 0;"><a class="dropdown-item" href="/profile" style="padding: 8px 16px; display: block;"><i class="fa fa-user"></i> Tài Khoản Của Tôi</a></li>
+                                        <li style="padding: 0; margin: 0;"><a class="dropdown-item" href="/orders" style="padding: 8px 16px; display: block;"><i class="fa fa-shopping-cart"></i> Đơn Hàng Của Tôi</a></li>
+                                        <li style="padding: 0; margin: 0;">
+                                            <form method="POST" action="{{ route('logout') }}" style="margin: 0; padding: 0; display: block;">
                                                 @csrf
                                                 <a class="dropdown-item" href="{{ route('logout') }}"
-                                                    onclick="event.preventDefault(); this.closest('form').submit();">
+                                                    onclick="event.preventDefault(); this.closest('form').submit();"
+                                                    style="margin-left: -0px; padding: 8px 16px; display: block; border-left: 0;">
                                                     <i class="fa fa-sign-out"></i> Đăng Xuất
                                                 </a>
                                             </form>
                                         </li>
                                         @else
                                         <!-- Hiển thị khi chưa đăng nhập -->
-                                        <li><a class="dropdown-item" href="{{ route('register') }}"><i class="fa fa-user-plus"></i> Đăng Ký</a></li>
-                                        <li><a class="dropdown-item" href="{{ route('login') }}"><i class="fa fa-sign-in"></i> Đăng Nhập</a></li>
+                                        <li style="padding: 0; margin: 0;"><a class="dropdown-item" href="{{ route('register') }}" style="padding: 8px 16px; display: block;"><i class="fa fa-user-plus"></i> Đăng Ký</a></li>
+                                        <li style="padding: 0; margin: 0;"><a class="dropdown-item" href="{{ route('login') }}" style="padding: 8px 16px; display: block;"><i class="fa fa-sign-in"></i> Đăng Nhập</a></li>
                                         @endauth
                                     </ul>
                                 </div>
@@ -155,7 +160,7 @@
                                             $category = Category::all();
                                             @endphp
                                             @foreach($category as $c)
-                                                <li><a href="/product">{{ $c->name }}<span></span></a></li>
+                                            <li><a href="/product">{{ $c->name }}<span></span></a></li>
                                             @endforeach
                                         </ul>
                                     </li>
@@ -305,7 +310,7 @@
                             <div class="col-sm-12">
                                 <div class="widget-copyright">
                                     <p><i class="fa fa-copyright"></i> 2025 <span>KIDOL. </span><i
-                                           
+
                                             href=""> Nam - Khang - Linh - Vỹ</a></p>
                                 </div>
                             </div>
@@ -438,76 +443,76 @@
                 <div class="sidebar-cart-content">
                     <a class="cart-close" href="javascript:void(0);"><i class="pe-7s-close"></i></a>
                     <div class="sidebar-cart-all">
-                       
-                  
-                            <div class="cart-header">
-                                <h3>Giỏ hàng</h3>
-                                <div class="close-style-wrap">
-                                    <span class="close-style close-style-width-1 cart-close"></span>
-                                </div>
+
+
+                        <div class="cart-header">
+                            <h3>Giỏ hàng</h3>
+                            <div class="close-style-wrap">
+                                <span class="close-style close-style-width-1 cart-close"></span>
                             </div>
-                            <div class="cart-content cart-content-padding">
-                                <ul>
-                                    <li class="single-product-cart">
-                                        <div class="cart-img">
-                                            <a href="shop-single-product.html"><img
-                                                    src="{{ asset('assets/img/shop/details/nav1.jpg') }}"
-                                                    alt=""></a>
-                                        </div>
-                                        <div class="cart-title">
-                                            <h4><a href="shop-single-product.html">Jigsaw Puzzles For Kids </a></h4>
-                                            <span> 1 × <span class="price"> $12.00 </span></span>
-                                        </div>
-                                        <div class="cart-delete">
-                                            <a href="#/"><i class="pe-7s-trash icons"></i></a>
-                                        </div>
-                                    </li>
+                        </div>
+                        <div class="cart-content cart-content-padding">
+                            <ul>
+                                <li class="single-product-cart">
+                                    <div class="cart-img">
+                                        <a href="shop-single-product.html"><img
+                                                src="{{ asset('assets/img/shop/details/nav1.jpg') }}"
+                                                alt=""></a>
+                                    </div>
+                                    <div class="cart-title">
+                                        <h4><a href="shop-single-product.html">Jigsaw Puzzles For Kids </a></h4>
+                                        <span> 1 × <span class="price"> $12.00 </span></span>
+                                    </div>
+                                    <div class="cart-delete">
+                                        <a href="#/"><i class="pe-7s-trash icons"></i></a>
+                                    </div>
+                                </li>
 
-                                </ul>
-                                <div class="cart-total">
-                                    <h4>Subtotal: <span>$278.90</span></h4>
-                                </div>
-                 
+                            </ul>
+                            <div class="cart-total">
+                                <h4>Subtotal: <span>$278.90</span></h4>
+                            </div>
 
-                        <div class="cart-checkout-btn">
-                            <a class="cart-btn" href="/cart">Xem giỏ hàng</a>
-                            <a class="checkout-btn" href="/checkout">Thanh toán</a>
+
+                            <div class="cart-checkout-btn">
+                                <a class="cart-btn" href="/cart">Xem giỏ hàng</a>
+                                <a class="checkout-btn" href="/checkout">Thanh toán</a>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-    </div>
-    </aside>
-    <div class="sidebar-cart-overlay"></div>
-    <!--== End Sidebar Cart Menu ==-->
+        </aside>
+        <div class="sidebar-cart-overlay"></div>
+        <!--== End Sidebar Cart Menu ==-->
 
-    <!--== Start Side Menu ==-->
-    <aside class="off-canvas-wrapper">
-        <div class="off-canvas-inner">
-            <div class="off-canvas-overlay d-none"></div>
-            <!-- Start Off Canvas Content Wrapper -->
-            <div class="off-canvas-content">
-                <!-- Off Canvas Header -->
-                <div class="off-canvas-header">
-                    <div class="close-action">
-                        <button class="btn-close"><i class="pe-7s-close"></i></button>
+        <!--== Start Side Menu ==-->
+        <aside class="off-canvas-wrapper">
+            <div class="off-canvas-inner">
+                <div class="off-canvas-overlay d-none"></div>
+                <!-- Start Off Canvas Content Wrapper -->
+                <div class="off-canvas-content">
+                    <!-- Off Canvas Header -->
+                    <div class="off-canvas-header">
+                        <div class="close-action">
+                            <button class="btn-close"><i class="pe-7s-close"></i></button>
+                        </div>
                     </div>
-                </div>
 
-                <div class="off-canvas-item">
-                    <!-- Start Mobile Menu Wrapper -->
-                    <div class="res-mobile-menu">
-                        <!-- Note Content Auto Generate By Jquery From Main Menu -->
+                    <div class="off-canvas-item">
+                        <!-- Start Mobile Menu Wrapper -->
+                        <div class="res-mobile-menu">
+                            <!-- Note Content Auto Generate By Jquery From Main Menu -->
+                        </div>
+                        <!-- End Mobile Menu Wrapper -->
                     </div>
-                    <!-- End Mobile Menu Wrapper -->
+                    <!-- Off Canvas Footer -->
+                    <div class="off-canvas-footer"></div>
                 </div>
-                <!-- Off Canvas Footer -->
-                <div class="off-canvas-footer"></div>
+                <!-- End Off Canvas Content Wrapper -->
             </div>
-            <!-- End Off Canvas Content Wrapper -->
-        </div>
-    </aside>
-    <!--== End Side Menu ==-->
+        </aside>
+        <!--== End Side Menu ==-->
     </div>
 </body>
 

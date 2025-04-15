@@ -122,7 +122,8 @@ class ProductResource extends Resource
                     ->searchable(),
                 ImageColumn::make('thumbnail')
                     ->label('Ảnh sản phẩm')
-                    ->size('50'),
+                    ->width(70)
+                    ->height(50),
                 TextColumn::make('title')
                     ->label('Tên sản phẩm')
                     ->sortable()

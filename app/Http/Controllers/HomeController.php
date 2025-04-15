@@ -16,4 +16,7 @@ class HomeController extends Controller
 
         return view('client.home', ['category' => $category, 'product'=>$product, 'blog'=>$blog]);
     }
+
+    
+    
 }
