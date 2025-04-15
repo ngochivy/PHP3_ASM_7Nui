@@ -19,8 +19,8 @@ use Illuminate\Http\Request;
 // });
 
 Route::get('/', [HomeController::class, "index"])
-    ->name('home')
-    ->middleware(['auth', 'verified']);
+    ->name('home');
+    // ->middleware(['auth', 'verified']);
 
 Route::get('/dashboard', function () {
     return view('dashboard');
@@ -56,10 +56,15 @@ require __DIR__.'/auth.php';
 Route::get('/product', [ProductController::class, "index"]);
 Route::get('/product_detail/{slug}', [ProductController::class, "detail"]);
 Route::get('/category/{id}', [ProductController::class, 'productsByCategory'])->name('category.products');
+Route::get('/products/search', [ProductController::class, 'search'])->name('products.search');
+
 
 Route::get('/about', [AboutController::class, "index"]);
-Route::get('/contact', [ContactController::class, "index"]);
-Route::post('/contact', [ContactController::class, "sendmail"]);
+
+
+Route::get('/contact', [ContactController::class, "index"])->name('contact.index');
+Route::post('/contact', [ContactController::class, 'sendEmail'])->name('contact.send');
+
 Route::get('/checkout', [CheckoutController::class, "index"]);
 
 Route::get('/account', [AccountController::class, "account"]);

@@ -102,10 +102,10 @@
                                 </div>
                                 <div class="header-align-center">
                                     <div class="header-search-box">
-                                        <form action="#" method="post">
+                                        <form action="{{ route('products.search') }}" method="GET">
                                             <div class="form-input-item">
-                                                <label for="search" class="sr-only">Tìm kiếm</label>
-                                                <input type="text" id="search" placeholder="Tìm kiếm mọi thứ">
+                                                <label for="search" class="sr-only">Tìm kiếm...</label>
+                                                <input type="text" name="query" id="search" placeholder="Tìm kiếm..." value="{{ request('query') }}">
                                                 <button type="submit" class="btn-src">
                                                     <i class="pe-7s-search"></i>
                                                 </button>
