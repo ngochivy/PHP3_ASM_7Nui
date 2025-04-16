@@ -118,132 +118,6 @@
                     <div class="col-lg-9 order-0 order-lg-1">
                         <div class="shop-toolbar-wrap">
                             <div class="product-showing-status">
-                                <p class="count-result">
-                                    @if (request()->has('query'))
-                                        <span id="current-count">{{ count($products) }}</span> Sản phẩm tìm thấy cho từ
-                                        khóa <strong>{{ request('query') }}</strong>
-                                    @else
-                                        <span id="current-count">{{ count($products) }}</span> Sản phẩm trong tổng số <span
-                                            id="total-count">{{ count($products) }}</span>
-                                    @endif
-                                </p>
-                            </div>
-                        </div>
-                        <div class="tab-content" id="nav-tabContent">
-                            <div class="tab-pane fade show active" id="column-three" role="tabpanel"
-                                aria-labelledby="column-three-tab">
-                                <div class="row" id="product-list">
-                                    @foreach ($products as $p)
-                                        <div class="col-md-4 mb-4">
-                                            <div class="product-item">
-                                                <div class="product-thumb">
-                                                    <img src="{{ asset('storage/' . $p->thumbnail) }}" alt="Image">
-                                                    <div class="product-action">
-                                                        <a class="action-quick-view" href="shop-cart.html"><i
-                                                                class="ion-ios-cart"></i></a>
-                                                        <a class="action-quick-view" href="javascript:void(0)"><i
-                                                                class="ion-arrow-expand"></i></a>
-                                                        <a class="action-quick-view" href="shop-compare.html"><i
-                                                                class="ion-shuffle"></i></a>
-                                                    </div>
-                                                </div>
-                                                <div class="product-info text-center">
-                                                    <span href="/category">{{ $p->category->name }}</span>
-                                                    <div class="rating">
-                                                        <span class="fa fa-star"></span>
-                                                        <span class="fa fa-star"></span>
-                                                        <span class="fa fa-star"></span>
-                                                        <span class="fa fa-star"></span>
-                                                        <span class="fa fa-star"></span>
-                                                    </div>
-                                                    <h4 class="title">
-                                                        <a
-                                                            href="/product_detail/{{ $p->slug }}">{{ Str::limit($p->title, 30) }}</a>
-                                                    </h4>
-                                                    <div class="prices">
-                                                        <span class="old-price"
-                                                            style="text-decoration: line-through; color: gray;">{{ number_format($p->price) }}vnđ</span>
-                                                        <span class="new-price"
-                                                            style="color: red; font-weight: bold;">{{ number_format($p->price - $p->sale_price) }}vnđ</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    @endforeach
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Pagination -->
-                        <div class="row">
-                            <div class="col-lg-12">
-                                <div class="pagination-area mb-md-50">
-                                    <nav>
-                                        <ul class="page-numbers justify-content-end">
-                                            <li><a class="page-number active" href="blog.html">1</a></li>
-                                            <li><a class="page-number" href="blog.html">2</a></li>
-                                            <li><a class="page-number" href="blog.html">3</a></li>
-                                            <li><a class="page-number next" href="blog.html"><i
-                                                        class="fa fa-angle-right"></i></a></li>
-                                        </ul>
-                                    </nav>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-3 order-1 order-lg-0">
-                        <div class="sidebar-area shop-sidebar-area">
-                            <div class="widget-item">
-                                <div class="widget-title">
-                                    <h3 class="title">Danh mục sản phẩm</h3>
-                                </div>
-                                <div class="widget-body">
-                                    <div class="widget-categories">
-                                        <ul>
-                                            @foreach ($category as $c)
-                                                <li><a href="shop.html">{{ $c->name }}</a></li>
-                                            @endforeach
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="widget-item">
-                                <div class="widget-filter">
-                                    <div class="widget-title">
-                                        <h3 class="title">Lọc theo giá</h3>
-                                    </div>
-                                    <div class="widget-body">
-                                        <div class="widget-price-filter">
-                                            <div class="slider-labels">
-                                                <div class="caption">
-                                                    <span id="slider-range-value1"></span>
-                                                </div>
-                                                <span class="range-separator"></span>
-                                                <div class="caption">
-                                                    <span id="slider-range-value2"></span>
-                                                </div>
-                                            </div>
-                                            <div class="slider-range" id="slider-range"></div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-        </div>
-        </section>
-        <!--== End Page Title Area ==-->
-
-        <!--== Start Shop Area Wrapper ==-->
-        {{-- <div class="product-area product-grid-area">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-9 order-0 order-lg-1">
-                        <div class="shop-toolbar-wrap">
-                            <div class="product-showing-status">
                                 <p class="count-result"><span id="current-count">12</span> Sản phẩm trong tổng số <span
                                         id="total-count">30</span></p>
                             </div>
@@ -402,7 +276,7 @@
 
                 </div>
             </div>
-        </div> --}}
+        </div>
         <!--== End Shop Area Wrapper ==-->
     </main>
 @endsection
