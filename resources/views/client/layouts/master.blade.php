@@ -146,7 +146,7 @@
                             <div class="header-navigation-area d-none d-md-block">
                                 <ul class="main-menu nav position-relative">
                                     <li><a class="ml--2" href="/">Trang Chủ</a></li>
-                                    <li class="has-submenu"><a href="index.html">Sản Phẩm</a>
+                                    <li class="has-submenu"><a href="/product">Sản Phẩm</a>
                                         <ul class="submenu-nav">
                                             @php
                                             use App\Models\Category;
