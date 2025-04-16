@@ -77,8 +77,17 @@ Route::get('/blog/{id}', [BlogController::class, "show"]);
 // cart
 Route::get('/cart', [CartController::class, "index"]);
 Route::post('/cart', [CartController::class, "store"]);
-Route::post('/cart/update', [CartController::class, 'updateCart']);
 Route::get('/cart/clear', [CartController::class, 'clear'])->name('cart.clear');
+Route::get('/cart/delete/{id}', [CartController::class, 'delete'])->name('cart.delete');
+Route::post('/cart/update', [CartController::class, 'updateQty'])->name('cart.update');
+
+
+
+//checkout
+Route::get('/checkout', [CheckoutController::class, "index"])->name('checkout');
+Route::post('/momo_payment',[CheckoutController::class,"momo_payment"])->name('momo_payment');
+Route::get('/checkout/success',[CheckoutController::class,"checkout_success"])->name('/checkout/success');
+Route::get('/checkout/ipn',[CheckoutController::class,"checkout_ipn"])->name('checkout/ipn');
 
 
 

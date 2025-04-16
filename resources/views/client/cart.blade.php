@@ -79,7 +79,13 @@
                                     @else
                                         <thead>
                                             <tr>
-                                                <th class="width-thumbnail"></th>
+                                                <th class="width-id"
+                                                    style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; font-weight: bold;">
+                                                    ID</th>
+                                                <th class="width-thumbnail"
+                                                    style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; font-weight: bold;">
+                                                    Hình ảnh
+                                                </th>
                                                 <th class="width-name"
                                                     style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; font-weight: bold;">
                                                     Sản phẩm</th>
@@ -87,7 +93,7 @@
                                                     class="width-price"style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; font-weight: bold;">
                                                     Đơn giá</th>
                                                 <th
-                                                    class="width-quantity"style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; font-weight: bold;">
+                                                    class="width-quantity "style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; font-weight: bold;">
                                                     Số lượng</th>
                                                 <th
                                                     class="width-subtotal"style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; font-weight: bold;">
@@ -100,38 +106,47 @@
 
                                             @foreach ($cart as $item)
                                                 <tr>
+                                                    <td class="cart-id">
+                                                        <h5>
+                                                            {{ $item->id }}
+                                                        </h5>
+                                                    </td>
                                                     <td class="product-thumbnail">
-                                                        <a href="shop-single-product.html">
-                                                            <img src="{{ asset("storage/{$item['thumbnail']}") }}"
+                                                        <a href="{{$item->slug}}">
+                                                            <img src="{{ asset("storage/{$item->thumbnail}") }}"
                                                                 alt="Image">
                                                         </a>
                                                     </td>
                                                     <td class="product-name">
                                                         <h5><a
-                                                                href="/product_detail/{{ $item['slug'] }}">{{ $item['title'] }}</a>
+                                                                href="/product_detail/{{ $item->slug}}">{{ $item->title }}</a>
                                                         </h5>
                                                     </td>
-                                                    <td class="product-price">
+                                                    <td class="product-price" data-id={{$item->product_id}}>
                                                         <span
-                                                            class="amount">{{ number_format($item['price'] - $item['sale_price']) }}</span>
+                                                            class="amount">{{ number_format($item->price - $item->sale_price) }}</span>
                                                     </td>
                                                     <td class="cart-quality">
                                                         <div class="product-details-quality">
-                                                            <input type="number" class="input-text quantity-change"
-                                                                step="1" min="1" max="100" name="qty"
-                                                                value="{{ $item['qty'] }}" data-id="{{ $item['id'] }}"
-                                                                title="Số lượng" placeholder="">
+                                                            <input type="number"
+                                                                class="input-text quantity-change qty-input" step="1"
+                                                                min="1" max="100" name="qty"
+                                                                value="{{ $item->qty}}"
+                                                                data-id="{{ $item->product_id }}" title="Số lượng"
+                                                                placeholder="">
                                                         </div>
                                                     </td>
                                                     <td class="product-total">
-                                                        <span>{{ number_format($item['total']) }}</span>
+                                                        <span>{{ number_format($item->total) }}</span>
                                                     </td>
-                                                    <td class="product-remove">
+                                                    <td class="product-delete">
                                                         @if (!empty($cart) && count($cart) > 0)
-                                                            <a href="{{ route('cart.clear') }}" class="btn btn-danger"
-                                                                onclick="return confirm('Bạn có chắc chắn muốn xóa toàn bộ giỏ hàng?');">
-                                                                <i class="ion-ios-trash-outline">
-                                                                </i>
+                                                            <a href="{{ route('cart.delete', $item->id) }}"
+                                                                class="btn btn-danger confirm-action"
+                                                                data-title="Xác nhận xóa?"
+                                                                data-text = 'Bạn có muốn xóa sản phẩm'
+                                                                data-confirmButton = "Xác nhận" data-cancelButton = "Hủy">
+                                                                <i class="ion-ios-trash-outline"></i>
                                                             </a>
                                                         @endif
                                                     </td>
@@ -147,6 +162,13 @@
                             <div class="cart-shiping-btn continure-btn">
                                 <a class="btn btn-link" href="/product"><i class="ion-ios-arrow-left"></i> Tiếp tục mua
                                     hàng</a>
+                            </div>
+                            <div class="cart-shiping-btn continure-btn">
+                                <a class="btn btn-link confirm-action" href="{{ route('cart.clear') }}"
+                                    data-title="Xác nhận xóa?" data-text="Bạn có muốn xóa toàn bộ giỏ hàng"
+                                    data-confirmButton = "Xác nhận" data-cancelButton = "Hủy">
+                                    <i class="ion-ios-trash-outline"></i> Xóa toàn bộ giỏ hàng
+                                </a>
                             </div>
 
                         </div>
@@ -276,6 +298,69 @@
 
     <!--=== Custom Js ===-->
     <script src="{{ asset('assets/js/custom.js') }}"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $('.qty-input').on('change', function() {
+            let productId = $(this).data('id');
+            let newQty = $(this).val();
+            let id = $(this).data('product_id');
+            $.ajax({
+                url: '{{ route('cart.update') }}',
+                method: 'POST',
+                data: {
+                    id: productId,
+                    qty: newQty,
+                    _token: '{{ csrf_token() }}'
+                },
+                success: function(response) {
+                    if (response.success) {
+                        // Cập nhật giá từng sản phẩm
+                        $(`.amount[data-id="${id}"]`);
+-
+                        // Cập nhật tổng giỏ hàng nếu có
+                        // $('#product-total').text(response.cart_total + '₫');
+                        alert(response.message);
+                        // Optionally update UI: total price, cart count...
+                    } else {
+                        alert(response.message);
+                    }
+                },
+                error: function() {
+                    alert('Đã có lỗi xảy ra');
+                }
+            });
+        });
+    </script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const clearCartBtn = document.querySelector('.confirm-action');
+
+            clearCartBtn.addEventListener('click', function(e) {
+                e.preventDefault(); // Ngăn hành động mặc định
+
+                const title = this.dataset.title || 'Bạn chắc chứ?';
+                const text = this.dataset.text || 'Thao tác này không thể hoàn tác.';
+                const confirmText = this.dataset.confirmButton || 'Xác nhận';
+                const cancelText = this.dataset.cancelButton || 'Hủy';
+                const img = this.dataset.img;
+
+                Swal.fire({
+                    title: title,
+                    text: text,
+                    icon: 'warning',
+                    showCancelButton: true,
+                    confirmButtonColor: '#d33',
+                    cancelButtonColor: '#3085d6',
+                    confirmButtonText: confirmText,
+                    cancelButtonText: cancelText
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        window.location.href = clearCartBtn.href;
+                    }
+                });
+            });
+        });
+    </script>
 
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     @if (session('success'))
@@ -284,6 +369,17 @@
                 title: "Thành công!",
                 text: "{{ session('success') }}",
                 icon: "success",
+                confirmButtonText: "OK",
+                timer: 2500
+            });
+        </script>
+    @endif
+    @if (session('error'))
+        <script>
+            Swal.fire({
+                title: "Thất bại!",
+                text: "{{ session('error') }}",
+                icon: "error",
                 confirmButtonText: "OK",
                 timer: 2500
             });

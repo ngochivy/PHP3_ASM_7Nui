@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Product;
+use App\Models\Cart;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Cookie;
 
@@ -18,36 +19,32 @@ class CartController extends Controller
     /** Hiển thị giỏ hàng */
     public function index()
     {
-        $cart = $this->getCart();
-        $totalMoney = 0;
-
-        foreach ($cart as &$item) {
-            $product = Product::find($item['id']);
-            if ($product) {
-                $item['thumbnail'] = $product->thumbnail;
-                $item['title'] = $product->title;
-                $item['slug'] = $product->slug;
-                $item['sale_price'] = $product->sale_price ?? 0;
-                $item['price'] = $product->price;
-                $item['total'] = (($item['sale_price']) ? $item['price'] - $item['sale_price'] : $item['price']) * $item['qty'];
-
-                $totalMoney += $item['total'];
-            }
+        // return Cart::cartInnerJoinProduct();
+        $cart = Cart::cartInnerJoinProduct();
+        $totalMoney = 0; 
+        foreach ($cart as &$item) {  
+            $item->total = (($item->sale_price) ? $item->price - $item->sale_price : $item->price) * $item->qty;
+            $totalMoney += $item->total;
         }
 
+        // dd($cart);
         return view('client.cart', [
             'cart' => $cart,
             'totalMoney' => $totalMoney
         ]);
     }
 
-    /** Thêm sản phẩm vào giỏ hàng */
     public function store(Request $request)
     {
+        // dd($request);
+        $request->validate([
+            'id' => 'required|integer|exists:products,id',
+            'qty' => 'required|integer|min:1',
+        ]);
+
         $cart = $this->getCart();
         $inCart = false;
 
-        // Nếu sản phẩm đã tồn tại, tăng số lượng
         foreach ($cart as &$item) {
             if ($item['id'] == $request->id) {
                 $item['qty'] += $request->qty;
@@ -56,7 +53,6 @@ class CartController extends Controller
             }
         }
 
-        // Nếu sản phẩm chưa tồn tại, thêm mới
         if (!$inCart) {
             $cart[] = [
                 "id"  => $request->id,
@@ -64,34 +60,75 @@ class CartController extends Controller
             ];
         }
 
-        // Lưu giỏ hàng vào cookie (30 ngày)
-        cookie()->queue('cart', json_encode($cart), 60 * 24 * 30);
+        // Lưu vào DB
+        foreach ($cart as $item) {
+            $existing = Cart::where('user_id', 1)
+                ->where('product_id', $item['id'])
+                ->first();
+
+            if ($existing) {
+                $existing->qty += $item['qty'];
+                $existing->save();
+            } else {
+                Cart::create([
+                    'qty' => $item['qty'],
+                    'user_id' => 1,
+                    'product_id' => $item['id'],
+                ]);
+            }
+        }
 
         return redirect()->back()->with('success', 'Sản phẩm đã được thêm vào giỏ hàng');
     }
 
- // Xoas tung sp ra khoi gio hang
-    public function remove($id)
+    public function updateQty(Request $request)
     {
-        $cart = $this->getCart();
-        $cart = array_filter($cart, function ($item) use ($id) {    
-            return $item['id'] != $id;
-        });
+        $request->validate([
+            'id' => 'required|integer|exists:products,id',
+            'qty' => 'required|integer|min:1',
+        ]);
+        // dd($request);
+        $cartItem = Cart::where('user_id', 1)
+            ->where('product_id', $request->id)
+            ->first();
 
-        // Cập nhật lại giỏ hàng trong cookie
-        cookie()->queue('cart', json_encode($cart), 60 * 24 * 30);
+        if ($cartItem) {
+            $cartItem->qty = $request->qty;
+            $cartItem->save();
+
+            return response()->json([
+                'success' => true,
+                'message' => 'Cập nhật số lượng thành công',
+                'totalQty' => $cartItem->qty,
+            ]);
+        }
+
+        return response()->json([
+            'success' => false,
+            'message' => 'Không tìm thấy sản phẩm trong giỏ hàng',
+        ]);
+    }
+
+
+
+    // Xoas tung sp ra khoi gio hang
+    public function delete($id)
+    {
+        Cart::find($id)->delete();
 
         return redirect()->back()->with('success', 'Sản phẩm đã được xóa khỏi giỏ hàng');
     }
 
     // Xoa all sp ra khoi gio hang
-    public function clear()
-    {
-        cookie()->queue(Cookie::forget('cart'));
-        return redirect()->back()->with('success', 'Xóa toàn bộ sản phẩm thành công');
+    public function clear(Request $request)
+    {   
+        $cartItem = Cart::all();
+
+        foreach($cartItem as $item){
+            $item->delete();
+            return redirect()->back()->with('success', 'Xóa toàn bộ sản phẩm thành công');
+        }
+
+        return redirect()->back()->with('error', 'Xóa toàn bộ sản phẩm thất bại');
     }
-
-
-
-
 }
