@@ -5,10 +5,34 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@yield('meta_title', 'Trang chủ')</title>
-
-
+    
+    <link rel="shortcut icon" href="{{ asset('assets/img/favicon.ico') }}" type="image/x-icon" />
+    <!--== Google Fonts ==-->
+    <link href="https://fonts.googleapis.com/css?family=Fredoka+One:400" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Rubik:300,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+    <!--== Bootstrap CSS ==-->
+    <link href="{{ asset('assets/css/bootstrap.min.css') }}" rel="stylesheet" />
+    <!--== Font-awesome Icons CSS ==-->
+    <link href="{{ asset('assets/css/font-awesome.min.css') }}" rel="stylesheet" />
+    <!--== Pe Icon 7 Min Icons CSS ==-->
+    <link href="{{ asset('assets/css/pe-icon-7-stroke.min.css') }}" rel="stylesheet" />
+    <!--== Ionicons CSS ==-->
+    <link href="{{ asset('assets/css/ionicons.css') }}" rel="stylesheet" />
+    <!--== Animate CSS ==-->
+    <link href="{{ asset('assets/css/animate.css') }}" rel="stylesheet" />
+    <!--== Aos CSS ==-->
+    <link href="{{ asset('assets/css/aos.css') }}" rel="stylesheet" />
+    <!--== FancyBox CSS ==-->
+    <link href="{{ asset('assets/css/jquery.fancybox.min.css') }}" rel="stylesheet" />
+    <!--== Slicknav CSS ==-->
+    <link href="{{ asset('assets/css/slicknav.css') }}" rel="stylesheet" />
+    <!--== Swiper CSS ==-->
+    <link href="{{ asset('assets/css/swiper.min.css') }}" rel="stylesheet" />
+    <!--== Slick CSS ==-->
+    <link href="{{ asset('assets/css/slick.css') }}" rel="stylesheet" />
+    <!--== Main Style CSS ==-->
+    <link href="{{ asset('assets/css/style.css') }}" rel="stylesheet" />
     @stack('stylesheet')
-
 </head>
 <style>
 
@@ -47,34 +71,47 @@
                                 <!-- Dropdown Tài Khoản -->
                                 <!-- Dropdown Tài Khoản -->
                                 <div class="dropdown">
-                                    <a class="dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <a class="dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                                        aria-expanded="false">
                                         <i class="fa fa-user"></i>
                                         @auth
-                                        {{ Auth::user()->name }} <!-- Hoặc Auth::user()->username tùy thuộc vào field trong database -->
+                                            {{ Auth::user()->name }}
+                                            <!-- Hoặc Auth::user()->username tùy thuộc vào field trong database -->
                                         @else
-                                        Tài Khoản
+                                            Tài Khoản
                                         @endauth
                                     </a>
 
                                     <ul class="dropdown-menu">
                                         @auth
-                                        <!-- Hiển thị khi đã đăng nhập -->
-                                        <li style="padding: 0; margin: 0;"><a class="dropdown-item" href="/profile" style="padding: 8px 16px; display: block;"><i class="fa fa-user"></i> Tài Khoản Của Tôi</a></li>
-                                        <li style="padding: 0; margin: 0;"><a class="dropdown-item" href="/orders" style="padding: 8px 16px; display: block;"><i class="fa fa-shopping-cart"></i> Đơn Hàng Của Tôi</a></li>
-                                        <li style="padding: 0; margin: 0;">
-                                            <form method="POST" action="{{ route('logout') }}" style="margin: 0; padding: 0; display: block;">
-                                                @csrf
-                                                <a class="dropdown-item" href="{{ route('logout') }}"
-                                                    onclick="event.preventDefault(); this.closest('form').submit();"
-                                                    style="margin-left: -0px; padding: 8px 16px; display: block; border-left: 0;">
-                                                    <i class="fa fa-sign-out"></i> Đăng Xuất
-                                                </a>
-                                            </form>
-                                        </li>
+                                            <!-- Hiển thị khi đã đăng nhập -->
+                                            <li style="padding: 0; margin: 0;"><a class="dropdown-item" href="/profile"
+                                                    style="padding: 8px 16px; display: block;"><i class="fa fa-user"></i>
+                                                    Tài Khoản Của Tôi</a></li>
+                                            <li style="padding: 0; margin: 0;"><a class="dropdown-item" href="/orders"
+                                                    style="padding: 8px 16px; display: block;"><i
+                                                        class="fa fa-shopping-cart"></i> Đơn Hàng Của Tôi</a></li>
+                                            <li style="padding: 0; margin: 0;">
+                                                <form method="POST" action="{{ route('logout') }}"
+                                                    style="margin: 0; padding: 0; display: block;">
+                                                    @csrf
+                                                    <a class="dropdown-item" href="{{ route('logout') }}"
+                                                        onclick="event.preventDefault(); this.closest('form').submit();"
+                                                        style="margin-left: -0px; padding: 8px 16px; display: block; border-left: 0;">
+                                                        <i class="fa fa-sign-out"></i> Đăng Xuất
+                                                    </a>
+                                                </form>
+                                            </li>
                                         @else
-                                        <!-- Hiển thị khi chưa đăng nhập -->
-                                        <li style="padding: 0; margin: 0;"><a class="dropdown-item" href="{{ route('register') }}" style="padding: 8px 16px; display: block;"><i class="fa fa-user-plus"></i> Đăng Ký</a></li>
-                                        <li style="padding: 0; margin: 0;"><a class="dropdown-item" href="{{ route('login') }}" style="padding: 8px 16px; display: block;"><i class="fa fa-sign-in"></i> Đăng Nhập</a></li>
+                                            <!-- Hiển thị khi chưa đăng nhập -->
+                                            <li style="padding: 0; margin: 0;"><a class="dropdown-item"
+                                                    href="{{ route('register') }}"
+                                                    style="padding: 8px 16px; display: block;"><i
+                                                        class="fa fa-user-plus"></i> Đăng Ký</a></li>
+                                            <li style="padding: 0; margin: 0;"><a class="dropdown-item"
+                                                    href="{{ route('login') }}"
+                                                    style="padding: 8px 16px; display: block;"><i class="fa fa-sign-in"></i>
+                                                    Đăng Nhập</a></li>
                                         @endauth
                                     </ul>
                                 </div>
@@ -105,7 +142,8 @@
                                         <form action="{{ route('products.search') }}" method="GET">
                                             <div class="form-input-item">
                                                 <label for="search" class="sr-only">Tìm kiếm...</label>
-                                                <input type="text" name="query" id="search" placeholder="Tìm kiếm..." value="{{ request('query') }}">
+                                                <input type="text" name="query" id="search"
+                                                    placeholder="Tìm kiếm..." value="{{ request('query') }}">
                                                 <button type="submit" class="btn-src">
                                                     <i class="pe-7s-search"></i>
                                                 </button>
@@ -114,7 +152,7 @@
                                     </div>
                                 </div>
                                 <div class="header-align-right">
-                                    <div class="header-action-area">                                   
+                                    <div class="header-action-area">
                                         <div class="header-action-cart">
                                             <button class="btn-cart cart-icon">
                                                 <span class="cart-count">01</span>
@@ -137,8 +175,10 @@
                         <div class="col-4 col-sm-6 col-lg-2">
                             <div class="header-logo-area">
                                 <a href="/">
-                                    <img class="logo-main" src="{{ asset('assets/img/logo.png') }}" alt="Logo" />
-                                    <img class="logo-light" src="{{ asset('assets/img/logo.png') }}" alt="Logo" />
+                                    <img class="logo-main" src="{{ asset('assets/img/logo.png') }}"
+                                        alt="Logo" />
+                                    <img class="logo-light" src="{{ asset('assets/img/logo.png') }}"
+                                        alt="Logo" />
                                 </a>
                             </div>
                         </div>
@@ -149,11 +189,11 @@
                                     <li class="has-submenu"><a href="/product">Sản Phẩm</a>
                                         <ul class="submenu-nav">
                                             @php
-                                            use App\Models\Category;
-                                            $category = Category::all();
+                                                use App\Models\Category;
+                                                $category = Category::all();
                                             @endphp
-                                            @foreach($category as $c)
-                                            <li><a href="/product">{{ $c->name }}<span></span></a></li>
+                                            @foreach ($category as $c)
+                                                <li><a href="/product">{{ $c->name }}<span></span></a></li>
                                             @endforeach
                                         </ul>
                                     </li>
@@ -297,9 +337,8 @@
                         <div class="row text-center">
                             <div class="col-sm-12">
                                 <div class="widget-copyright">
-                                    <p><i class="fa fa-copyright"></i> 2025 <span>KIDOL. </span><i
-
-                                            href=""> Nam - Khang - Linh - Vỹ</a></p>
+                                    <p><i class="fa fa-copyright"></i> 2025 <span>KIDOL. </span><i href=""> Nam
+                                            - Khang - Linh - Vỹ</a></p>
                                 </div>
                             </div>
                         </div>
@@ -504,6 +543,41 @@
     </div>
 </body>
 
-@stack('javascript')
+<script src="{{ asset('assets/js/modernizr.js') }}"></script>
+<!--=== jQuery Min Js ===-->
+<script src="{{ asset('assets/js/jquery-main.js') }}"></script>
+<!--=== jQuery Migration Min Js ===-->
+<script src="{{ asset('assets/js/jquery-migrate.js') }}"></script>
+<!--=== Popper Min Js ===-->
+<script src="{{ asset('assets/js/popper.min.js') }}"></script>
+<!--=== Bootstrap Min Js ===-->
+<script src="{{ asset('assets/js/bootstrap.min.js') }}"></script>
+<!--=== jquery Appear Js ===-->
+<script src="{{ asset('assets/js/jquery.appear.js') }}"></script>
+<!--=== jquery Swiper Min Js ===-->
+<script src="{{ asset('assets/js/swiper.min.js') }}"></script>
+<!--=== jquery Fancybox Min Js ===-->
+<script src="{{ asset('assets/js/fancybox.min.js') }}"></script>
+<!--=== jquery Aos Min Js ===-->
+<script src="{{ asset('assets/js/aos.min.js') }}"></script>
+<!--=== jquery Slicknav Js ===-->
+<script src="{{ asset('assets/js/jquery.slicknav.js') }}"></script>
+<!--=== jquery Countdown Js ===-->
+<script src="{{ asset('assets/js/jquery.countdown.min.js') }}"></script>
+<!--=== jquery Tippy Js ===-->
+<script src="{{ asset('assets/js/tippy.all.min.js') }}"></script>
+<!--=== Isotope Min Js ===-->
+<script src="{{ asset('assets/js/isotope.pkgd.min.js') }}"></script>
+<!--=== Parallax Min Js ===-->
+<script src="{{ asset('assets/js/parallax.min.js') }}"></script>
+<!--=== Slick  Min Js ===-->
+<script src="{{ asset('assets/js/slick.min.js') }}"></script>
+<!--=== jquery Wow Min Js ===-->
+<script src="{{ asset('assets/js/wow.min.js') }}"></script>
+<!--=== jquery Zoom Min Js ===-->
+<script src="{{ asset('assets/js/jquery-zoom.min.js') }}"></script>
 
+<!--=== Custom Js ===-->
+<script src="{{ asset('assets/js/custom.js') }}"></script>
+@stack('javascript')
 </html>
