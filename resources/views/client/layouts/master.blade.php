@@ -114,13 +114,7 @@
                                     </div>
                                 </div>
                                 <div class="header-align-right">
-                                    <div class="header-action-area">
-                                        <div class="header-action-wishlist">
-                                            <button class="btn-wishlist"
-                                                onclick="window.location.href='shop-wishlist.html'">
-                                                <i class="pe-7s-like"></i>
-                                            </button>
-                                        </div>
+                                    <div class="header-action-area">                                   
                                         <div class="header-action-cart">
                                             <button class="btn-cart cart-icon">
                                                 <span class="cart-count">01</span>
@@ -152,8 +146,7 @@
                             <div class="header-navigation-area d-none d-md-block">
                                 <ul class="main-menu nav position-relative">
                                     <li><a class="ml--2" href="/">Trang Chủ</a></li>
-                                    <li><a href="about.html">Giới Thiệu</a></li>
-                                    <li class="has-submenu"><a href="index.html">Trang</a>
+                                    <li class="has-submenu"><a href="index.html">Sản Phẩm</a>
                                         <ul class="submenu-nav">
                                             @php
                                             use App\Models\Category;
@@ -184,11 +177,6 @@
                                 <div class="header-action-login">
                                     <button class="btn-login" onclick="window.location.href='login-register.html'">
                                         <i class="pe-7s-users"></i>
-                                    </button>
-                                </div>
-                                <div class="header-action-wishlist">
-                                    <button class="btn-wishlist" onclick="window.location.href='shop-wishlist.html'">
-                                        <i class="pe-7s-like"></i>
                                     </button>
                                 </div>
                                 <div class="header-action-cart">
