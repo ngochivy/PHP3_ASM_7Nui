@@ -32,6 +32,9 @@
     <link href="{{ asset('assets/css/slick.css') }}" rel="stylesheet" />
     <!--== Main Style CSS ==-->
     <link href="{{ asset('assets/css/style.css') }}" rel="stylesheet" />
+<!-- Toastr CSS -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" rel="stylesheet"/>
+    
     @stack('stylesheet')
 </head>
 <style>

@@ -110,7 +110,7 @@
                             <p class="product-desc">{!! $product->description !!} </p>
                             <div class="prices">
                                 <span class="old-price"
-                                    style="text-decoration: line-through; font-size:20px; color: gray;">{{  number_format($product->price)  }}vnđ</span>
+                                    style="text-decoration: line-through; font-size:20px; color: gray;">{{ number_format($product->price) }}vnđ</span>
                                 <span class="new-price"
                                     style="color: red; font-weight: bold;">{{ number_format($product->price - $product->sale_price) }}vnđ</span>
                             </div>
@@ -154,7 +154,7 @@
                         <div class="col-lg-12">
                             <div class="product-description-review">
                                 <ul class="nav nav-tabs product-description-tab-menu" id="myTab" role="tablist">
-                                   
+
                                     <li class="nav-item" role="presentation">
                                         <button class="nav-link active" id="product-desc-tab" data-bs-toggle="tab"
                                             data-bs-target="#productDesc" type="button" role="tab"
@@ -163,11 +163,11 @@
                                     <li class="nav-item" role="presentation">
                                         <button class="nav-link" id="product-review-tab" data-bs-toggle="tab"
                                             data-bs-target="#productReview" type="button" role="tab"
-                                            aria-controls="productReview" aria-selected="false">Đánh giá (03)</button>
+                                            aria-controls="productReview" aria-selected="false">Bình Luận</button>
                                     </li>
                                 </ul>
                                 <div class="tab-content product-description-tab-content" id="myTabContent">
-                                 
+
                                     <div class="tab-pane fade show active" id="productDesc" role="tabpanel"
                                         aria-labelledby="product-desc-tab">
                                         <div class="product-desc" style="text-align:left">
@@ -192,83 +192,96 @@
                                                 </div>
                                             </div>
                                             <div class="product-review-form">
-                                                <h4 class="title">Viết đánh giá</h4>
-                                                <form action="#" method="post">
+                                                <h4 class="title"></h4>
+                                                <form action="{{ route('binhluan', $product->id) }}" method="POST">
+                                                    @csrf
                                                     <div class="review-form-content">
                                                         <div class="row">
                                                             <div class="col-md-12">
-                                                                <div class="form-group">
-                                                                    <label for="reviewFormName">Tên</label>
-                                                                    <input class="form-control" id="reviewFormName"
-                                                                        type="text" placeholder="Nhập tên của bạn"
-                                                                        required="">
-                                                                </div>
-                                                            </div>
-                                                            <div class="col-md-12">
-                                                                <div class="form-group">
-                                                                    <label for="reviewFormEmail">Email</label>
-                                                                    <input class="form-control" id="reviewFormEmail"
-                                                                        type="email"
-                                                                        placeholder="john.smith@example.com"
-                                                                        required="">
-                                                                </div>
-                                                            </div>
-                                                            <div class="col-md-12">
                                                                 <div class="rating">
-                                                                    <span class="rating-title">Đánh giá</span>
-                                                                    <span>
-                                                                        <a class="fa fa-star-o" href="#/"></a>
-                                                                        <a class="fa fa-star-o" href="#/"></a>
-                                                                        <a class="fa fa-star-o" href="#/"></a>
-                                                                        <a class="fa fa-star-o" href="#/"></a>
-                                                                        <a class="fa fa-star-o" href="#/"></a>
-                                                                    </span>
+                                                                    <span class="rating-title">Tôi cho sản phẩm này:</span>
+                                                                    <div class="star-rating">
+                                                                        <input type="hidden" name="rating"
+                                                                            id="rating" value="0">
+                                                                        <a href="#" class="fa fa-star-o"
+                                                                            data-value="1"></a>
+                                                                        <a href="#" class="fa fa-star-o"
+                                                                            data-value="2"></a>
+                                                                        <a href="#" class="fa fa-star-o"
+                                                                            data-value="3"></a>
+                                                                        <a href="#" class="fa fa-star-o"
+                                                                            data-value="4"></a>
+                                                                        <a href="#" class="fa fa-star-o"
+                                                                            data-value="5"></a>
+                                                                    </div>
                                                                 </div>
                                                             </div>
+
                                                             <div class="col-md-12">
                                                                 <div class="form-group">
-                                                                    <label for="reviewReviewTitle">Tiêu đề đánh giá</label>
-                                                                    <input class="form-control" id="reviewReviewTitle"
-                                                                        type="text"
-                                                                        placeholder="Đặt tiêu đề cho đánh giá của bạn"
-                                                                        required="">
-                                                                </div>
-                                                            </div>
-                                                            <div class="col-md-12">
-                                                                <div class="form-group">
-                                                                    <label for="reviewFormTextarea">Nội dung đánh giá
-                                                                        <span>(1500 ký tự)</span></label>
-                                                                    <textarea class="form-control textarea" id="reviewFormTextarea" name="comment" rows="7"
-                                                                        placeholder="Viết nhận xét của bạn tại đây" required=""></textarea>
+                                                                    <textarea class="form-control" id="content" cols="30" name="content" rows="6"
+                                                                        placeholder="Nhập bình luận của bạn tại đây..." required>{{ old('content') }}</textarea>
+                                                                    @foreach ($errors->get('content') as $error)
+                                                                        <span
+                                                                            class="error-message">{{ $error }}</span>
+                                                                    @endforeach
                                                                 </div>
                                                             </div>
                                                         </div>
                                                         <div class="row">
                                                             <div class="col-md-12">
                                                                 <div class="form-group pull-right">
-                                                                    <button class="btn btn-theme" type="submit">Gửi đánh
-                                                                        giá</button>
+                                                                    <button class="btn btn-theme" type="submit">Bình
+                                                                        luận</button>
                                                                 </div>
                                                             </div>
                                                         </div>
                                                     </div>
                                                 </form>
+
                                             </div>
                                             <div class="review-content">
                                                 <div class="review-item">
-                                                    <ul class="review-rating">
-                                                        <li><i class="fa fa-star"></i></li>
-                                                        <li><i class="fa fa-star"></i></li>
-                                                        <li><i class="fa fa-star"></i></li>
-                                                        <li><i class="fa fa-star"></i></li>
-                                                        <li><i class="fa fa-star-o"></i></li>
-                                                    </ul>
-                                                    <h4 class="title">Cobus Bester</h4>
-                                                    <h5 class="review-date"><span>Cobus Bester</span> vào <span>03 Tháng 3,
-                                                            2021</span></h5>
-                                                    <p>Rất mong chờ để sử dụng sản phẩm này! Cập nhật chủ đề của bạn ngay!
-                                                    </p>
-                                                    <a class="review-report" href="#/">Báo cáo vi phạm</a>
+                                                    @foreach ($product->comments as $comment)
+                                                        <!-- Hiển thị danh sách bình luận -->
+                                                        <div id="review-content" class="review-content">
+                                                            <div class="review-item border rounded p-3 mb-3 shadow-sm">
+                                                                <h5 class="review-date">
+                                                                    <ul class="review-rating">
+                                                                        <li><i class="fa fa-star"></i></li>
+                                                                        <li><i class="fa fa-star"></i></li>
+                                                                        <li><i class="fa fa-star"></i></li>
+                                                                        <li><i class="fa fa-star"></i></li>
+                                                                        <li><i class="fa fa-star-o"></i></li>
+                                                                    </ul>
+                                                                    <span style="font-weight: 1000">
+                                                                        {{ optional($comment->user)->name ?? 'Người dùng' }}
+                                                                    </span>
+                                                                    <span style="font-weight: 400">
+                                                                        đã bình luận vào
+                                                                        {{ $comment->created_at->setTimezone('Asia/Ho_Chi_Minh')->format('H:i d/m/Y') }}
+                                                                    </span>
+                                                                </h5>
+
+                                                                <p class="mb-2">{{ $comment->content }}</p>
+                                                                @auth
+                                                                    @if (auth()->user()->id === $comment->user_id)
+                                                                        <div class="d-flex justify-content-end gap-2">
+                                                                            <!-- Nút xóa -->
+                                                                            <a href="{{ route('comment.delete', $comment->id) }}"
+                                                                                class="btn btn-danger confirm-action"
+                                                                                data-title="Xác nhận xóa?"
+                                                                                data-text = 'Bạn có muốn xóa sản phẩm'
+                                                                                data-confirmButton = "Xác nhận"
+                                                                                data-cancelButton = "Hủy">
+                                                                                <i class="ion-ios-trash-outline"></i>
+                                                                            </a>
+                                                                        </div>
+                                                                    @endif
+                                                                @endauth
+                                                            </div>
+                                                        </div>
+                                                    @endforeach
                                                 </div>
                                             </div>
                                         </div>
@@ -303,5 +316,66 @@
             });
         </script>
     @endif
+    <!-- SweetAlert2 -->
+    <script>
+        src = "https://cdn.jsdelivr.net/npm/sweetalert2@11" >
+    </script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            document.querySelectorAll('.confirm-action').forEach(function(btn) {
+                btn.addEventListener('click', function(e) {
+                    e.preventDefault(); // Ngăn chuyển trang ngay lập tức
+
+                    const title = this.dataset.title || 'Xác nhận?';
+                    const text = this.dataset.text || 'Bạn có chắc chắn không?';
+                    const confirmButton = this.dataset.confirmbutton || 'Xác nhận';
+                    const cancelButton = this.dataset.cancelbutton || 'Hủy';
+
+                    Swal.fire({
+                        title: title,
+                        text: text,
+                        icon: 'warning',
+                        showCancelButton: true,
+                        confirmButtonText: confirmButton,
+                        cancelButtonText: cancelButton,
+                        confirmButtonColor: '#d33', // Màu đỏ
+                    }).then((result) => {
+                        if (result.isConfirmed) {
+                            window.location.href = this.href;
+                        }
+                    });
+                });
+            });
+        });
+    </script>
+
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const stars = document.querySelectorAll('.star-rating a');
+            const ratingInput = document.getElementById('rating');
+
+            stars.forEach((star, index) => {
+                star.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const rating = this.dataset.value;
+                    ratingInput.value = rating;
+
+                    // reset tất cả sao
+                    stars.forEach(s => s.classList.remove('fa-star'));
+                    stars.forEach(s => s.classList.add('fa-star-o'));
+
+                    // đổi sao đã chọn thành màu vàng
+                    for (let i = 0; i < rating; i++) {
+                        stars[i].classList.remove('fa-star-o');
+                        stars[i].classList.add('fa-star');
+                    }
+                });
+            });
+        });
+    </script>
+
+
 
 @endpush

@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Support\Facades\Storage;
 
 class Product extends Model
@@ -28,6 +29,15 @@ class Product extends Model
     {
         // Cách tạo Category -> php artisan make:model Category
         // belongsTo là sp này thuộc về danh mục nào
-        return $this->belongsTo(Category::class); 
+        return $this->belongsTo(Category::class);
     }
+
+
+    // Product.php
+    public function comments(): HasMany
+    {
+        return $this->hasMany(Comment::class);
+    }
+
+  
 }

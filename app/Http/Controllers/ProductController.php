@@ -3,9 +3,18 @@
 namespace App\Http\Controllers;
 
 use App\Models\Category;
+use App\Models\Comment;
 use App\Models\Product;
+use App\Models\User;
+use Closure;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Redirect;
+use Illuminate\Support\Facades\Validator;
+
+
 
 class ProductController extends Controller
 {
@@ -41,34 +50,26 @@ class ProductController extends Controller
     public static function detail($slug)
     {
         $product = Product::where('slug', $slug)->first();
-        $data = ["product"=>$product]; 
+        $data = ["product" => $product];
         return view('client.product.detail', $data);
     }
 
     public function search(Request $request)
-{
+    {
 
-    $query = $request->input('query');
-
-  
-    $products = Product::where(function ($queryBuilder) use ($query) {
-        $queryBuilder->where('title', 'LIKE', "%{$query}%")
-                     ->orWhere('description', 'LIKE', "%{$query}%");
-    })->get();
-
-    $category = Category::all();
-
-    return view('client.product.index', compact('products', 'category'));
-}
+        $query = $request->input('query');
 
 
+        $products = Product::where(function ($queryBuilder) use ($query) {
+            $queryBuilder->where('title', 'LIKE', "%{$query}%")
+                ->orWhere('description', 'LIKE', "%{$query}%");
+        })->get();
 
-    
-    
-    
+        $category = Category::all();
 
+        return view('client.product.index', compact('products', 'category'));
+    }
 
-    
 
     public function productsByCategory(Request $request, $id)
     {
@@ -92,4 +93,104 @@ class ProductController extends Controller
             'currentSort' => $sort
         ]);
     }
+
+    public function handle(Request $request, Closure $next)
+    {
+        if (!Auth::check()) {
+            return $request->expectsJson()
+                ? response()->json(['message' => 'Bạn cần đăng nhập để bình luận.'], 403)
+                : redirect()->back()->with('error', 'Bạn cần đăng nhập để bình luận.');
+        }
+    
+        $slug = $request->route('slug');
+        $product = Product::where('slug', $slug)->first();
+    
+        if (!$product) {
+            return $request->expectsJson()
+                ? response()->json(['message' => 'Sản phẩm không tồn tại.'], 404)
+                : redirect()->back()->with('error', 'Sản phẩm không tồn tại.');
+        }
+    
+        $userId = Auth::id();
+        $productId = $product->id;
+    
+        $hasPurchased = DB::table('orders')
+            ->join('order_details', 'orders.id', '=', 'order_details.order_id')
+            ->where('orders.user_id', $userId)
+            ->where('order_details.product_id', $productId)
+            ->where('orders.status', 'đã thanh toán')
+            ->exists();
+    
+        if (!$hasPurchased) {
+            return $request->expectsJson()
+                ? response()->json(['message' => 'Bạn cần mua sản phẩm này để bình luận.'], 403)
+                : redirect()->back()->with('error', 'Bạn cần mua sản phẩm này để bình luận.');
+        }
+    
+        return $next($request);
+    }
+    
+
+
+
+
+    public function comment(Request $request, $slug)
+    {
+        
+        // Tìm sản phẩm từ slug
+        $product = Product::where('slug', $slug)->firstOrFail();
+
+        // Validate dữ liệu
+        $validator = Validator::make($request->all(), [
+            'content' => 'required|max:255',
+        ], [
+            'content.required' => "Vui lòng nhập nội dung",
+            'content.max' => "Tối đa 255 ký tự",
+        ]);
+
+        if ($validator->fails()) {
+            return redirect()
+                ->back()
+                ->withErrors($validator)
+                ->withInput();
+        }
+
+        // Tạo bình luận
+        Comment::create([
+            'user_id'    => Auth::id(),
+            'content'    => $request->content,
+            'product_id' => $product->id,
+        ]);
+
+        return redirect()->route('productDetail', $slug)
+            ->with('success', 'Bình luận đã được gửi!');
+    }
+
+
+
+
+
+
+    public function productDetail($slug)
+    {
+        $product = Product::where('slug', $slug)->firstOrFail();
+
+        // Load comments kèm user của mỗi comment
+        $comments = $product->comments()
+            ->with('user')  //
+            ->orderBy('created_at', 'desc')
+            ->paginate(5);
+
+        return view('product.detail', compact('product', 'comments'));
+    }
+
+
+
+    public function delete($id)
+    {
+        Comment::find($id)->delete();
+
+        return redirect()->back()->with('success', 'Bình luận đã được xóa thành công');
+    }
+    
 }
