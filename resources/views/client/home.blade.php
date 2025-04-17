@@ -332,5 +332,48 @@
         
         <!--== End Blog Area Wrapper ==-->
     </main>
+
+    @if (session('success_message'))
+    <div id="successPopup"
+        class="position-fixed top-50 start-50 translate-middle bg-white border border-success shadow-lg rounded-4 p-4"
+        style="z-index: 1000; width: 100%; max-width: 550px; transition: opacity 0.5s ease;">
+        <div class="d-flex justify-content-between align-items-center mb-3">
+            <h5 class="text-success mb-0">🎉 Thanh toán thành công!</h5>
+            <button type="button" class="btn-close" onclick="document.getElementById('successPopup').remove()"
+                aria-label="Close"></button>
+        </div>
+        <div class="table-responsive">
+            {!! session('success_message') !!}
+        </div>
+        <div class="mt-4 text-end">
+            <a href="{{ url('/') }}" class="btn btn-outline-success btn-sm">🏠 Về trang chủ</a>
+            <a href="{{ url('/order/' . $orderId) }}" class="btn btn-success btn-sm">Xem đơn hàng</a>
+        </div>
+    </div>
+@endif
+
+
 @endsection
+
+@push('javascript')
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Show success toast if session message exists
+        @if (session('success_message'))
+            const toastEl = document.getElementById('toast');
+            const toast = new bootstrap.Toast(toastEl);
+            toast.show();
+        @endif
+
+        // Success Popup fade-out and remove after 5 seconds
+        const popup = document.getElementById('successPopup');
+        if (popup) {
+            setTimeout(() => {
+                popup.style.opacity = '0';
+                setTimeout(() => popup.remove(), 500); // fade-out rồi xoá
+            }, 5000); // after 5 seconds
+        }
+    });
+</script>
+@endpush
 

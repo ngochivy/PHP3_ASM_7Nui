@@ -95,9 +95,14 @@ Route::post('/cart/update', [CartController::class, 'updateQty'])->name('cart.up
 
 //checkout
 Route::get('/checkout', [CheckoutController::class, "index"])->name('checkout');
-Route::post('/momo_payment', [CheckoutController::class, "momo_payment"])->name('momo_payment');
-Route::get('/checkout/success', [CheckoutController::class, "checkout_success"])->name('/checkout/success');
-Route::get('/checkout/ipn', [CheckoutController::class, "checkout_ipn"])->name('checkout/ipn');
+Route::post('/momo_payment',[CheckoutController::class,"momo_payment"])->name('momo_payment');
+Route::get('/checkout/success',[CheckoutController::class,"checkout_success"])->name('checkout.success');
+Route::get('/checkout/ipn',[CheckoutController::class,"checkout_ipn"])->name('checkout.ipn');
+
+//middleware dang nhap 
+// Route::middleware(['auth'])->group(function () {
+//     Route::get('/checkout/success', [CheckoutController::class, 'checkout_success'])->name('checkout.success');
+// });
 
 
 

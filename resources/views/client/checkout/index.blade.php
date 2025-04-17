@@ -1,201 +1,345 @@
 @extends('client.layouts.master')
 @section('meta_title')
-Thanh toán
+    Thanh toán
 @endsection
+@push('stylesheet')
+@endpush
+
+
 
 @section('content')
-<main class="main-content">
-    <!--== Start Page Title Area ==-->
-    <section class="page-title-area">
-      <div class="container">
-        <div class="row align-items-center">
-          <div class="col-lg-12 m-auto">
-            <div class="page-title-content text-center">
-              <h2 class="title">Thanh toán</h2>
-              <div class="bread-crumbs"><a href="index.html"> Trang chủ </a><a href="index.html">// Giỏ hàng </a><span class="breadcrumb-sep"> // </span><span class="active"> thanh toán</span></div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-    <!--== End Page Title Area ==-->
-
-    <!--== Start Checkout Area Wrapper ==-->
-    <section class="product-area shop-checkout-area">
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-6 m-auto">
-            <div class="section-title text-center">
-              <h2 class="title">Thanh toán</h2>
-            </div>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-lg-12">
-            <div class="checkout-coupon-wrap mb-65 mb-md-40">
-              <p class="cart-page-title"><i class="ion-ios-pricetag-outline"></i> Bạn có mã giảm giá không? <a class="checkout-coupon-active" href="#/">nhấn vào đây để nhận mã cho bạn</a></p>
-              <div class="checkout-coupon-content">
-                <form action="#">
-                  <p>If you have a coupon code, please apply it below.</p>
-                  <input type="text" placeholder="Coupon code">
-                  <button type="submit">Apply coupon</button>
-                </form>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-lg-7">
-            <div class="billing-info-wrap">
-              <h3>chi tiết thanh toán</h3>
-              <div class="row">
-                <div class="col-12">
-                  <div class="billing-info mb-20">
-                    <label>Họ <abbr class="required" title="required">*</abbr></label>
-                    <input type="text">
-                  </div>
-                </div>
-                <div class="col-12">
-                  <div class="billing-info mb-20">
-                    <label>Tên <abbr class="required" title="required">*</abbr></label>
-                    <input type="text">
-                  </div>
-                </div>
-              
-                <div class="col-12">
-                  <div class="billing-select mb-20">
-                    <label>Thành phố | tỉnh thành <abbr class="required" title="required">*</abbr></label>
-                    <div class="select-style">
-                      <select class="select-active">
-                        <option>An Giang</option>
-                        <option>Kiên Giang</option>
-                        <option>Bến Tre</option>
-                        <option>Trà Vinh</option>
-                        <option>Cà Mau</option>
-                      </select>
+    <main class="main-content">
+        <!--== Start Page Title Area ==-->
+        <section class="page-title-area">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-12 m-auto">
+                        <div class="page-title-content text-center">
+                            <h2 class="title">Thanh toán</h2>
+                            <div class="bread-crumbs"><a href="index.html"> Trang chủ </a><a href="index.html">// Giỏ hàng
+                                </a><span class="breadcrumb-sep"> // </span><span class="active"> thanh toán</span></div>
+                        </div>
                     </div>
-                  </div>
                 </div>
-                <div class="col-12">
-                  <div class="billing-info mb-20">
-                    <label>Địa chỉ <abbr class="required" title="required">*</abbr></label>
-                    <input class="billing-address" placeholder="số nhà" type="text">
-                    
-                  </div>
-                </div>
-              
-                <div class="col-12">
-                  <div class="billing-select mb-20">
-                    <label>Huyện <abbr class="required" title="required">*</abbr></label>
-                    <div class="select-style">
-                      <select class="select-active">
-                        <option>Tri Tôn</option>
-                        <option>Thoại Sơn</option>
-                        <option>Chợ Mới</option>
-                        <option>Châu Phú</option>
-                        <option>Tân Phú</option>
-                      </select>
-                    </div>
-                  </div>
-                </div>
-            
-                </div>
-                <div class="col-12">
-                  <div class="billing-info mb-20">
-                    <label>Số điện thoại <abbr class="required" title="required">*</abbr></label>
-                    <input type="text">
-                  </div>
-                </div>
-                <div class="col-12">
-                  <div class="billing-info mb-20">
-                    <label>Email <abbr class="required" title="required">*</abbr></label>
-                    <input type="text">
-                  </div>
-                </div>
-              
-              
-              <div class="additional-info-wrap">
-                <label>Ghi chú ( nếu có)</label>
-                <textarea placeholder="Notes about your order, e.g. special notes for delivery. " name="message"></textarea>
-              </div>
             </div>
-          </div>
-          <div class="col-lg-5">
-  <div class="your-order-area">
-    <h3>Đơn của bạn</h3>
-    <div class="your-order-wrap">
-      <div class="your-order-info-wrap">
-        <div class="your-order-title">
-          <h4>Sản phẩm <span>Tổng cộng</span></h4>
-        </div>
-        <div class="your-order-product">
-          <ul>
-            <li>Áo hoodie Brother Hoodies màu xám × 4 <span>$140.00</span></li>
-            <li>Áo T-shirt Enjoy The Rest × 1 <span>$39.59</span></li>
-          </ul>
-        </div>
-        <div class="your-order-subtotal">
-          <h3>Tổng cộng <span>$617.59</span></h3>
-        </div>
-        <div class="your-order-shipping">
-          <span>Phí vận chuyển</span>
-          <ul>
-            <li><input type="radio" name="shipping" value="info" checked="checked"><label>Vận chuyển miễn phí</label></li>
-            <li><input type="radio" name="shipping" value="info" checked="checked"><label>Phí cố định: <span>$100.00</span></label></li>
-            <li><input type="radio" name="shipping" value="info" checked="checked"><label>Nhận hàng tại địa phương: <span>$120.00</span></label></li>
-          </ul>
-        </div>
-        <div class="your-order-total">
-          <h3>Tổng cộng <span>$617.59</span></h3>
-        </div>
-      </div>
-      <div class="payment-method">
-        <div class="pay-top sin-payment">
-          <input id="payment_method_1" class="input-radio" type="radio" value="cheque" checked="checked" name="payment_method">
-          <label for="payment_method_1">Chuyển khoản ngân hàng trực tiếp</label>
-          <div class="payment-box payment_method_bacs">
-            <p>Chuyển tiền trực tiếp vào tài khoản ngân hàng của chúng tôi. Vui lòng sử dụng ID đơn hàng của bạn làm tham chiếu thanh toán. Đơn hàng của bạn sẽ không được vận chuyển cho đến khi số tiền được xác nhận trong tài khoản của chúng tôi.</p>
-          </div>
-        </div>
-        <div class="pay-top sin-payment">
-          <input id="payment-method-2" class="input-radio" type="radio" value="cheque" name="payment_method">
-          <label for="payment-method-2">Thanh toán bằng séc</label>
-          <div class="payment-box payment_method_bacs">
-            <p>Vui lòng gửi séc tới Tên cửa hàng, Địa chỉ cửa hàng, Thành phố, Tỉnh / Quận, Mã bưu điện của cửa hàng.</p>
-          </div>
-        </div>
-        <div class="pay-top sin-payment">
-          <input id="payment-method-3" class="input-radio" type="radio" value="cheque" name="payment_method">
-          <label for="payment-method-3">Thanh toán khi nhận hàng</label>
-          <div class="payment-box payment_method_bacs">
-            <p>Thanh toán bằng tiền mặt khi nhận hàng.</p>
-          </div>
-        </div>
-        <div class="pay-top sin-payment sin-payment-3">
-          <input id="payment-method-4" class="input-radio" type="radio" value="cheque" name="payment_method">
-          <label for="payment-method-4">PayPal <img alt="" src="assets/img/icons/payment-3.png"><a href="#">PayPal là gì?</a></label>
-          <div class="payment-box payment_method_bacs">
-            <p>Thanh toán qua PayPal; bạn có thể thanh toán bằng thẻ tín dụng nếu không có tài khoản PayPal.</p>
-          </div>
-        </div>
-      </div>
-      <div class="payment-condition">
-        <p>Dữ liệu cá nhân của bạn sẽ được sử dụng để xử lý đơn hàng, hỗ trợ trải nghiệm của bạn trên trang web này và cho các mục đích khác được mô tả trong <a href="#">chính sách bảo mật</a> của chúng tôi.</p>
-      </div>
-      <div class="payment-checkbox">
-        <input class="checkout-toggle" type="checkbox">
-        <span>Gửi đến địa chỉ khác? <a href="#">Điều khoản và điều kiện *</a></span>
-      </div>
-    </div>
-    <div class="place-order">
-      <a href="#/">Đặt hàng</a>
-    </div>
-  </div>
-</div>
+        </section>
+        <!--== End Page Title Area ==-->
 
-        </div>
-      </div>
-    </section>
-    <!--== End Checkout Area Wrapper ==-->
-  </main>
+        <!--== Start Checkout Area Wrapper ==-->
+        <section class="product-area shop-checkout-area">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-6 m-auto">
+                        <div class="section-title text-center">
+                            <h2 class="title">Thanh toán</h2>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-5">
+                        <div class="billing-info-wrap">
+                            <h3>Chi tiết thanh toán</h3>
+                            <div class="row">
+                                <!-- Hidden name (có thể set giá trị động từ server hoặc JS) -->
+                                <div class="col-12">
+                                    <div class="billing-info mb-20">
+                                        <label>Tên <abbr class="required">*</abbr></label>
+                                        <input type="text" id="nameInput" name="name" placeholder="Nguyễn Văn A">
+                                    </div>
+                                </div>
+                                <!-- Province -->
+                                <div class="col-12">
+                                    <div class="billing-select mb-20">
+                                        <label>Thành phố / Tỉnh <abbr class="required">*</abbr></label>
+                                        <div class="select-style">
+                                            <select class="select-active" id="province" name="province">
+                                                <option value="">Chọn tỉnh/thành</option>
+                                                <!-- ... options ... -->
+                                            </select>
+
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Address -->
+                                <div class="col-12">
+                                    <div class="billing-info mb-20">
+                                        <label>Địa chỉ <abbr class="required">*</abbr></label>
+                                        <input id="addressInput" class="billing-address" type="text" name="address"
+                                            placeholder="Ví dụ: Số 123, đường ABC" required>
+                                    </div>
+                                </div>
+                                <!-- District -->
+                                <div class="col-12">
+                                    <div class="billing-select mb-20">
+                                        <label>Huyện <abbr class="required">*</abbr></label>
+                                        <div class="select-style">
+                                            <select class="select-active" id="district" name="district">
+                                                <option value="">Chọn huyện/quận</option>
+                                                <!-- ... options ... -->
+                                            </select>
+
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Phone -->
+                                <div class="col-12">
+                                    <div class="billing-info mb-20">
+                                        <label>Số điện thoại <abbr class="required">*</abbr></label>
+                                        <input id="phoneInput" type="text" name="phone" placeholder="0123 456 789"
+                                            required>
+                                    </div>
+                                </div>
+                                <!-- Email -->
+                                <div class="col-12">
+                                    <div class="billing-info mb-20">
+                                        <label>Email <abbr class="required">*</abbr></label>
+                                        <input id="emailInput" type="email" name="email" placeholder="email@example.com"
+                                            required>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-7">
+                        <form id="checkoutForm" action="{{ route('momo_payment') }}" method="POST">
+                            @csrf
+                            <input type="hidden" name="province_name" id="province_name">
+                            <input type="hidden" name="district_name" id="district_name">
+                            <div class="your-order-area">
+                                <h3>Đơn của bạn</h3>
+                                <div class="your-order-wrap">
+                                    <div class="your-order-info-wrap">
+                                        <div class="your-order-title">
+                                            <h4>Sản phẩm <span>Tổng cộng</span></h4>
+                                        </div>
+
+                                        <div class="your-order-product">
+                                            @foreach ($cart as $item)
+                                                <ul>
+                                                    <li><img src="{{ asset("storage/{$item->thumbnail}") }}"
+                                                            style="max-width:100px;margin-right:10px;">
+                                                        <span>{{ $item->title }} × {{ $item->qty }}</span>
+                                                        <span>{{ number_format($item->total) }} VND</span>
+                                                    </li>
+                                                </ul>
+                                                <div class="your-order-total">
+                                                    <input type="hidden" name="product_id" value="{{ $item->product_id }}">
+                                                    <input type="hidden" name="total_momo" value="{{ $item->total }}">
+                                                    <input type="hidden" name="title" value="{{ $item->title }}">
+                                                    <input type="hidden" name="qty" value="{{ $item->qty }}">
+                                                </div>
+                                            @endforeach
+                                        </div>
+                                        <h3 class="item-right text-end">
+                                            <b>Tổng cộng <span>{{ number_format($totalMoney) }} VND</span></b>
+                                        </h3>
+                                    </div>
+                                    <div class="payment-method">
+                                        <h5>Phương thức thanh toán</h5>
+
+                                        <div class="pay-top sin-payment">
+                                            <input id="payment-method-3" class="input-radio" type="radio"
+                                                value="cod" name="payment_method">
+                                            <label for="payment-method-3">Thanh toán khi nhận hàng</label>
+                                            <div class="payment-box payment_method_bacs">
+                                                <p>Thanh toán bằng tiền mặt khi nhận hàng.</p>
+                                            </div>
+                                        </div>
+
+                                        <div class="pay-top sin-payment sin-payment-3">
+                                            <input id="payment-method-4" class="input-radio" type="radio"
+                                                value="momo" name="payment_method">
+                                            <label for="payment-method-4">Thanh toán bằng Momo <img alt=""
+                                                    src=""></label>
+                                            <div class="payment-box payment_method_bacs">
+                                                <p>Thanh toán qua Momo; bạn có thể thanh toán qua Momo</p>
+                                            </div>
+                                        </div>
+
+                                        <div class="pay-top sin-payment sin-payment-4">
+                                            <input id="payment-method-5" class="input-radio" type="radio"
+                                                value="vnpay" name="payment_method">
+                                            <label for="payment-method-5">Thanh toán bằng VnPay <img alt=""
+                                                    src=""></label>
+                                            <div class="payment-box payment_method_bacs">
+                                                <p>Thanh toán qua VnPay; bạn có thể thanh toán qua VnPay</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="place-order">
+                                    <button type="submit" class="btn btn-primary">Đặt hàng</button>
+                                </div>
+                            </div>
+                        </form>
+
+                    </div>
+
+                </div>
+            </div>
+        </section>
+        <!--== End Checkout Area Wrapper ==-->
+    </main>
 @endsection
+
+
+
+@push('javascript')
+    <script src="{{ asset('assets/js/modernizr.js') }}"></script>
+    <!--=== jQuery Min Js ===-->
+    <script src="{{ asset('assets/js/jquery-main.js') }}"></script>
+    <!--=== jQuery Migration Min Js ===-->
+    <script src="{{ asset('assets/js/jquery-migrate.js') }}"></script>
+    <!--=== Popper Min Js ===-->
+    <script src="{{ asset('assets/js/popper.min.js') }}"></script>
+    <!--=== Bootstrap Min Js ===-->
+    <script src="{{ asset('assets/js/bootstrap.min.js') }}"></script>
+    <!--=== jquery Appear Js ===-->
+    <script src="{{ asset('assets/js/jquery.appear.js') }}"></script>
+    <!--=== jquery Swiper Min Js ===-->
+    <script src="{{ asset('assets/js/swiper.min.js') }}"></script>
+    <!--=== jquery Fancybox Min Js ===-->
+    <script src="{{ asset('assets/js/fancybox.min.js') }}"></script>
+    <!--=== jquery Aos Min Js ===-->
+    <script src="{{ asset('assets/js/aos.min.js') }}"></script>
+    <!--=== jquery Slicknav Js ===-->
+    <script src="{{ asset('assets/js/jquery.slicknav.js') }}"></script>
+    <!--=== jquery Countdown Js ===-->
+    <script src="{{ asset('assets/js/jquery.countdown.min.js') }}"></script>
+    <!--=== jquery Tippy Js ===-->
+    <script src="{{ asset('assets/js/tippy.all.min.js') }}"></script>
+    <!--=== Isotope Min Js ===-->
+    <script src="{{ asset('assets/js/isotope.pkgd.min.js') }}"></script>
+    <!--=== Parallax Min Js ===-->
+    <script src="{{ asset('assets/js/parallax.min.js') }}"></script>
+    <!--=== Slick  Min Js ===-->
+    <script src="{{ asset('assets/js/slick.min.js') }}"></script>
+    <!--=== jquery Wow Min Js ===-->
+    <script src="{{ asset('assets/js/wow.min.js') }}"></script>
+    <!--=== jquery Zoom Min Js ===-->
+    <script src="{{ asset('assets/js/jquery-zoom.min.js') }}"></script>
+
+    <!--=== Custom Js ===-->
+    <script src="{{ asset('assets/js/custom.js') }}"></script>
+
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
+        integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.26.1/axios.min.js"
+        integrity="sha512-bPh3uwgU5qEMipS/VOmRqynnMXGGSRv+72H/N260MQeXZIK4PG48401Bsby9Nq5P5fz7hy5UGNmC/W1Z51h2GQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script>
+        const host = "https://provinces.open-api.vn/api/";
+        var callAPI = (api) => {
+            return axios.get(api)
+                .then((response) => {
+                    renderData(response.data, "province");
+                });
+        }
+        callAPI('https://provinces.open-api.vn/api/?depth=1');
+        var callApiDistrict = (api) => {
+            return axios.get(api)
+                .then((response) => {
+                    renderData(response.data.districts, "district");
+                });
+        }
+        var callApiWard = (api) => {
+            return axios.get(api)
+                .then((response) => {
+                    renderData(response.data.wards, "ward");
+                });
+        }
+
+        var renderData = (array, select) => {
+            let row = ' <option disable value="">Chọn</option>';
+            array.forEach(element => {
+                row += `<option value="${element.code}">${element.name}</option>`
+            });
+            document.querySelector("#" + select).innerHTML = row
+        }
+
+        $("#province").change(() => {
+            callApiDistrict(host + "p/" + $("#province").val() + "?depth=2");
+            printResult();
+        });
+        $("#district").change(() => {
+            callApiWard(host + "d/" + $("#district").val() + "?depth=2");
+            printResult();
+        });
+        $("#ward").change(() => {
+            printResult();
+        })
+
+        var printResult = () => {
+            const provinceText = $("#province option:selected").text();
+            const districtText = $("#district option:selected").text();
+
+            if ($("#district").val() != "" && $("#province").val() != "" &&
+                $("#ward").val() != "") {
+                let result = $("#province option:selected").text() +
+                    " | " + $("#district option:selected").text() + " | " +
+                    $("#ward option:selected").text();
+                $("#result").text(result)
+
+                $("#province_name").val(provinceText);
+                $("#district_name").val(districtText);
+            }
+
+
+
+        }
+    </script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            document.getElementById('checkoutForm').addEventListener('submit', function(e) {
+                e.preventDefault();
+
+                const fields = [{
+                        id: 'nameInput',
+                        name: 'name'
+                    },
+                    {
+                        id: 'province',
+                        name: 'province'
+                    },
+                    {
+                        id: 'addressInput',
+                        name: 'address'
+                    },
+                    {
+                        id: 'district',
+                        name: 'district'
+                    },
+                    {
+                        id: 'phoneInput',
+                        name: 'phone'
+                    },
+                    {
+                        id: 'emailInput',
+                        name: 'email'
+                    }
+                ];
+
+                fields.forEach(f => {
+                    const el = document.getElementById(f.id);
+                    if (el) {
+                        const hiddenInput = document.createElement('input');
+                        hiddenInput.type = 'hidden';
+                        hiddenInput.name = f.name;
+                        hiddenInput.value = el.value;
+                        this.appendChild(hiddenInput);
+                    }
+                });
+
+                this.submit(); // Gửi lại form sau khi gắn input
+            });
+        });
+    </script>
+
+    {{-- thành công khi thanh toán --}}
+    <!-- Auto trigger the toast -->
+@endpush

@@ -4,6 +4,8 @@
     Giỏ hàng
 @endsection
 
+@push('stylesheet')
+@endpush
 @section('content')
     <main class="main-content">
         <!--== Start Page Title Area ==-->
@@ -14,7 +16,7 @@
                         <div class="page-title-content text-center">
                             <h2 class="title">Giỏ hàng</h2>
                             <div class="bread-crumbs"><a href="/"> Trang chủ </a><span class="breadcrumb-sep"> //
-                                </span><span class="active">Giỏ hàng</span></div>
+                                </span><span class="active"> Giỏ hàng</span></div>
                         </div>
                     </div>
                 </div>
@@ -94,7 +96,8 @@
                                                     </td>
                                                     <td class="product-price" data-id={{ $item->product_id }}>
                                                         <span
-                                                            class="amount">{{ number_format($item->price - $item->sale_price) }}</span>
+                                                            class="amount">{{ number_format($item->price - $item->sale_price) }}
+                                                        </span>
                                                     </td>
                                                     <td class="cart-quality">
                                                         <div class="product-details-quality">
@@ -149,55 +152,7 @@
 
 
                 <div class="row">
-                    <div class="col-md-6 col-lg-4">
-                        <div class="cart-calculate-discount-wrap mb-40">
-                            <h4>Tính phí vận chuyển</h4>
-                            <div class="calculate-discount-content">
-                                <div class="select-style">
-                                    <select class="select-active">
-                                        <option>Việt Nam</option>
-                                        <option>Hoa Kỳ</option>
-                                        <option>Nhật Bản</option>
-                                        <option>Hàn Quốc</option>
-                                        <option>Trung Quốc</option>
-                                    </select>
-                                </div>
-                                <div class="select-style">
-                                    <select class="select-active">
-                                        <option>Tỉnh/Thành phố</option>
-                                        <option>Hà Nội</option>
-                                        <option>TP.Hồ Chí Minh</option>
-                                        <option>Đà Nẵng</option>
-                                        <option>Hải Phòng</option>
-                                    </select>
-                                </div>
-                                <div class="input-style">
-                                    <input type="text" placeholder="Quận/Huyện">
-                                </div>
-                                <div class="input-style">
-                                    <input type="text" placeholder="Mã bưu điện">
-                                </div>
-                                <div class="calculate-discount-btn">
-                                    <a class="btn btn-link" href="#/">Cập nhật</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-lg-4">
-                        <div class="cart-calculate-discount-wrap mb-40">
-                            <h4>Mã giảm giá</h4>
-                            <div class="calculate-discount-content">
-                                <p>Nhập mã giảm giá nếu bạn có</p>
-                                <div class="input-style">
-                                    <input type="text" placeholder="Nhập mã giảm giá">
-                                </div>
-                                <div class="calculate-discount-btn">
-                                    <a class="btn btn-link" href="#/">Áp dụng</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-12 col-lg-4">
+                    <div class="col-md-12 col-lg-4 ms-auto">
                         <div class="grand-total-wrap">
                             <div class="grand-total-content">
                                 <h3>Tạm tính <span>{{ number_format($totalMoney) }}</span></h3>
@@ -220,7 +175,7 @@
                                 </div>
                             </div>
                             <div class="grand-total-btn">
-                                <a class="btn btn-link" href="shop-checkout.html">Tiến hành thanh toán</a>
+                                <a class="btn btn-link" href="/checkout">Tiến hành thanh toán</a>
                             </div>
                         </div>
                     </div>
@@ -232,90 +187,90 @@
 @endsection
 
 @push('javascript')
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script>
-    $('.qty-input').on('change', function() {
-        let productId = $(this).data('id');
-        let newQty = $(this).val();
-        let id = $(this).data('product_id');
-        $.ajax({
-            url: '{{ route('cart.update') }}',
-            method: 'POST',
-            data: {
-                id: productId,
-                qty: newQty,
-                _token: '{{ csrf_token() }}'
-            },
-            success: function(response) {
-                if (response.success) {
-                    // Cập nhật giá từng sản phẩm
-                    $(`.amount[data-id="${id}"]`); -
-                    // Cập nhật tổng giỏ hàng nếu có
-                    // $('#product-total').text(response.cart_total + '₫');
-                    alert(response.message);
-                    // Optionally update UI: total price, cart count...
-                } else {
-                    alert(response.message);
-                }
-            },
-            error: function() {
-                alert('Đã có lỗi xảy ra');
-            }
-        });
-    });
-</script>
-<script>
-    document.addEventListener('DOMContentLoaded', function() {
-        const clearCartBtn = document.querySelector('.confirm-action');
-
-        clearCartBtn.addEventListener('click', function(e) {
-            e.preventDefault(); // Ngăn hành động mặc định
-
-            const title = this.dataset.title || 'Bạn chắc chứ?';
-            const text = this.dataset.text || 'Thao tác này không thể hoàn tác.';
-            const confirmText = this.dataset.confirmButton || 'Xác nhận';
-            const cancelText = this.dataset.cancelButton || 'Hủy';
-            const img = this.dataset.img;
-
-            Swal.fire({
-                title: title,
-                text: text,
-                icon: 'warning',
-                showCancelButton: true,
-                confirmButtonColor: '#d33',
-                cancelButtonColor: '#3085d6',
-                confirmButtonText: confirmText,
-                cancelButtonText: cancelText
-            }).then((result) => {
-                if (result.isConfirmed) {
-                    window.location.href = clearCartBtn.href;
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $('.qty-input').on('change', function() {
+            let productId = $(this).data('id');
+            let newQty = $(this).val();
+            let id = $(this).data('product_id');
+            $.ajax({
+                url: '{{ route('cart.update') }}',
+                method: 'POST',
+                data: {
+                    id: productId,
+                    qty: newQty,
+                    _token: '{{ csrf_token() }}'
+                },
+                success: function(response) {
+                    if (response.success) {
+                        // Cập nhật giá từng sản phẩm
+                        $(`.amount[data-id="${id}"]`); -
+                        // Cập nhật tổng giỏ hàng nếu có
+                        // $('#product-total').text(response.cart_total + '₫');
+                        alert(response.message);
+                        // Optionally update UI: total price, cart count...
+                    } else {
+                        alert(response.message);
+                    }
+                },
+                error: function() {
+                    alert('Đã có lỗi xảy ra');
                 }
             });
         });
-    });
-</script>
+    </script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const clearCartBtn = document.querySelector('.confirm-action');
 
-<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-@if (session('success'))
-    <script>
-        Swal.fire({
-            title: "Thành công!",
-            text: "{{ session('success') }}",
-            icon: "success",
-            confirmButtonText: "OK",
-            timer: 2500
+            clearCartBtn.addEventListener('click', function(e) {
+                e.preventDefault(); // Ngăn hành động mặc định
+
+                const title = this.dataset.title || 'Bạn chắc chứ?';
+                const text = this.dataset.text || 'Thao tác này không thể hoàn tác.';
+                const confirmText = this.dataset.confirmButton || 'Xác nhận';
+                const cancelText = this.dataset.cancelButton || 'Hủy';
+                const img = this.dataset.img;
+
+                Swal.fire({
+                    title: title,
+                    text: text,
+                    icon: 'warning',
+                    showCancelButton: true,
+                    confirmButtonColor: '#d33',
+                    cancelButtonColor: '#3085d6',
+                    confirmButtonText: confirmText,
+                    cancelButtonText: cancelText
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        window.location.href = clearCartBtn.href;
+                    }
+                });
+            });
         });
     </script>
-@endif
-@if (session('error'))
-    <script>
-        Swal.fire({
-            title: "Thất bại!",
-            text: "{{ session('error') }}",
-            icon: "error",
-            confirmButtonText: "OK",
-            timer: 2500
-        });
-    </script>
-@endif
-@endpush()
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    @if (session('success'))
+        <script>
+            Swal.fire({
+                title: "Thành công!",
+                text: "{{ session('success') }}",
+                icon: "success",
+                confirmButtonText: "OK",
+                timer: 2500
+            });
+        </script>
+    @endif
+    @if (session('error'))
+        <script>
+            Swal.fire({
+                title: "Thất bại!",
+                text: "{{ session('error') }}",
+                icon: "error",
+                confirmButtonText: "OK",
+                timer: 2500
+            });
+        </script>
+    @endif
+@endpush
