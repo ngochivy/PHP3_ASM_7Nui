@@ -14,6 +14,8 @@ return new class extends Migration
         Schema::create('orders', function (Blueprint $table) {
             $table->id();
             $table->string('name');
+            $table->string('code');
+            $table->string('email');
             $table->text('address');
             $table->string('phone',10);
             $table->enum('status',['Tạm giữ','Chờ duyệt','Đã xác nhận','Đã giao',

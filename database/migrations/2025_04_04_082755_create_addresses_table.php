@@ -17,8 +17,7 @@ return new class extends Migration
             $table->string('email');
             $table->string('phone',10);
             $table->text('address');
-            $table->enum('status',['Active','Inactive']);
-            
+
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users');
 

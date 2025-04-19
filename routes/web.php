@@ -7,6 +7,7 @@ use App\Http\Controllers\AccountController;
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\OrderController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Middleware\CommentMiddleware;
@@ -96,9 +97,11 @@ Route::post('/cart/update', [CartController::class, 'updateQty'])->name('cart.up
 //checkout
 Route::get('/checkout', [CheckoutController::class, "index"])->name('checkout');
 Route::post('/momo_payment',[CheckoutController::class,"momo_payment"])->name('momo_payment');
-Route::get('/checkout/success',[CheckoutController::class,"checkout_success"])->name('checkout.success');
+Route::get('/checkout/success',[CheckoutController::class,"checkout_success"])->name('checkout.success')->middleware('auth');
 Route::get('/checkout/ipn',[CheckoutController::class,"checkout_ipn"])->name('checkout.ipn');
-
+Route::get('/order',[OrderController::class,"index"])->name('order.index');
+Route::get('/order/{id}',[OrderController::class,"show"])->name('order.detail');
+Route::get('/order-delete/{id}',[OrderController::class,"destroy"])->name('order.delete');
 //middleware dang nhap 
 // Route::middleware(['auth'])->group(function () {
 //     Route::get('/checkout/success', [CheckoutController::class, 'checkout_success'])->name('checkout.success');

@@ -188,6 +188,8 @@
 
 @push('javascript')
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
     <script>
         $('.qty-input').on('change', function() {
             let productId = $(this).data('id');
@@ -249,8 +251,6 @@
             });
         });
     </script>
-
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     @if (session('success'))
         <script>
             Swal.fire({

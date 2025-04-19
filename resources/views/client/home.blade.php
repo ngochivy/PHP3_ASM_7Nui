@@ -346,8 +346,8 @@
             {!! session('success_message') !!}
         </div>
         <div class="mt-4 text-end">
-            <a href="{{ url('/') }}" class="btn btn-outline-success btn-sm">🏠 Về trang chủ</a>
-            <a href="{{ url('/order/' . $orderId) }}" class="btn btn-success btn-sm">Xem đơn hàng</a>
+            <a href="{{ url('/product') }}" class="btn btn-outline-success btn-sm">Tiếp tục mua hàng</a>
+            {{-- <a href="{{ url('/order/' . $orderId) }}" class="btn btn-success btn-sm">Xem đơn hàng</a> --}}
         </div>
     </div>
 @endif

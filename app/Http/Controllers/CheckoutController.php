@@ -9,6 +9,7 @@ use App\Models\OrderDetail;
 use App\Models\PaymentMethod;
 use Illuminate\Http\Request;
 use APP_URL;
+use Illuminate\Support\Facades\Validator;
 
 class CheckoutController extends Controller
 {
@@ -55,19 +56,43 @@ class CheckoutController extends Controller
 
     public function momo_payment(Request $request)
     {
-        // dd($request->all());
+        $products = $request->input('products');
+        // dd($request); 
         session([
-            "product_id" => $request->product_id,
+            "products" => $products,
             "province_name" => $request->province_name,
             "district_name" => $request->district_name,
-            "total_momo" => $request->total_momo,
-            "title" => $request->title,
-            "qty" => $request->qty,
+            "total_momo" => $request->total_amount,
             "name" => $request->name,
             "address" => $request->address,
             "phone" => $request->phone,
             "email" => $request->email,
         ]);
+
+        $validator = Validator::make(session()->all(),[
+            'name' => 'required|max:255',
+            'province_name' => 'required',
+            'district_name' => 'required',
+            'address' => 'required',
+            'phone' => 'required',
+            'email' => 'required',
+        ],[
+            'name.required' => 'Tên là bắt buộc',
+            'name.max' => 'Tên tối đa 255 ký tự',
+            'province_name.required' => 'Tên tỉnh là bắt buộc',
+            'district_name.required' => 'Tên quận/huyện là bắt buộc',
+            'address.required' => 'Địa chỉ là bắt buộc',
+            'phone.required' => 'Số điện thoại là bắt buộc',
+            'email.required' => 'Email là bắt buộc',
+        ]);
+
+        if($validator->fails()){
+            return redirect()
+                ->back()
+                ->withErrors($validator)
+                ->withInput();
+        }
+
 
         // dd(session());   
         $endpoint = "https://test-payment.momo.vn/v2/gateway/api/create";
@@ -77,7 +102,7 @@ class CheckoutController extends Controller
         $secretKey = env('MOMO_SECRET_KEY');
 
         $orderInfo = "Thanh toán qua MoMo";
-        $amount = $request->input('total_momo', 10000); // Giá trị mặc định nếu không truyền
+        $amount = $request->input('total_amount', 10000); // Giá trị mặc định nếu không truyền
         $orderId = time() . "";
         $redirectUrl = route('checkout.success');
         // dd($redirectUrl);
@@ -146,50 +171,42 @@ class CheckoutController extends Controller
 
     public function checkout_success(Request $request)
     {
-
-        // DB::transaction() chạy một đóng gói các truy vấn 
-        // nếu có bất kỳ exception nào được ném ra, 
-        // toàn bộ transaction sẽ tự động bị rollback và exception được propagate trở lại 
-
-        $price = session('total_momo') / session('qty');
-        // $user = auth()->user();
-        // $order = $user->orders()->create([
-        //     // "province_name"=> $request->province_name,
-        //     // "district_name"=> $request->district_name,
-        //     // "total_momo"=> $request->total_momo,
-        //     // "title"=> $request->title,
-        //     // 
-        //     "name" => session('name'),
-        //     "address" => session('address'),
-        //     "phone" => session('phone'),
-        //     "status" => "Chờ duyệt",
-        //     "user_id" => 1,
-        // ]);
-
-        // $order->orderDetail([
-        //     "qty" => session('qty'),
-        //     "price" => $price,
-        //     "product_id" => session('product_id'),
-        // ]);
-
-
-        // $user->address::create([
-        //     "email" => session('email'),
-        //     "province" => session('province_name'),
-        //     "district" => session('district_name'),
-        //     "name" => session('name'),
-        //     "address" => session('address'),
-        //     "phone" => session('phone'),
-        //     "status" => "Active",
-        // ]);
-
-
-
         // Get the payment details from the request
         $orderId = $request->input('orderId');
         $orderInfo = $request->input('orderInfo');
         $signature = $request->input('signature');
         $amount = $request->input('amount');
+
+        // $price = session('total_momo') / session('qty');
+        $user = auth()->user();
+        $order = $user->orders()->create([ 
+            "name" => session('name'),
+            "code" => $orderId,
+            "address" => session('address'),
+            "email" => session('email'),
+            "phone" => session('phone'),
+        ]);
+        // dd(session('products'));
+
+        foreach(session('products') as $product){
+            // dd($product);
+            $order->orderDetail()->create([
+                "qty" => $product['qty'],
+                "price" => $product['price'],
+                "total" => $amount,
+                "product_id" => $product['product_id'],
+            ]);
+        }
+
+        $user->address()->create([
+            "email" => session('email'),
+            "province" => session('province_name'),
+            "district" => session('district_name'),
+            "name" => session('name'),
+            "address" => session('address'),
+            "phone" => session('phone'),
+        ]);
+
 
         $successMessage = "Thanh toán thành công!<br>
         <strong>Mã đơn hàng:</strong> $orderId <br>
@@ -198,25 +215,8 @@ class CheckoutController extends Controller
 
         session()->flash('success_message', $successMessage);
 
-        // Redirect to the page where you want to show the success message (could be the homepage or order details page)
         return redirect()->route('home');
     }
 
     public function checkout_ipn() {}
-
-
-    // http://127.0.0.1:8000/checkout?
-    // partnerCode=MOMOBKUN20180529&
-    // orderId=1744743431&
-    // requestId=1744743431&
-    // amount=200000&
-    // orderInfo=Thanh+to%C3%A1n+qua+MoMo&
-    // orderType=momo_wallet&
-    // transId=4397298023&
-    // resultCode=0&
-    // message=Successful.&
-    // payType=napas&
-    // responseTime=1744743716783
-    // &extraData=&
-    // signature=0a43b72404fb1618a484751da2cffd32e335cc0ec71ddfd1b832dbc69ae686b5
 }

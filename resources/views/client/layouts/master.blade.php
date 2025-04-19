@@ -91,7 +91,7 @@
                                             <li style="padding: 0; margin: 0;"><a class="dropdown-item" href="/profile"
                                                     style="padding: 8px 16px; display: block;"><i class="fa fa-user"></i>
                                                     Tài Khoản Của Tôi</a></li>
-                                            <li style="padding: 0; margin: 0;"><a class="dropdown-item" href="/orders"
+                                            <li style="padding: 0; margin: 0;"><a class="dropdown-item" href="{{route('order.index')}}"
                                                     style="padding: 8px 16px; display: block;"><i
                                                         class="fa fa-shopping-cart"></i> Đơn Hàng Của Tôi</a></li>
                                             <li style="padding: 0; margin: 0;">

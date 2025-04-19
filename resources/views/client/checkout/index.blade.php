@@ -44,7 +44,12 @@
                                 <div class="col-12">
                                     <div class="billing-info mb-20">
                                         <label>Tên <abbr class="required">*</abbr></label>
-                                        <input type="text" id="nameInput" name="name" placeholder="Nguyễn Văn A">
+                                        <input type="text" id="nameInput" name="name" placeholder="Nguyễn Văn A" value="{{old('name')}}">
+                                        @foreach ($errors->get('name') as $error)
+                                            <span class="form-text text-danger">
+                                                {{ $error }}
+                                            </span>
+                                        @endforeach
                                     </div>
                                 </div>
                                 <!-- Province -->
@@ -52,11 +57,15 @@
                                     <div class="billing-select mb-20">
                                         <label>Thành phố / Tỉnh <abbr class="required">*</abbr></label>
                                         <div class="select-style">
-                                            <select class="select-active" id="province" name="province">
+                                            <select class="select-active" id="province" name="province" value="{{old('province_name')}}">
                                                 <option value="">Chọn tỉnh/thành</option>
                                                 <!-- ... options ... -->
                                             </select>
-
+                                            @foreach ($errors->get('province_name') as $error)
+                                                <span class="form-text text-danger">
+                                                    {{ $error }}
+                                                </span>
+                                            @endforeach
                                         </div>
                                     </div>
                                 </div>
@@ -64,20 +73,29 @@
                                 <div class="col-12">
                                     <div class="billing-info mb-20">
                                         <label>Địa chỉ <abbr class="required">*</abbr></label>
-                                        <input id="addressInput" class="billing-address" type="text" name="address"
+                                        <input id="addressInput" class="billing-address" type="text" name="address" value="{{old('address')}}"
                                             placeholder="Ví dụ: Số 123, đường ABC" required>
                                     </div>
+                                    @foreach ($errors->get('address') as $error)
+                                        <span class="form-text text-danger">
+                                            {{ $error }}
+                                        </span>
+                                    @endforeach
                                 </div>
                                 <!-- District -->
                                 <div class="col-12">
                                     <div class="billing-select mb-20">
                                         <label>Huyện <abbr class="required">*</abbr></label>
                                         <div class="select-style">
-                                            <select class="select-active" id="district" name="district">
+                                            <select class="select-active" id="district" name="district" value="{{old('district_name')}}">
                                                 <option value="">Chọn huyện/quận</option>
                                                 <!-- ... options ... -->
                                             </select>
-
+                                            @foreach ($errors->get('district_name') as $error)
+                                                <span class="form-text text-danger">
+                                                    {{ $error }}
+                                                </span>
+                                            @endforeach
                                         </div>
                                     </div>
                                 </div>
@@ -85,17 +103,27 @@
                                 <div class="col-12">
                                     <div class="billing-info mb-20">
                                         <label>Số điện thoại <abbr class="required">*</abbr></label>
-                                        <input id="phoneInput" type="text" name="phone" placeholder="0123 456 789"
+                                        <input id="phoneInput" type="text" name="phone" placeholder="0123 456 789" value="{{old('phone')}}"
                                             required>
                                     </div>
+                                    @foreach ($errors->get('phone') as $error)
+                                        <span class="form-text text-danger">
+                                            {{ $error }}
+                                        </span>
+                                    @endforeach
                                 </div>
                                 <!-- Email -->
                                 <div class="col-12">
                                     <div class="billing-info mb-20">
                                         <label>Email <abbr class="required">*</abbr></label>
-                                        <input id="emailInput" type="email" name="email" placeholder="email@example.com"
+                                        <input id="emailInput" type="email" name="email" placeholder="email@example.com" value="{{old('email')}}"
                                             required>
                                     </div>
+                                    @foreach ($errors->get('email') as $error)
+                                        <span class="form-text text-danger">
+                                            {{ $error }}
+                                        </span>
+                                    @endforeach
                                 </div>
                             </div>
                         </div>
@@ -106,34 +134,52 @@
                             <input type="hidden" name="province_name" id="province_name">
                             <input type="hidden" name="district_name" id="district_name">
                             <div class="your-order-area">
-                                <h3>Đơn của bạn</h3>
+                                <h3>Giỏ hàng của bạn</h3>
                                 <div class="your-order-wrap">
                                     <div class="your-order-info-wrap">
-                                        <div class="your-order-title">
-                                            <h4>Sản phẩm <span>Tổng cộng</span></h4>
-                                        </div>
-
                                         <div class="your-order-product">
-                                            @foreach ($cart as $item)
-                                                <ul>
-                                                    <li><img src="{{ asset("storage/{$item->thumbnail}") }}"
-                                                            style="max-width:100px;margin-right:10px;">
-                                                        <span>{{ $item->title }} × {{ $item->qty }}</span>
-                                                        <span>{{ number_format($item->total) }} VND</span>
-                                                    </li>
-                                                </ul>
-                                                <div class="your-order-total">
-                                                    <input type="hidden" name="product_id" value="{{ $item->product_id }}">
-                                                    <input type="hidden" name="total_momo" value="{{ $item->total }}">
-                                                    <input type="hidden" name="title" value="{{ $item->title }}">
-                                                    <input type="hidden" name="qty" value="{{ $item->qty }}">
+                                            @foreach ($cart as $index => $item)
+                                                <div class="card mb-3">
+                                                    <div
+                                                        class="card-body d-flex align-items-center justify-content-between">
+                                                        <div class="form-check me-3">
+                                                            <input type="checkbox" class="form-check-input select-product"
+                                                                data-product_id="{{ $item->product_id }}"
+                                                                data-title="{{ $item->title }}"
+                                                                data-qty="{{ $item->qty }}"
+                                                                data-total="{{ $item->total }}"
+                                                                data-price="{{ $item->price - $item->sale_price }}">
+                                                        </div>
+                                                        <div class="d-flex align-items-center flex-grow-1">
+                                                            <img src="{{ asset("storage/{$item->thumbnail}") }}"
+                                                                alt="Hình ảnh" class="img-thumbnail me-3"
+                                                                style="width: 80px; height: 80px; object-fit: cover;">
+                                                            <div>
+                                                                <h6 class="mb-1">{{ $item->title }}</h6>
+                                                                <div>Số lượng: {{ $item->qty }}</div>
+                                                                <div>Giá:
+                                                                    {{ number_format($item->price - $item->sale_price) }}
+                                                                    VND</div>
+                                                                <strong>Tổng: {{ number_format($item->total) }}
+                                                                    VND</strong>
+                                                            </div>
+                                                        </div>
+                                                    </div>
                                                 </div>
                                             @endforeach
+
+                                            {{-- Input hidden cho thông tin sản phẩm được chọn --}}
+                                            <div id="selected-products-container"></div>
                                         </div>
+
+
                                         <h3 class="item-right text-end">
-                                            <b>Tổng cộng <span>{{ number_format($totalMoney) }} VND</span></b>
+                                            <b>Tổng cộng <span id="total_amount"
+                                                    name="total_amount">{{ number_format($totalMoney) }}
+                                                    VND</span></b>
                                         </h3>
                                     </div>
+
                                     <div class="payment-method">
                                         <h5>Phương thức thanh toán</h5>
 
@@ -149,8 +195,7 @@
                                         <div class="pay-top sin-payment sin-payment-3">
                                             <input id="payment-method-4" class="input-radio" type="radio"
                                                 value="momo" name="payment_method">
-                                            <label for="payment-method-4">Thanh toán bằng Momo <img alt=""
-                                                    src=""></label>
+                                            <label for="payment-method-4">Thanh toán bằng Momo</label>
                                             <div class="payment-box payment_method_bacs">
                                                 <p>Thanh toán qua Momo; bạn có thể thanh toán qua Momo</p>
                                             </div>
@@ -159,8 +204,7 @@
                                         <div class="pay-top sin-payment sin-payment-4">
                                             <input id="payment-method-5" class="input-radio" type="radio"
                                                 value="vnpay" name="payment_method">
-                                            <label for="payment-method-5">Thanh toán bằng VnPay <img alt=""
-                                                    src=""></label>
+                                            <label for="payment-method-5">Thanh toán bằng VnPay</label>
                                             <div class="payment-box payment_method_bacs">
                                                 <p>Thanh toán qua VnPay; bạn có thể thanh toán qua VnPay</p>
                                             </div>
@@ -172,6 +216,9 @@
                                     <button type="submit" class="btn btn-primary">Đặt hàng</button>
                                 </div>
                             </div>
+
+
+
                         </form>
 
                     </div>
@@ -186,45 +233,6 @@
 
 
 @push('javascript')
-    <script src="{{ asset('assets/js/modernizr.js') }}"></script>
-    <!--=== jQuery Min Js ===-->
-    <script src="{{ asset('assets/js/jquery-main.js') }}"></script>
-    <!--=== jQuery Migration Min Js ===-->
-    <script src="{{ asset('assets/js/jquery-migrate.js') }}"></script>
-    <!--=== Popper Min Js ===-->
-    <script src="{{ asset('assets/js/popper.min.js') }}"></script>
-    <!--=== Bootstrap Min Js ===-->
-    <script src="{{ asset('assets/js/bootstrap.min.js') }}"></script>
-    <!--=== jquery Appear Js ===-->
-    <script src="{{ asset('assets/js/jquery.appear.js') }}"></script>
-    <!--=== jquery Swiper Min Js ===-->
-    <script src="{{ asset('assets/js/swiper.min.js') }}"></script>
-    <!--=== jquery Fancybox Min Js ===-->
-    <script src="{{ asset('assets/js/fancybox.min.js') }}"></script>
-    <!--=== jquery Aos Min Js ===-->
-    <script src="{{ asset('assets/js/aos.min.js') }}"></script>
-    <!--=== jquery Slicknav Js ===-->
-    <script src="{{ asset('assets/js/jquery.slicknav.js') }}"></script>
-    <!--=== jquery Countdown Js ===-->
-    <script src="{{ asset('assets/js/jquery.countdown.min.js') }}"></script>
-    <!--=== jquery Tippy Js ===-->
-    <script src="{{ asset('assets/js/tippy.all.min.js') }}"></script>
-    <!--=== Isotope Min Js ===-->
-    <script src="{{ asset('assets/js/isotope.pkgd.min.js') }}"></script>
-    <!--=== Parallax Min Js ===-->
-    <script src="{{ asset('assets/js/parallax.min.js') }}"></script>
-    <!--=== Slick  Min Js ===-->
-    <script src="{{ asset('assets/js/slick.min.js') }}"></script>
-    <!--=== jquery Wow Min Js ===-->
-    <script src="{{ asset('assets/js/wow.min.js') }}"></script>
-    <!--=== jquery Zoom Min Js ===-->
-    <script src="{{ asset('assets/js/jquery-zoom.min.js') }}"></script>
-
-    <!--=== Custom Js ===-->
-    <script src="{{ asset('assets/js/custom.js') }}"></script>
-
-
-
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
         integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
@@ -339,7 +347,46 @@
             });
         });
     </script>
+    <script>
+        const checkboxes = document.querySelectorAll('.select-product');
+        const container = document.getElementById('selected-products-container');
+        const totalDisplay = document.getElementById('total_amount');
 
-    {{-- thành công khi thanh toán --}}
-    <!-- Auto trigger the toast -->
+        checkboxes.forEach((checkbox) => {
+            checkbox.addEventListener('change', () => {
+                updateSelectedProducts();
+            });
+        });
+
+        function updateSelectedProducts() {
+            container.innerHTML = '';
+            let total = 0;
+            let selectedIndex = 0;
+
+            checkboxes.forEach((checkbox) => {
+                if (checkbox.checked) {
+                    const product_id = checkbox.dataset.product_id;
+                    const title = checkbox.dataset.title;
+                    const price = checkbox.dataset.price;
+                    const qty = checkbox.dataset.qty;
+                    const total_price = parseInt(checkbox.dataset.total);
+
+                    total += total_price;
+
+                    container.innerHTML += `
+                        <input type="hidden" name="products[${selectedIndex}][product_id]" value="${product_id}">
+                        <input type="hidden" name="products[${selectedIndex}][title]" value="${title}">
+                        <input type="hidden" name="products[${selectedIndex}][price]" value="${price}">
+                        <input type="hidden" name="products[${selectedIndex}][qty]" value="${qty}">
+                        <input type="hidden" name="products[${selectedIndex}][total]" value="${total_price}">
+                        <input type="hidden" name="total_amount" value="${total_price}">
+                    `;
+                    selectedIndex++;
+                }
+            });
+
+            totalDisplay.textContent = total.toLocaleString('vi-VN') + ' VND';
+            document.getElementById('total_amount').value = total;
+        }
+    </script>
 @endpush

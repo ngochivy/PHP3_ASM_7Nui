@@ -21,8 +21,8 @@ class CartController extends Controller
     {
         // return Cart::cartInnerJoinProduct();
         $cart = Cart::cartInnerJoinProduct();
-        $totalMoney = 0; 
-        foreach ($cart as &$item) {  
+        $totalMoney = 0;
+        foreach ($cart as &$item) {
             $item->total = (($item->sale_price) ? $item->price - $item->sale_price : $item->price) * $item->qty;
             $totalMoney += $item->total;
         }
@@ -121,14 +121,14 @@ class CartController extends Controller
 
     // Xoa all sp ra khoi gio hang
     public function clear(Request $request)
-    {   
-        $cartItem = Cart::all();
+    {
+        $cartItems = Cart::all();
 
-        foreach($cartItem as $item){
-            $item->delete();
+        if ($cartItems->isNotEmpty()) {
+            Cart::truncate()->delete();
             return redirect()->back()->with('success', 'Xóa toàn bộ sản phẩm thành công');
         }
 
-        return redirect()->back()->with('error', 'Xóa toàn bộ sản phẩm thất bại');
+        return redirect()->back()->with('error', 'Không có sản phẩm nào để xóa');
     }
 }
