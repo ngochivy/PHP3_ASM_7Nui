@@ -43,8 +43,8 @@ class OrderResource extends Resource
                     ->label('ID')
                     ->sortable()
                     ->searchable(),
-                    TextColumn::make('name')
-                    ->label('mã đơn hàng')
+                    TextColumn::make('code')
+                    ->label('Mã đơn hàng')
                     ->sortable()
                     ->searchable(),
                     TextColumn::make('address')
