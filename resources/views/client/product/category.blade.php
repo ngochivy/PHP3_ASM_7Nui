@@ -60,8 +60,6 @@ Trang chủ
     .pagination-area .page-link i {
         font-size: 14px;
     }
-
-    
 </style>
 @endpush
 @section('content')
@@ -89,7 +87,7 @@ Trang chủ
                 <div class="col-lg-9 order-0 order-lg-1">
                     <div class="shop-toolbar-wrap">
                         <div class="product-showing-status">
-                            <p class="count-result"><span id="current-count">12</span> Sản phẩm trong tổng số <span id="total-count">30</span></p>
+                            <p class="count-result"><span id="current-count">9</span> Sản phẩm trong tổng số <span id="total-count">30</span></p>
                         </div>
                         <!-- <div class="product-view-mode">
                             <nav>
@@ -147,9 +145,33 @@ Trang chủ
                                         <div class="product-thumb">
                                             <img src="{{ asset('storage/' . $p->thumbnail) }}" alt="Image">
                                             <div class="product-action">
-                                                <a class="action-quick-view" href="shop-cart.html"><i class="ion-ios-cart"></i></a>
-                                                <a class="action-quick-view" href="javascript:void(0)"><i class="ion-arrow-expand"></i></a>
-                                                <a class="action-quick-view" href="shop-compare.html"><i class="ion-shuffle"></i></a>
+                                                <!-- <a class="action-quick-view" href="shop-cart.html"><i
+                                                        class="ion-ios-cart"></i></a> -->
+                                                <a class="action-quick-view" href="/product_detail/{{ $p->slug }}"><i
+                                                        class="ion-arrow-expand"></i></a>
+                                                <a class="action-quick-view">
+                                                    @php
+                                                    $isInComparison = isset($comparisonProducts) && $comparisonProducts->contains('id', $p->id);
+                                                    $reachedLimit = isset($comparisonCount) && $comparisonCount >= 4;
+                                                    @endphp
+
+                                                    @if(!$isInComparison && !$reachedLimit)
+                                                    <form action="{{ route('compare.add', $p->id) }}" method="POST" class="d-inline">
+                                                        @csrf
+                                                        <button type="submit" class="compare-btn" title="Thêm vào so sánh"
+                                                            style="background: transparent; border: none; padding: 0; margin: 0; color: inherit; cursor: pointer;">
+                                                            <i class="ion-shuffle"></i>
+                                                        </button>
+                                                    </form>
+                                                    @else
+                                                    <button class="compare-btn" title="{{ $isInComparison ? 'Đã thêm vào so sánh' : 'Đạt giới hạn 4 sản phẩm' }}"
+                                                        style="background: transparent; border: none; padding: 0; margin: 0; color: #ccc; cursor: not-allowed;"
+                                                        disabled>
+                                                        <i class="ion-shuffle"></i>
+                                                    </button>
+                                                    @endif
+                                                </a>
+
                                             </div>
                                         </div>
                                         <div class="product-info text-center">
@@ -216,7 +238,7 @@ Trang chủ
                                 </div>
                             </div>
                         </div>
-                        
+
 
 
                     </div>
@@ -235,18 +257,18 @@ Trang chủ
 
 <script>
     $(document).ready(function() {
-    // Đóng/mở dropdown
-    $('.product-sorting .current').click(function() {
-        $(this).next('ul').toggle();
+        // Đóng/mở dropdown
+        $('.product-sorting .current').click(function() {
+            $(this).next('ul').toggle();
+        });
+
+        // Đóng dropdown khi click ra ngoài
+        $(document).click(function(e) {
+            if (!$(e.target).closest('.product-sorting').length) {
+                $('.product-sorting ul').hide();
+            }
+        });
     });
-    
-    // Đóng dropdown khi click ra ngoài
-    $(document).click(function(e) {
-        if (!$(e.target).closest('.product-sorting').length) {
-            $('.product-sorting ul').hide();
-        }
-    });
-});
 </script>
 
 @endpush

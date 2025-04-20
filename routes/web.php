@@ -8,6 +8,7 @@ use App\Http\Controllers\BlogController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\OrderController;
+use App\Http\Controllers\ProductComparisonController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Middleware\CommentMiddleware;
@@ -120,4 +121,12 @@ Route::middleware('auth')->group(function () {
 
 ///Xoas Bluan
 Route::get('/comment/delete/{id}', [ProductController::class, 'delete'])->name('comment.delete');
+
+// routes/web.php
+Route::prefix('compare')->group(function () {
+    Route::get('/comparelist', [ProductComparisonController::class, 'index'])->name('compare.index');
+    Route::post('/add/{product}', [ProductComparisonController::class, 'add'])->name('compare.add');
+    Route::post('/remove/{product}', [ProductComparisonController::class, 'remove'])->name('compare.remove');
+    Route::post('/clear', [ProductComparisonController::class, 'clear'])->name('compare.clear');
+});
 

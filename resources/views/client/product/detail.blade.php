@@ -1,7 +1,7 @@
 @extends('client.layouts.master')
 
 @section('meta_title')
-    Trang chi tiết sản phẩm
+    {{ $product->title }} 
 @endsection
 
 

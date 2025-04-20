@@ -39,5 +39,12 @@ class Product extends Model
         return $this->hasMany(Comment::class);
     }
 
-  
+    // app/Models/Product.php
+    public function specifications()
+    {
+        // Quan hệ many-to-many qua bảng trung gian product_specification
+        return $this->belongsToMany(Specification::class, 'product_specification')
+            ->withPivot('value') // Lấy cả giá trị trong bảng trung gian
+            ->withTimestamps();
+    }
 }
