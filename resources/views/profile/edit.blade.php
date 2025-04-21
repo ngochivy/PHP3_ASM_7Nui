@@ -1,8 +1,15 @@
+@extends('client.layouts.master')
+
+@section('meta_title')
+    Trang chủ
+@endsection
+
+@section('content')
+
 <x-app-layout>
+    {{-- Slot header rỗng, sẽ không render nếu layout kiểm tra --}}
     <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Profile') }}
-        </h2>
+        {{-- intentionally left blank --}}
     </x-slot>
 
     <div class="py-12">
@@ -27,3 +34,5 @@
         </div>
     </div>
 </x-app-layout>
+
+@endsection
