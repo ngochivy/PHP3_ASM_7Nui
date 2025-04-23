@@ -16,6 +16,7 @@ use Illuminate\Foundation\Auth\EmailVerificationRequest;
 // use Illuminate\Http\Client\Request;
 // use Illuminate\Http\Request as HttpRequest;
 use Illuminate\Support\Facades\Route;
+use App\Http\Middleware\ThrottleFormSubmission;
 use Illuminate\Http\Request;
 
 // Route::get('/', function () {
@@ -75,7 +76,11 @@ Route::get('/about', [AboutController::class, "index"]);
 
 
 Route::get('/contact', [ContactController::class, "index"])->name('contact.index');
-Route::post('/contact', [ContactController::class, 'sendEmail'])->name('contact.send');
+Route::middleware([ThrottleFormSubmission::class])->group(function () {
+    Route::post('/contact', [ContactController::class, 'sendEmail'])->name('contact.send');
+});
+
+
 
 Route::get('/checkout', [CheckoutController::class, "index"]);
 

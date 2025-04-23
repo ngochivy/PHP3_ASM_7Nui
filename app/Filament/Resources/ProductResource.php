@@ -155,7 +155,11 @@ class ProductResource extends Resource
 
             ])
             ->filters([
-                //
+                Tables\Filters\SelectFilter::make('category_id')
+                ->label('Danh mục')
+                ->relationship('category', 'name'),
+
+            
             ])
             ->actions([
                 Tables\Actions\EditAction::make(),

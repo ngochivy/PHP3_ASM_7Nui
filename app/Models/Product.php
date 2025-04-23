@@ -47,4 +47,8 @@ class Product extends Model
             ->withPivot('value') // Lấy cả giá trị trong bảng trung gian
             ->withTimestamps();
     }
+    public function OrderDetail(): BelongsTo{
+        return $this->belongsTo(OrderDetail::class);
+    }
+  
 }

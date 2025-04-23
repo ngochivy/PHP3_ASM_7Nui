@@ -84,8 +84,13 @@ Liên hệ
               @if(session('error'))
               <div class="alert alert-danger">{{ session('error') }}</div>
               @endif
+              @if (session('errorformat'))
+              <div style="color: red; font-weight: bold;">
+                {{ session('errorformat') }}
+              </div>
+              @endif
 
-         
+
 
               <form class="contact-form-wrapper" id="contact-form" action="{{ route('contact.send') }}" method="POST">
                 @csrf
@@ -109,7 +114,7 @@ Liên hệ
                       </div>
                       <div class="col-md-6">
                         <div class="form-group">
-                          <input class="form-control @error('email') is-invalid @enderror" type="email" name="email" placeholder="Email *" value="{{ old('email') }}">
+                          <input class="form-control @error('email') is-invalid @enderror" type="text" name="email" placeholder="Email *" value="{{ old('email') }}">
                           @error('email')
                           <div class="invalid-feedback">{{ $message }}</div>
                           @enderror
@@ -144,4 +149,3 @@ Liên hệ
   <!--== End Contact Area ==-->
 </main>
 @endsection
-

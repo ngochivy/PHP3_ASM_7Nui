@@ -104,7 +104,13 @@ class BlogResource extends Resource
 
             ])
             ->filters([
-                //
+                Tables\Filters\SelectFilter::make('status')
+                ->label('Trạng thái')
+                ->options([
+                    'Ẩn' => 'Ẩn',
+                    'Hiện' => 'Hiện',
+                ]),
+  
             ])
             ->actions([
                 Tables\Actions\EditAction::make(),
