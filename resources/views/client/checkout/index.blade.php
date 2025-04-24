@@ -44,7 +44,8 @@
                                 <div class="col-12">
                                     <div class="billing-info mb-20">
                                         <label>Tên <abbr class="required">*</abbr></label>
-                                        <input type="text" id="nameInput" name="name" placeholder="Nguyễn Văn A" value="{{old('name')}}">
+                                        <input type="text" id="nameInput" name="name" placeholder="Nguyễn Văn A"
+                                            value="{{ old('name') }}">
                                         @foreach ($errors->get('name') as $error)
                                             <span class="form-text text-danger">
                                                 {{ $error }}
@@ -57,7 +58,8 @@
                                     <div class="billing-select mb-20">
                                         <label>Thành phố / Tỉnh <abbr class="required">*</abbr></label>
                                         <div class="select-style">
-                                            <select class="select-active" id="province" name="province" value="{{old('province_name')}}">
+                                            <select class="select-active" id="province" name="province"
+                                                value="{{ old('province_name') }}">
                                                 <option value="">Chọn tỉnh/thành</option>
                                                 <!-- ... options ... -->
                                             </select>
@@ -69,25 +71,13 @@
                                         </div>
                                     </div>
                                 </div>
-                                <!-- Address -->
-                                <div class="col-12">
-                                    <div class="billing-info mb-20">
-                                        <label>Địa chỉ <abbr class="required">*</abbr></label>
-                                        <input id="addressInput" class="billing-address" type="text" name="address" value="{{old('address')}}"
-                                            placeholder="Ví dụ: Số 123, đường ABC" required>
-                                    </div>
-                                    @foreach ($errors->get('address') as $error)
-                                        <span class="form-text text-danger">
-                                            {{ $error }}
-                                        </span>
-                                    @endforeach
-                                </div>
                                 <!-- District -->
                                 <div class="col-12">
                                     <div class="billing-select mb-20">
                                         <label>Huyện <abbr class="required">*</abbr></label>
                                         <div class="select-style">
-                                            <select class="select-active" id="district" name="district" value="{{old('district_name')}}">
+                                            <select class="select-active" id="district" name="district"
+                                                value="{{ old('district_name') }}">
                                                 <option value="">Chọn huyện/quận</option>
                                                 <!-- ... options ... -->
                                             </select>
@@ -99,12 +89,26 @@
                                         </div>
                                     </div>
                                 </div>
+                                <!-- Address -->
+                                <div class="col-12">
+                                    <div class="billing-info mb-20">
+                                        <label>Địa chỉ <abbr class="required">*</abbr></label>
+                                        <input id="addressInput" class="billing-address" type="text" name="address"
+                                            value="{{ old('address') }}" placeholder="Ví dụ: Số 123, đường ABC" required>
+                                    </div>
+                                    @foreach ($errors->get('address') as $error)
+                                        <span class="form-text text-danger">
+                                            {{ $error }}
+                                        </span>
+                                    @endforeach
+                                </div>
+
                                 <!-- Phone -->
                                 <div class="col-12">
                                     <div class="billing-info mb-20">
                                         <label>Số điện thoại <abbr class="required">*</abbr></label>
-                                        <input id="phoneInput" type="text" name="phone" placeholder="0123 456 789" value="{{old('phone')}}"
-                                            required>
+                                        <input id="phoneInput" type="text" name="phone" placeholder="0123 456 789"
+                                            value="{{ old('phone') }}" required>
                                     </div>
                                     @foreach ($errors->get('phone') as $error)
                                         <span class="form-text text-danger">
@@ -116,8 +120,8 @@
                                 <div class="col-12">
                                     <div class="billing-info mb-20">
                                         <label>Email <abbr class="required">*</abbr></label>
-                                        <input id="emailInput" type="email" name="email" placeholder="email@example.com" value="{{old('email')}}"
-                                            required>
+                                        <input id="emailInput" type="email" name="email" placeholder="email@example.com"
+                                            value="{{ old('email') }}" required>
                                     </div>
                                     @foreach ($errors->get('email') as $error)
                                         <span class="form-text text-danger">
