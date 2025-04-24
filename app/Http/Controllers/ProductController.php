@@ -56,14 +56,14 @@ class ProductController extends Controller
 
     public function search(Request $request)
     {
-
         $query = $request->input('query');
-
 
         $products = Product::where(function ($queryBuilder) use ($query) {
             $queryBuilder->where('title', 'LIKE', "%{$query}%")
                 ->orWhere('description', 'LIKE', "%{$query}%");
-        })->get();
+        })->paginate(9) // Số sản phẩm mỗi trang (tùy bạn chọn)
+            ->onEachSide(1) // Hiển thị thêm 1 trang hai bên
+            ->appends(['query' => $query]); // Giữ lại từ khóa tìm kiếm khi chuyển trang
 
         $category = Category::all();
 
@@ -94,7 +94,44 @@ class ProductController extends Controller
         ]);
     }
 
-    
+    public function handle(Request $request, Closure $next)
+    {
+        if (!Auth::check()) {
+            return $request->expectsJson()
+                ? response()->json(['message' => 'Bạn cần đăng nhập để bình luận.'], 403)
+                : redirect()->back()->with('error', 'Bạn cần đăng nhập để bình luận.');
+        }
+
+        $slug = $request->route('slug');
+        $product = Product::where('slug', $slug)->first();
+
+        if (!$product) {
+            return $request->expectsJson()
+                ? response()->json(['message' => 'Sản phẩm không tồn tại.'], 404)
+                : redirect()->back()->with('error', 'Sản phẩm không tồn tại.');
+        }
+
+        $userId = Auth::id();
+        $productId = $product->id;
+
+        $hasPurchased = DB::table('orders')
+            ->join('order_details', 'orders.id', '=', 'order_details.order_id')
+            ->where('orders.user_id', $userId)
+            ->where('order_details.product_id', $productId)
+            ->where('orders.status', 'đã thanh toán')
+            ->exists();
+
+        if (!$hasPurchased) {
+            return $request->expectsJson()
+                ? response()->json(['message' => 'Bạn cần mua sản phẩm này để bình luận.'], 403)
+                : redirect()->back()->with('error', 'Bạn cần mua sản phẩm này để bình luận.');
+        }
+
+        return $next($request);
+    }
+
+
+
 
 
     public function comment(Request $request, $slug)
@@ -175,5 +212,4 @@ class ProductController extends Controller
 
         return redirect()->back()->with('success', 'Bình luận đã được xóa thành công');
     }
-    
 }
