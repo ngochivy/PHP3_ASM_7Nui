@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Symfony\Component\HttpFoundation\Response;
 use Illuminate\Support\Facades\DB;
+use App\Models\Product; // thêm dòng này ở đầu
 
 class CommentMiddleware
 {
@@ -18,28 +19,34 @@ class CommentMiddleware
     public function handle(Request $request, Closure $next)
     {
         if (!Auth::check()) {
-            return response()->json([
-                'message' => 'Bạn cần đăng nhập để bình luận.'
-            ], 401);
-        }
+            return redirect()->route('login') // Chuyển hướng đến trang đăng nhập
+                ->with('error', 'Bạn cần đăng nhập để bình luận.');
+        } 
 
         $user = Auth::user();
-        $productId = $request->route('slug'); // lấy ID sản phẩm từ route
+        $slug = $request->route('slug'); // Lấy slug từ URL
+
+        $product = Product::where('slug', $slug)->first();
+
+        if (! $product) {
+            return response()->json([
+                'message' => 'Sản phẩm không tồn tại.'
+            ], 404);
+        }
+
+        $productId = $product->id;
+
 
         // Kiểm tra user đã từng mua sản phẩm này chưa
         $hasPurchased = DB::table('orders')
             ->join('order_details', 'orders.id', '=', 'order_details.order_id')
             ->where('orders.user_id', $user->id)
             ->where('order_details.product_id', $productId)
+            ->where('orders.status', 'Hoàn thành - Đã nhận hàng')
             ->exists();
-
         if (! $hasPurchased) {
-            return response()->json([
-                'message' => 'Bạn cần mua sản phẩm này để bình luận.'
-            ], 403); // 403 Forbidden
-
+            return redirect()->back()->with('error', 'Bạn cần mua sản phẩm này để bình luận');
         }
-
-        return $next($request); // chuyển tiếp nếu đã mua
+        return $next($request);
     }
 }

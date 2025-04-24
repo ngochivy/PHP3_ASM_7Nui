@@ -85,7 +85,7 @@
                     </div>
                     <div class="col-lg-6">
                         <div class="single-product-info">
-                            <h4 class="title">{{ $product->name }}</h4>
+                            <h4 class="title">{{ $product->title }}</h4>
 
                             <div class="product-rating">
                                 <div class="rating">
@@ -127,14 +127,9 @@
                                     </div>
                                 </div>
                             </form>
-                            {{-- @if (session('success'))
-                                <div class="alert alert-success mt-2">
-                                    {{ session('success') }}
-                                </div>
-                            @endif --}}
+
                             <div class="widget">
                                 <h3 class="title">Danh mục: {{ $product->category->name }}</h3>
-
                             </div>
 
                             <div class="widget">
@@ -147,9 +142,9 @@
                                     <span class="fa fa-linkedin"></span>
                                 </div>
                             </div>
-
                         </div>
                     </div>
+
                     <div class="row">
                         <div class="col-lg-12">
                             <div class="product-description-review">
@@ -193,7 +188,8 @@
                                             </div>
                                             <div class="product-review-form">
                                                 <h4 class="title"></h4>
-                                                <form action="{{ route('binhluan', $product->id) }}" method="POST">
+                                                <form action="{{ route('product.comment', $product->slug) }}"
+                                                    method="POST">
                                                     @csrf
                                                     <div class="review-form-content">
                                                         <div class="row">
@@ -216,7 +212,6 @@
                                                                     </div>
                                                                 </div>
                                                             </div>
-
                                                             <div class="col-md-12">
                                                                 <div class="form-group">
                                                                     <textarea class="form-control" id="content" cols="30" name="content" rows="6"
@@ -294,12 +289,6 @@
                 </div>
             </div>
         </section>
-        <!--== End Shop Area ==-->
-
-        <!--== Start Shop Area ==-->
-
-
-        <!--== End Shop Area ==-->
     </main>
 @endsection
 
@@ -320,6 +309,8 @@
     <script>
         src = "https://cdn.jsdelivr.net/npm/sweetalert2@11" >
     </script>
+
+
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
@@ -350,6 +341,7 @@
         });
     </script>
 
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
@@ -377,5 +369,36 @@
     </script>
 
 
+<script>
+    @if (session('success'))
+        Swal.fire({
+            icon: 'success',
+            title: 'Thành công!',
+            text: '{{ session('success') }}',
+            timer: 3000,
+            showConfirmButton: false
+        });
+    @endif
+
+    @if (session('error'))
+        Swal.fire({
+            icon: 'error',
+            title: 'Thất bại!',
+            text: '{{ session('error') }}',
+            timer: 4000,
+            showConfirmButton: false
+        });
+    @endif
+
+    @if ($errors->any())
+        Swal.fire({
+            icon: 'warning',
+            title: 'Lỗi xác thực!',
+            html: `{!! implode('<br>', $errors->all()) !!}`,
+            timer: 5000,
+            showConfirmButton: false
+        });
+    @endif
+</script>
 
 @endpush

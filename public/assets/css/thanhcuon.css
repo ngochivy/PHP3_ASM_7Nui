@@ -1,0 +1,44 @@
+/* Cố định thanh cuộn cho phần nội dung giỏ hàng */
+.sidebar-cart-content {
+    max-height: 600px; /* Chiều cao tối đa của giỏ hàng */
+    overflow-y: auto;  /* Hiển thị thanh cuộn dọc khi cần */
+    padding-bottom: 60px; /* Giữ không gian cho các nút dưới cùng */
+}
+
+/* Phần nút "Xem Giỏ hàng" và "Thanh toán" */
+.cart-checkout-btn {
+    position: absolute;  /* Cố định vị trí của các nút */
+    bottom: 0;  /* Đặt ở dưới cùng */
+    left: 0;
+    width: 100%;  /* Đảm bảo chúng chiếm hết chiều rộng */
+    padding: 15px;  /* Khoảng cách từ đáy */
+    background-color: #fff;  /* Màu nền cho các nút */
+    display: flex;
+    justify-content: space-between;
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1); /* Tạo bóng đổ cho các nút */
+}
+
+/* Định dạng các nút */
+.cart-btn, .checkout-btn {
+    background-color: #d97ad1; /* Màu nền cho nút */
+    color: #fff;  /* Màu chữ */
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-align: center;
+    flex: 1;
+    margin: 0 5px;
+    text-decoration: none;
+}
+
+.cart-btn:hover, .checkout-btn:hover {
+    background-color: #e3bee2;  /* Màu khi hover */
+}
+
+h3{
+    color: #d97ad1;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+
+}
+
+

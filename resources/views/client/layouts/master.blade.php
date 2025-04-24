@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@yield('meta_title', 'Trang chủ')</title>
-    
+
     <link rel="shortcut icon" href="{{ asset('assets/img/favicon.ico') }}" type="image/x-icon" />
     <!--== Google Fonts ==-->
     <link href="https://fonts.googleapis.com/css?family=Fredoka+One:400" rel="stylesheet">
@@ -32,9 +32,11 @@
     <link href="{{ asset('assets/css/slick.css') }}" rel="stylesheet" />
     <!--== Main Style CSS ==-->
     <link href="{{ asset('assets/css/style.css') }}" rel="stylesheet" />
-<!-- Toastr CSS -->
-<link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" rel="stylesheet"/>
-    
+    <!-- Toastr CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" rel="stylesheet" />
+
+
+
     @stack('stylesheet')
 </head>
 <style>
@@ -42,6 +44,7 @@
 </style>
 
 <body>
+
 
     <div class="wrapper home-default-wrapper">
 
@@ -91,7 +94,8 @@
                                             <li style="padding: 0; margin: 0;"><a class="dropdown-item" href="/profile"
                                                     style="padding: 8px 16px; display: block;"><i class="fa fa-user"></i>
                                                     Tài Khoản Của Tôi</a></li>
-                                            <li style="padding: 0; margin: 0;"><a class="dropdown-item" href="{{route('order.index')}}"
+                                            <li style="padding: 0; margin: 0;"><a class="dropdown-item"
+                                                    href="{{ route('order.index') }}"
                                                     style="padding: 8px 16px; display: block;"><i
                                                         class="fa fa-shopping-cart"></i> Đơn Hàng Của Tôi</a></li>
                                             <li style="padding: 0; margin: 0;">
@@ -156,12 +160,9 @@
                                 </div>
                                 <div class="header-align-right">
                                     <div class="header-action-area">
-                                        <div class="header-action-cart">
-                                            <button class="btn-cart cart-icon">
-                                                <span class="cart-count">01</span>
-                                                <i class="pe-7s-shopbag"></i>
-                                            </button>
-                                        </div>
+                                        <button class="btn-cart cart-icon">
+                                            <i class="pe-7s-shopbag"></i>
+                                        </button>
                                         <button class="btn-menu d-md-none">
                                             <i class="ion-navicon"></i>
                                         </button>
@@ -218,13 +219,10 @@
                                     </button>
                                 </div>
                                 <div class="header-action-login">
-                                    <button class="btn-login" onclick="window.location.href='login-register.html'">
-                                        <i class="pe-7s-users"></i>
-                                    </button>
+
                                 </div>
                                 <div class="header-action-cart">
                                     <button class="btn-cart cart-icon">
-                                        <span class="cart-count">01</span>
                                         <i class="pe-7s-shopbag"></i>
                                     </button>
                                 </div>
@@ -379,54 +377,8 @@
         </div>
         <!--== End Aside Search Menu ==-->
 
-        <!--== Start Sidebar Cart Menu ==-->
-        <aside class="sidebar-cart-modal">
-            <div class="sidebar-cart-inner">
-                <div class="sidebar-cart-content">
-                    <a class="cart-close" href="javascript:void(0);"><i class="pe-7s-close"></i></a>
-                    <div class="sidebar-cart-all">
-
-
-                        <div class="cart-header">
-                            <h3>Giỏ hàng</h3>
-                            <div class="close-style-wrap">
-                                <span class="close-style close-style-width-1 cart-close"></span>
-                            </div>
-                        </div>
-                        <div class="cart-content cart-content-padding">
-                            <ul>
-                                <li class="single-product-cart">
-                                    <div class="cart-img">
-                                        <a href="shop-single-product.html"><img
-                                                src="{{ asset('assets/img/shop/details/nav1.jpg') }}"
-                                                alt=""></a>
-                                    </div>
-                                    <div class="cart-title">
-                                        <h4><a href="shop-single-product.html">Jigsaw Puzzles For Kids </a></h4>
-                                        <span> 1 × <span class="price"> $12.00 </span></span>
-                                    </div>
-                                    <div class="cart-delete">
-                                        <a href="#/"><i class="pe-7s-trash icons"></i></a>
-                                    </div>
-                                </li>
-
-                            </ul>
-                            <div class="cart-total">
-                                <h4>Subtotal: <span>$278.90</span></h4>
-                            </div>
-
-
-                            <div class="cart-checkout-btn">
-                                <a class="cart-btn" href="/cart">Xem giỏ hàng</a>
-                                <a class="checkout-btn" href="/checkout">Thanh toán</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </aside>
-        <div class="sidebar-cart-overlay"></div>
-        <!--== End Sidebar Cart Menu ==-->
+        <!-- Giỏ hàng sidebar -->
+        <x-shopping-cart />
 
         <!--== Start Side Menu ==-->
         <aside class="off-canvas-wrapper">
@@ -456,6 +408,10 @@
         </aside>
         <!--== End Side Menu ==-->
     </div>
+
+
+
+
 </body>
 
 <script src="{{ asset('assets/js/modernizr.js') }}"></script>
@@ -495,4 +451,5 @@
 <!--=== Custom Js ===-->
 <script src="{{ asset('assets/js/custom.js') }}"></script>
 @stack('javascript')
+
 </html>

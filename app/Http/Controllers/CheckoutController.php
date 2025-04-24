@@ -68,6 +68,7 @@ class CheckoutController extends Controller
             "phone" => $request->phone,
             "email" => $request->email,
         ]);
+     
 
         $validator = Validator::make(session()->all(),[
             'name' => 'required|max:255',

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Product;
+use Illuminate\Support\Facades\Auth;
 use App\Models\Cart;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Cookie;
@@ -36,50 +37,33 @@ class CartController extends Controller
 
     public function store(Request $request)
     {
-        // dd($request);
         $request->validate([
             'id' => 'required|integer|exists:products,id',
             'qty' => 'required|integer|min:1',
         ]);
-
-        $cart = $this->getCart();
-        $inCart = false;
-
-        foreach ($cart as &$item) {
-            if ($item['id'] == $request->id) {
-                $item['qty'] += $request->qty;
-                $inCart = true;
-                break;
-            }
+    
+        $productId = $request->id;
+        $qty = $request->qty;
+        $userId = Auth::id();
+    
+        $cartItem = Cart::where('user_id', $userId)
+                        ->where('product_id', $productId)
+                        ->first();
+    
+        if ($cartItem) {
+            $cartItem->qty += $qty;
+            $cartItem->save();
+        } else {
+            Cart::create([
+                'qty' => $qty,
+                'user_id' => $userId,
+                'product_id' => $productId,
+            ]);
         }
-
-        if (!$inCart) {
-            $cart[] = [
-                "id"  => $request->id,
-                "qty" => $request->qty,
-            ];
-        }
-
-        // Lưu vào DB
-        foreach ($cart as $item) {
-            $existing = Cart::where('user_id', 1)
-                ->where('product_id', $item['id'])
-                ->first();
-
-            if ($existing) {
-                $existing->qty += $item['qty'];
-                $existing->save();
-            } else {
-                Cart::create([
-                    'qty' => $item['qty'],
-                    'user_id' => 1,
-                    'product_id' => $item['id'],
-                ]);
-            }
-        }
-
+    
         return redirect()->back()->with('success', 'Sản phẩm đã được thêm vào giỏ hàng');
     }
+    
 
     public function updateQty(Request $request)
     {

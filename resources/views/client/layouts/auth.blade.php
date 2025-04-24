@@ -32,7 +32,11 @@
     <link href="{{ asset('assets/css/slick.css') }}" rel="stylesheet" />
     <!--== Main Style CSS ==-->
     <link href="{{ asset('assets/css/style.css') }}" rel="stylesheet" />
+
+    <link href="{{ asset('assets/css/thanhcuon.css') }}" rel="stylesheet" />
     @stack('stylesheet')
+    <link href="https://cdn.jsdelivr.net/npm/sweetalert2@11.6.0/dist/sweetalert2.min.css" rel="stylesheet">
+
 </head>
 
 <body>
@@ -570,6 +574,9 @@
 <script src="{{ asset('assets/js/wow.min.js') }}"></script>
 <!--=== jquery Zoom Min Js ===-->
 <script src="{{ asset('assets/js/jquery-zoom.min.js') }}"></script>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
 
 <!--=== Custom Js ===-->
 <script src="{{ asset('assets/js/custom.js') }}"></script>

@@ -12,6 +12,7 @@ use App\Http\Controllers\ProductComparisonController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Middleware\CommentMiddleware;
+use App\Http\Middleware\EnsureCartIsUser;
 use Illuminate\Foundation\Auth\EmailVerificationRequest;
 // use Illuminate\Http\Client\Request;
 // use Illuminate\Http\Request as HttpRequest;
@@ -65,7 +66,18 @@ Route::get('/product_detail/{slug}', [ProductController::class, 'detail'])
 
 // Route gửi bình luận (nơi cần chặn chưa mua hàng)
 Route::post('/san-pham/{slug}/comment', [ProductController::class, 'comment'])
-    ->middleware(['auth', 'check.purchase']);
+    ->middleware(['auth', CommentMiddleware::class])
+    ->name('product.comment');
+
+
+Route::middleware('auth')->group(function () {
+});
+
+
+///Xoas Bluan
+Route::get('/comment/delete/{id}', [ProductController::class, 'delete'])->name('comment.delete');
+
+
 
 
 Route::get('/category/{id}', [ProductController::class, 'productsByCategory'])->name('category.products');
@@ -91,12 +103,14 @@ Route::get('/account', [AccountController::class, "account"]);
 Route::get('/blog', [BlogController::class, "index"]);
 Route::get('/blog/{id}', [BlogController::class, "show"]);
 
-// cart
-Route::get('/cart', [CartController::class, "index"]);
-Route::post('/cart', [CartController::class, "store"]);
-Route::get('/cart/clear', [CartController::class, 'clear'])->name('cart.clear');
-Route::get('/cart/delete/{id}', [CartController::class, 'delete'])->name('cart.delete');
-Route::post('/cart/update', [CartController::class, 'updateQty'])->name('cart.update');
+// cart + middlware
+Route::middleware([EnsureCartIsUser::class])->group(function () {
+    Route::get('/cart', [CartController::class, "index"]);
+    Route::post('/cart', [CartController::class, "store"]);
+    Route::get('/cart/clear', [CartController::class, 'clear'])->name('cart.clear');
+    Route::get('/cart/delete/{id}', [CartController::class, 'delete'])->name('cart.delete');
+    Route::post('/cart/update', [CartController::class, 'updateQty'])->name('cart.update');
+});
 
 
 
@@ -115,13 +129,6 @@ Route::get('/order-delete/{id}',[OrderController::class,"destroy"])->name('order
 
 
 
-//Comment
-Route::post('binh-luan/{idSanPham}', [ProductController::class, 'comment'])->name('binhluan')->middleware(CommentMiddleware::class);
-Route::middleware('auth')->group(function () {
-    // Route::get('/comments/{slug}/edit', [ProductController::class, 'edit'])->name('client.comment.edit');
-    // Route::put('/comments/{comment}', [ProductController::class, 'update'])->name('client.comment.update');
-   
-});
 
 
 ///Xoas Bluan
