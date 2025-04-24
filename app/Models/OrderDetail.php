@@ -39,9 +39,9 @@ class OrderDetail extends Model
             ->join('orders', 'order_details.order_id', '=', 'orders.id')
             ->select(
                 'order_details.*',
-                'products.title as product_title', // Lấy tên sản phẩm
-                'products.thumbnail as product_thumbnail', // Lấy thumbnail sản phẩm
-                'orders.status as order_status' // Lấy trạng thái đơn hàng
+                'products.title',
+                'products.thumbnail',
+                'orders.status'
             )
             ->where('order_details.order_id', $id);
         

@@ -182,31 +182,12 @@
 
                                     <div class="payment-method">
                                         <h5>Phương thức thanh toán</h5>
-
-                                        <div class="pay-top sin-payment">
-                                            <input id="payment-method-3" class="input-radio" type="radio"
-                                                value="cod" name="payment_method">
-                                            <label for="payment-method-3">Thanh toán khi nhận hàng</label>
-                                            <div class="payment-box payment_method_bacs">
-                                                <p>Thanh toán bằng tiền mặt khi nhận hàng.</p>
-                                            </div>
-                                        </div>
-
                                         <div class="pay-top sin-payment sin-payment-3">
                                             <input id="payment-method-4" class="input-radio" type="radio"
                                                 value="momo" name="payment_method">
                                             <label for="payment-method-4">Thanh toán bằng Momo</label>
                                             <div class="payment-box payment_method_bacs">
                                                 <p>Thanh toán qua Momo; bạn có thể thanh toán qua Momo</p>
-                                            </div>
-                                        </div>
-
-                                        <div class="pay-top sin-payment sin-payment-4">
-                                            <input id="payment-method-5" class="input-radio" type="radio"
-                                                value="vnpay" name="payment_method">
-                                            <label for="payment-method-5">Thanh toán bằng VnPay</label>
-                                            <div class="payment-box payment_method_bacs">
-                                                <p>Thanh toán qua VnPay; bạn có thể thanh toán qua VnPay</p>
                                             </div>
                                         </div>
                                     </div>

@@ -18,6 +18,10 @@ class CheckoutController extends Controller
         // dd($request);
         $cart = Cart::cartInnerJoinProduct();
         // dd($cart);
+
+        if ($cart->isEmpty()) {
+            return redirect()->back()->with('error', 'Giỏ hàng của bạn đang trống!');
+        }
         $totalMoney = 0;
         foreach ($cart as &$item) {
             $item->total = (!empty($item->sale_price) ? $item->price - $item->sale_price : $item->price) * $item->qty;
@@ -68,16 +72,16 @@ class CheckoutController extends Controller
             "phone" => $request->phone,
             "email" => $request->email,
         ]);
-     
 
-        $validator = Validator::make(session()->all(),[
+
+        $validator = Validator::make(session()->all(), [
             'name' => 'required|max:255',
             'province_name' => 'required',
             'district_name' => 'required',
             'address' => 'required',
             'phone' => 'required',
             'email' => 'required',
-        ],[
+        ], [
             'name.required' => 'Tên là bắt buộc',
             'name.max' => 'Tên tối đa 255 ký tự',
             'province_name.required' => 'Tên tỉnh là bắt buộc',
@@ -87,7 +91,7 @@ class CheckoutController extends Controller
             'email.required' => 'Email là bắt buộc',
         ]);
 
-        if($validator->fails()){
+        if ($validator->fails()) {
             return redirect()
                 ->back()
                 ->withErrors($validator)
@@ -180,7 +184,7 @@ class CheckoutController extends Controller
 
         // $price = session('total_momo') / session('qty');
         $user = auth()->user();
-        $order = $user->orders()->create([ 
+        $order = $user->orders()->create([
             "name" => session('name'),
             "code" => $orderId,
             "address" => session('address'),
@@ -189,7 +193,7 @@ class CheckoutController extends Controller
         ]);
         // dd(session('products'));
 
-        foreach(session('products') as $product){
+        foreach (session('products') as $product) {
             // dd($product);
             $order->orderDetail()->create([
                 "qty" => $product['qty'],

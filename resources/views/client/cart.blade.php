@@ -50,34 +50,27 @@
                                         </tr>
                                     @else
                                         <thead>
-                                            <tr>
-                                                <th class="width-id"
-                                                    style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; font-weight: bold;">
-                                                    ID</th>
-                                                <th class="width-thumbnail"
-                                                    style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; font-weight: bold;">
-                                                    Hình ảnh
-                                                </th>
-                                                <th class="width-name"
-                                                    style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; font-weight: bold;">
-                                                    Sản phẩm</th>
-                                                <th
-                                                    class="width-price"style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; font-weight: bold;">
-                                                    Đơn giá</th>
-                                                <th
-                                                    class="width-quantity "style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; font-weight: bold;">
-                                                    Số lượng</th>
-                                                <th
-                                                    class="width-subtotal"style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; font-weight: bold;">
-                                                    Thành tiền</th>
-                                                <th class="width-remove"></th>
-                                            </tr>
+                                            <thead>
+                                                <tr>
+                                                    <th><input type="checkbox" id="select-all-cart-items"></th>
+                                                    <!-- Checkbox chọn tất cả -->
+                                                    <th class="width-id">ID</th>
+                                                    <th class="width-thumbnail">Hình ảnh</th>
+                                                    <th class="width-name">Sản phẩm</th>
+                                                    <th class="width-price">Đơn giá</th>
+                                                    <th class="width-quantity">Số lượng</th>
+                                                    <th class="width-subtotal">Thành tiền</th>
+                                                    <th class="width-remove"></th>
+                                                </tr>
+                                            </thead>
+
                                         </thead>
                                         <tbody>
 
 
                                             @foreach ($cart as $item)
                                                 <tr>
+                                                    <td><input type="checkbox" class="cart-item-checkbox"></td>
                                                     <td class="cart-id">
                                                         <h5>
                                                             {{ $item->id }}
@@ -131,19 +124,12 @@
                                 </table>
                             </div>
                         </div>
-                        <div class="cart-shiping-update-wrapper">
-                            <div class="cart-shiping-btn continure-btn">
-                                <a class="btn btn-link" href="/product"><i class="ion-ios-arrow-left"></i> Tiếp tục mua
-                                    hàng</a>
-                            </div>
-                            <div class="cart-shiping-btn continure-btn">
-                                <a class="btn btn-link confirm-action" href="{{ route('cart.clear') }}"
-                                    data-title="Xác nhận xóa?" data-text="Bạn có muốn xóa toàn bộ giỏ hàng"
-                                    data-confirmButton = "Xác nhận" data-cancelButton = "Hủy">
-                                    <i class="ion-ios-trash-outline"></i> Xóa toàn bộ giỏ hàng
-                                </a>
-                            </div>
-
+                        <div class="cart-shiping-btn continure-btn" id="delete-all-btn" style="display: none;">
+                            <a class="btn btn-link confirm-action" href="{{ route('cart.clear') }}"
+                                data-title="Xác nhận xóa?" data-text="Bạn có muốn xóa toàn bộ giỏ hàng"
+                                data-confirmButton="Xác nhận" data-cancelButton="Hủy">
+                                <i class="ion-ios-trash-outline"></i> Xóa toàn bộ giỏ hàng
+                            </a>
                         </div>
                     </div>
                     <div class="col-lg-4">
@@ -154,7 +140,7 @@
                 <div class="row">
                     <div class="col-md-12 col-lg-4 ms-auto">
                         <div class="grand-total-wrap">
-                            <div class="grand-total-content">
+                            {{-- <div class="grand-total-content">
                                 <h3>Tạm tính <span>{{ number_format($totalMoney) }}</span></h3>
                                 <div class="grand-shipping">
                                     <span>Vận chuyển</span>
@@ -173,9 +159,9 @@
                                 <div class="grand-total">
                                     <h4>Tổng cộng <span>{{ number_format($totalMoney) }}</span></h4>
                                 </div>
-                            </div>
+                            </div> --}}
                             <div class="grand-total-btn">
-                                <a class="btn btn-link" href="/checkout">Tiến hành thanh toán</a>
+                                <a class="btn btn-link" href="/checkout" id="checkout-button">Tiến hành thanh toán</a>
                             </div>
                         </div>
                     </div>
@@ -251,6 +237,28 @@
             });
         });
     </script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const selectAll = document.getElementById('select-all-cart-items');
+            const checkboxes = document.querySelectorAll('.cart-item-checkbox');
+            const deleteAllBtn = document.getElementById('delete-all-btn');
+
+            selectAll.addEventListener('change', function() {
+                checkboxes.forEach(cb => cb.checked = this.checked);
+                toggleDeleteAllButton();
+            });
+
+            checkboxes.forEach(cb => {
+                cb.addEventListener('change', toggleDeleteAllButton);
+            });
+
+            function toggleDeleteAllButton() {
+                const allChecked = Array.from(checkboxes).every(cb => cb.checked);
+                deleteAllBtn.style.display = allChecked ? 'block' : 'none';
+            }
+        });
+    </script>
+
     @if (session('success'))
         <script>
             Swal.fire({
